@@ -15,6 +15,10 @@ img {
   display: block;
 }
 
+a {
+  text-decoration: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -64,7 +68,7 @@ button {
 }
 
 
-.content {
+.content-1 {
   height: 40%;
   width: 40%;
 
@@ -80,7 +84,7 @@ button {
     gap: 160px;
 
 
-    button {
+    a {
       padding: 16px 32px;
       border-radius: 8px;
       background: #FF3131;

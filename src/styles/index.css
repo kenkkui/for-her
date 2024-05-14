@@ -15,6 +15,10 @@ img {
   display: block;
 }
 
+a {
+  text-decoration: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -58,7 +62,7 @@ button {
   opacity: 1;
 }
 
-.content {
+.content-1 {
   height: 40%;
   width: 40%;
   display: flex;
@@ -68,11 +72,11 @@ button {
   gap: 24px;
   position: relative;
 }
-.content .btn-container {
+.content-1 .btn-container {
   display: flex;
   gap: 160px;
 }
-.content .btn-container button {
+.content-1 .btn-container a {
   padding: 16px 32px;
   border-radius: 8px;
   background: #FF3131;
@@ -81,11 +85,11 @@ button {
   cursor: pointer;
   filter: drop-shadow(2px 2px 12px rgba(31, 31, 31, 0.2));
 }
-.content .btn-container button[data-btn-yes] {
+.content-1 .btn-container a[data-btn-yes] {
   background: #98FB98;
   color: black;
 }
-.content .btn-container button:hover {
+.content-1 .btn-container a:hover {
   scale: 1.05;
   transform: translateY(-4px);
   opacity: 0.8;

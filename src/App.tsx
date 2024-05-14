@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-import MouseLeaveMsg from "./MouseLeaveMsg";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import MouseLeaveMsg from "./components/MouseLeaveMsg";
+import FirstPage from "./components/FirstPage";
 
 export default function App() {
   const [mouseOut, setMouseOut] = useState(false);
@@ -10,28 +12,27 @@ export default function App() {
     }, 800);
   }
 
-  useEffect(() => {}, [mouseOut]);
+  useEffect(() => {
+    window.addEventListener()
+  }, [])
 
   return (
-    <div className="App">
-      <section
-        className="content"
-        onMouseLeave={handleMouseLeave}
-        onMouseEnter={() => setMouseOut(false)}
-      >
-        <h1 onMouseEnter={() => setMouseOut(false)}>Is this Kara?</h1>
+    <Router>
+      <div className="App">
+        <MouseLeaveMsg mouseOut={mouseOut} />
 
-        <div className="btn-container">
-          <button data-btn-no="true" onMouseEnter={() => setMouseOut(false)}>
-            No, i ain't wat😠
-          </button>
-          <button data-btn-yes="true" onMouseEnter={() => setMouseOut(false)}>
-            Yes, I am obvi💁🏻
-          </button>
-        </div>
-      </section>
-
-      <MouseLeaveMsg mouseOut={mouseOut} />
-    </div>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <FirstPage
+                setMouseOut={setMouseOut}
+                handleMouseLeave={handleMouseLeave}
+              />
+            }
+          />
+        </Routes>
+      </div>
+    </Router>
   );
 }
