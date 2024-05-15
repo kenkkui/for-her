@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MouseLeaveMsg from "./components/MouseLeaveMsg";
 import FirstPage from "./components/FirstPage";
+import IdleDetect from "./components/IdleDetect";
 
 export default function App() {
   const [mouseOut, setMouseOut] = useState(false);
+  const [idle, setIdle] = useState(false);
 
   function handleMouseLeave() {
     setTimeout(() => {
@@ -12,9 +14,14 @@ export default function App() {
     }, 800);
   }
 
-  useEffect(() => {
-    window.addEventListener()
-  }, [])
+  function handleIdle() {
+    console.log("i havnt move in 3 secmsoxsnm");
+    setIdle(true);
+  }
+
+  function resetIdle() {
+    setIdle(false);
+  }
 
   return (
     <Router>
@@ -32,6 +39,8 @@ export default function App() {
             }
           />
         </Routes>
+
+        {/* <IdleDetect onIdle={handleIdle} /> */}
       </div>
     </Router>
   );
