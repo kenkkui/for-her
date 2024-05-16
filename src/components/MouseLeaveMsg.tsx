@@ -1,20 +1,21 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
+const idleTime = 2400;
 interface MouseProps {
   mouseOut: boolean;
 }
 
 export default function MouseLeaveMsg({ mouseOut }: MouseProps) {
+  const [idle, setIdle] = useState(false);
   const element = useRef<HTMLDivElement | null>(null);
+  const timeoutRef = useRef<number | null>(null);
 
   useEffect(() => {
-    const elem = element.current;
+    const handlePointerMove = (e: PointerEvent) => {
+      const { clientX: x, clientY: y } = e;
 
-    if (elem) {
-      const handlePointerMove = (e: PointerEvent) => {
-        const { clientX: x, clientY: y } = e;
-
-        elem.animate(
+      if (element.current) {
+        element.current.animate(
           {
             left: `${x + 10}px`,
             top: `${y - 30}px`,
@@ -24,25 +25,36 @@ export default function MouseLeaveMsg({ mouseOut }: MouseProps) {
             fill: "forwards",
           }
         );
-      };
+      }
 
-      document.body.onpointermove = handlePointerMove;
+      if (timeoutRef.current !== null) {
+        clearTimeout(timeoutRef.current);
+      }
 
-      return () => {
-        document.body.onpointermove = null;
-      };
-    }
+      timeoutRef.current = window.setTimeout(() => {
+        setIdle(true);
+      }, idleTime);
+
+      setIdle(false);
+    };
+
+    document.body.addEventListener("pointermove", handlePointerMove);
+
+    return () => {
+      document.body.removeEventListener("pointermove", handlePointerMove);
+      if (timeoutRef.current !== null) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
   }, []);
 
   return (
     <div
-      className={`mouse-leave-msg ${mouseOut ? "active" : ""}`}
+      className={`mouse-leave-msg ${mouseOut || idle ? "active" : ""}`}
       tabIndex={-1}
       ref={element}
     >
-
-
-      Hey where do u think ure going&gt;:(
+      {!idle ? "Hey where do u think ure going>:(" : "Hey where are you:("}
     </div>
   );
 }
