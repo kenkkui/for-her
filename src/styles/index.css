@@ -49,6 +49,7 @@ button {
 
 .mouse-leave-msg {
   position: absolute;
+  z-index: 1000;
   padding: 3px 6px;
   background: white;
   border-radius: 4px;
@@ -64,8 +65,7 @@ button {
 }
 
 .content-1 {
-  height: 40%;
-  width: 40%;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -73,12 +73,18 @@ button {
   gap: 24px;
   position: relative;
 }
+.content-1 div:nth-child(1) h1 {
+  text-align: center;
+}
+.content-1 div:nth-child(1) img {
+  width: 320px;
+}
 .content-1 .btn-container {
   display: flex;
   gap: 160px;
 }
-.content-1 .btn-container a {
-  padding: 16px 32px;
+.content-1 .btn-container a, .content-1 .btn-container button {
+  padding: 14px 32px;
   border-radius: 8px;
   background: #FF3131;
   color: white;
@@ -86,11 +92,11 @@ button {
   cursor: pointer;
   filter: drop-shadow(2px 2px 12px rgba(31, 31, 31, 0.2));
 }
-.content-1 .btn-container a[data-btn-yes] {
+.content-1 .btn-container a[data-btn-yes], .content-1 .btn-container button[data-btn-yes] {
   background: #98FB98;
   color: black;
 }
-.content-1 .btn-container a:hover {
+.content-1 .btn-container a:hover, .content-1 .btn-container button:hover {
   scale: 1.05;
   transform: translateY(-4px);
   opacity: 0.8;

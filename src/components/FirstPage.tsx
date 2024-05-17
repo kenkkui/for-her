@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-
+import YesNoContainer from "./YesNoContainer";
 interface FirstProps {
   handleMouseLeave: () => void;
   setMouseOut: React.Dispatch<React.SetStateAction<boolean>>;
@@ -15,24 +14,15 @@ export default function FirstPage({
       onMouseLeave={handleMouseLeave}
       onMouseEnter={() => setMouseOut(false)}
     >
-      <h1 onMouseEnter={() => setMouseOut(false)}>Is this Kara?</h1>
-
-      <div className="btn-container">
-        <Link
-          data-btn-no="true"
-          onMouseEnter={() => setMouseOut(false)}
-          to="/okay"
-        >
-          No, i ain't wat😠
-        </Link>
-        <Link
-          data-btn-yes="true"
-          onMouseEnter={() => setMouseOut(false)}
-          to="/next"
-        >
-          Yes, I am obvi💁🏻
-        </Link>
+      <div>
+        <h1>Is this Kara?</h1>
+        <img
+          src="https://media.tenor.com/JhVlbsQoCboAAAAi/cute-dancing.gif"
+          alt="cutie"
+        />
       </div>
+
+      <YesNoContainer yesTo="/next" isButton />
     </section>
   );
 }

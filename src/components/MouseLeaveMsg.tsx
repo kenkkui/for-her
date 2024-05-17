@@ -51,7 +51,6 @@ export default function MouseLeaveMsg({ mouseOut }: MouseProps) {
   return (
     <div
       className={`mouse-leave-msg ${mouseOut || idle ? "active" : ""}`}
-      tabIndex={-1}
       ref={element}
     >
       {!idle ? "Hey where do u think ure going>:(" : "Hey where are you:("}

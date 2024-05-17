@@ -54,7 +54,7 @@ button {
 
 .mouse-leave-msg {
   position: absolute;
-  z-index: 10000;
+  z-index: 1000;
   padding: 3px 6px;
   background: white;
   border-radius: 4px;
@@ -71,8 +71,7 @@ button {
 }
 
 .content-1 {
-  height: 40%;
-  width: 40%;
+  padding: 24px;
 
   display: flex;
   flex-direction: column;
@@ -81,13 +80,23 @@ button {
   gap: 24px;
   position: relative;
 
+  div:nth-child(1) {
+    h1 {
+      text-align: center;
+    }
+
+    img {
+      width: 320px;
+    }
+  }
+
   .btn-container {
     display: flex;
     gap: 160px;
 
 
-    a {
-      padding: 16px 32px;
+    a, button {
+      padding: 14px 32px;
       border-radius: 8px;
       background: #FF3131;
       color: white;
