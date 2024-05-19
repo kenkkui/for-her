@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 interface BtnContainerProps {
@@ -9,10 +9,12 @@ interface BtnContainerProps {
 
 export default function YesNoContainer({
   yesTo,
-  noTo,
+  noTo = "/404",
   isButton,
 }: BtnContainerProps) {
-  const noButtonRef = useRef<HTMLElement | null>(null);
+  const noButtonRef = useRef<HTMLButtonElement | HTMLAnchorElement | null>(
+    null
+  );
   const yesButtonRef = useRef<HTMLAnchorElement | null>(null);
 
   function handleClickNo() {
@@ -37,11 +39,19 @@ export default function YesNoContainer({
   return (
     <div className="btn-container">
       {isButton ? (
-        <button data-btn-no="true" ref={noButtonRef} onClick={handleClickNo}>
+        <button
+          data-btn-no="true"
+          ref={noButtonRef as React.RefObject<HTMLButtonElement>}
+          onClick={handleClickNo}
+        >
           No, i ain't wat😠
         </button>
       ) : (
-        <Link to={noTo} data-btn-no="true" ref={noButtonRef}></Link>
+        <Link
+          to={noTo}
+          data-btn-no="true"
+          ref={noButtonRef as React.RefObject<HTMLAnchorElement>}
+        ></Link>
       )}
 
       <Link data-btn-yes="true" to="/next" ref={yesButtonRef}>
