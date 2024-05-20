@@ -1,6 +1,6 @@
 interface MainContentProps {
-  src: string;
-  alt: string;
+  src?: string;
+  alt?: string;
   children: React.ReactNode;
 }
 

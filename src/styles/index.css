@@ -73,20 +73,11 @@ button {
   width: 320px;
 }
 
-.content-1 {
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 24px;
-  position: relative;
-}
-.content-1 .btn-container {
+.btn-container {
   display: flex;
   gap: 160px;
 }
-.content-1 .btn-container a, .content-1 .btn-container button {
+.btn-container a, .btn-container button {
   padding: 14px 32px;
   border-radius: 8px;
   background: #FF3131;
@@ -95,12 +86,22 @@ button {
   cursor: pointer;
   filter: drop-shadow(2px 2px 12px rgba(31, 31, 31, 0.2));
 }
-.content-1 .btn-container a[data-btn-yes], .content-1 .btn-container button[data-btn-yes] {
+.btn-container a[data-btn-yes], .btn-container button[data-btn-yes] {
   background: #98FB98;
   color: black;
 }
-.content-1 .btn-container a:hover, .content-1 .btn-container button:hover {
+.btn-container a:hover, .btn-container button:hover {
   scale: 1.05;
   transform: translateY(-4px);
   opacity: 0.8;
+}
+
+.content.first, .content.second {
+  position: relative;
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
 }/*# sourceMappingURL=index.css.map */

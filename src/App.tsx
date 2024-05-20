@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MouseLeaveMsg from "./components/MouseLeaveMsg";
 import FirstPage from "./components/FirstPage";
+import SecondPage from "./components/SecondPage";
 
 export default function App() {
   const [mouseOut, setMouseOut] = useState(false);
@@ -27,9 +28,16 @@ export default function App() {
               />
             }
           />
+          <Route
+            path="/yes-i-am"
+            element={
+              <SecondPage
+                setMouseOut={setMouseOut}
+                handleMouseLeave={handleMouseLeave}
+              />
+            }
+          />
         </Routes>
-
-        {/* <IdleDetect onIdle={handleIdle} />  */}
       </div>
     </Router>
   );

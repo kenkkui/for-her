@@ -80,40 +80,41 @@ button {
   }
 }
 
-.content-1 {
-  padding: 24px;
-
+.btn-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; 
-  gap: 24px;
-  position: relative;
-
-  .btn-container {
-    display: flex;
-    gap: 160px;
+  gap: 160px;
 
 
-    a, button {
-      padding: 14px 32px;
-      border-radius: 8px;
-      background: #FF3131;
-      color: white;
-      transition: 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
-      cursor: pointer;
-      filter: drop-shadow(2px 2px 12px rgba(31, 31, 31, 0.2));
+  a, button {
+    padding: 14px 32px;
+    border-radius: 8px;
+    background: #FF3131;
+    color: white;
+    transition: 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
+    cursor: pointer;
+    filter: drop-shadow(2px 2px 12px rgba(31, 31, 31, 0.2));
 
-      &[data-btn-yes] {
-        background: #98FB98;
-        color: black;
-      }
-
-      &:hover {
-        scale: 1.05;
-        transform: translateY(-4px);
-        opacity: 0.8;
-      }
+    &[data-btn-yes] {
+      background: #98FB98;
+      color: black;
     }
+
+    &:hover {
+      scale: 1.05;
+      transform: translateY(-4px);
+      opacity: 0.8;
+    }
+  }
+}
+
+.content {
+  &.first,
+  &.second {
+    position: relative;
+    padding: 24px;
+  
+    @include flexCenter();
+    flex-direction: column;
+    gap: 24px;
   }
 }

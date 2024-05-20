@@ -1,17 +1,14 @@
 import YesNoContainer from "./YesNoContainer";
 import MainContent from "./MainContent";
-interface FirstProps {
-  handleMouseLeave: () => void;
-  setMouseOut: React.Dispatch<React.SetStateAction<boolean>>;
-}
+import { MouseLeave } from "../types";
 
 export default function FirstPage({
   handleMouseLeave,
   setMouseOut,
-}: FirstProps) {
+}: MouseLeave) {
   return (
     <section
-      className="content-1"
+      className="content first"
       onMouseLeave={handleMouseLeave}
       onMouseEnter={() => setMouseOut(false)}
     >
@@ -22,7 +19,7 @@ export default function FirstPage({
         <h1>Is this Kara?</h1>
       </MainContent>
 
-      <YesNoContainer yesTo="/next" isButton />
+      <YesNoContainer yesTo="/yes-i-am" isButton />
     </section>
   );
 }

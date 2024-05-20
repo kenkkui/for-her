@@ -54,7 +54,7 @@ export default function YesNoContainer({
         ></Link>
       )}
 
-      <Link data-btn-yes="true" to="/next" ref={yesButtonRef}>
+      <Link data-btn-yes="true" to={yesTo} ref={yesButtonRef}>
         Yes, I am obvi💁🏻
       </Link>
     </div>
