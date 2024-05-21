@@ -2,7 +2,7 @@ import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import MouseLeaveMsg from "./components/MouseLeaveMsg";
 import FirstPage from "./components/FirstPage";
-import SecondPage from "./components/SecondPage";
+import SecondPage from "./components/Second Page/SecondPage";
 
 export default function App() {
   const [mouseOut, setMouseOut] = useState(false);

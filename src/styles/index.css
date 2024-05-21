@@ -104,4 +104,26 @@ button {
   justify-content: center;
   flex-direction: column;
   gap: 24px;
+}
+
+@keyframes flower-head-animation {
+  0% {
+    transform: translate(-40px, 0);
+    rotate: -15deg;
+  }
+  100% {
+    rotate: 5deg;
+    transform: translate(24px, -24px);
+  }
+}
+@keyframes petal-animation {
+  0% {
+    rotate: -4deg;
+  }
+  100% {
+    rotate: 4deg;
+  }
+}
+#Flower-head {
+  transform-origin: center;
 }/*# sourceMappingURL=index.css.map */
