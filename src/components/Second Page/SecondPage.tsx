@@ -1,21 +1,17 @@
-import { MouseLeave } from "../../types";
-import MainContent from "../MainContent";
-import Spline from "@splinetool/react-spline";
+import Flower from "./Flower";
 
-export default function SecondPage({
-  handleMouseLeave,
-  setMouseOut,
-}: MouseLeave) {
+export default function SecondPage() {
   return (
-    <section
-      className="content second"
-      onMouseLeave={handleMouseLeave}
-      onMouseEnter={() => setMouseOut(false)}
-    >
-      <MainContent>
-        <p>Flower for you :)</p>
-        <Spline scene="https://prod.spline.design/o3v1HPnOwXUx88B6/scene.splinecode" />
-      </MainContent>
+    <section className="second-page">
+      <div className="curtain"></div>
+      <div className="text-wrapper">
+        <p>Here's a lily i made,</p>
+        <p>
+          IT TOOK <strong>SCOOPER</strong> LONG
+        </p>
+        <p>but worth it </p>
+      </div>
+      <Flower />
     </section>
   );
 }

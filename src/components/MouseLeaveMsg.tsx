@@ -53,7 +53,7 @@ export default function MouseLeaveMsg({ mouseOut }: MouseProps) {
       className={`mouse-leave-msg ${mouseOut || idle ? "active" : ""}`}
       ref={element}
     >
-      {!idle ? "Hey where do u think ure going>:(" : "Hey where are you:("}
+      {!idle ? "Hey where do u think ure going >:(" : "Hey where are you :("}
     </div>
   );
 }

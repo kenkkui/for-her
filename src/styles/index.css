@@ -9,7 +9,8 @@
 body {
   font-family: Poppins, sans-serif;
   font-size: 16px;
-  overflow: hidden;
+  overflow-x: hidden;
+  background-color: #F4A891;
 }
 
 img {
@@ -106,24 +107,80 @@ button {
   gap: 24px;
 }
 
-@keyframes flower-head-animation {
-  0% {
-    transform: translate(-40px, 0);
-    rotate: -15deg;
-  }
-  100% {
-    rotate: 5deg;
-    transform: translate(24px, -24px);
+@keyframes animate-text {
+  to {
+    filter: none;
+    opacity: 1;
+    transform: translateX(0);
   }
 }
-@keyframes petal-animation {
-  0% {
-    rotate: -4deg;
-  }
-  100% {
-    rotate: 4deg;
+@keyframes box-shadow {
+  to {
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.2);
   }
 }
-#Flower-head {
-  transform-origin: center;
+@keyframes animate-curtain {
+  to {
+    transform: translate3d(0, -100%, 0);
+  }
+}
+@keyframes opacity {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes blur {
+  from, to {
+    filter: none;
+  }
+  20%, 60% {
+    filter: blur(14px);
+  }
+}
+.second-page {
+  background: #F4A891;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  animation: 1900ms linear blur;
+  perspective: 10px;
+}
+.second-page .curtain {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background-color: inherit;
+  animation: 1200ms cubic-bezier(0.075, 0.82, 0.165, 1) animate-curtain forwards;
+  animation-delay: 1200ms;
+}
+.second-page .curtain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background-image: radial-gradient(rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.4));
+  opacity: 0;
+  animation: 1200ms linear forwards opacity;
+}
+.second-page .text-wrapper {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+}
+.second-page .text-wrapper p {
+  line-height: 1.6;
+  opacity: 0;
+  filter: blur(12px);
+  transform: translate3d(-200%, 0, 0);
+  animation: 1000ms cubic-bezier(0.075, 0.82, 0.165, 1) animate-text forwards;
+  animation-delay: 1800ms;
+}
+.second-page .text-wrapper p:nth-child(2) {
+  animation-delay: 1900ms;
+}
+.second-page canvas {
+  cursor: grab;
+}
+.second-page canvas:active {
+  cursor: grabbing;
 }/*# sourceMappingURL=index.css.map */
