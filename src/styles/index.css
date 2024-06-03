@@ -142,7 +142,7 @@ button {
   height: 100vh;
   width: 100vw;
   position: relative;
-  animation: 1900ms linear blur;
+  animation: 3900ms linear blur;
   perspective: 10px;
 }
 .second-page .curtain {
@@ -150,8 +150,6 @@ button {
   inset: 0;
   z-index: 1;
   background-color: inherit;
-  animation: 1200ms cubic-bezier(0.075, 0.82, 0.165, 1) animate-curtain forwards;
-  animation-delay: 1200ms;
 }
 .second-page .curtain::after {
   content: "";
@@ -160,7 +158,13 @@ button {
   z-index: 2;
   background-image: radial-gradient(rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.4));
   opacity: 0;
-  animation: 1200ms linear forwards opacity;
+}
+.second-page .curtain.active {
+  animation: 1200ms cubic-bezier(0.075, 0.82, 0.165, 1) animate-curtain forwards;
+  animation-delay: 1000ms;
+}
+.second-page .curtain.active::after {
+  animation: 800ms linear forwards opacity;
 }
 .second-page .text-wrapper {
   position: absolute;
@@ -177,6 +181,9 @@ button {
 }
 .second-page .text-wrapper p:nth-child(2) {
   animation-delay: 1900ms;
+}
+.second-page .text-wrapper p:nth-child(3) {
+  animation-delay: 1950ms;
 }
 .second-page canvas {
   cursor: grab;

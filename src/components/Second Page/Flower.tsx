@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Spline from "@splinetool/react-spline";
 
 interface FlowerProps {
@@ -13,9 +13,13 @@ export default function Flower({ setLoading, setError }: FlowerProps) {
         "https://prod.spline.design/o3v1HPnOwXUx88B6/scene.splinecode";
 
       fetch(sceneUrl)
-        .then((response) =>
-          response.ok ? resolve(undefined) : reject("Failed to load scene")
-        )
+        .then((response) => {
+          if (response.ok) {
+            resolve(undefined);
+          } else {
+            reject("Failed to load scene");
+          }
+        })
         .catch(() => reject("Failed to load scene"));
     });
 
