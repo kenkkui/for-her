@@ -142,8 +142,18 @@ button {
   height: 100vh;
   width: 100vw;
   position: relative;
-  animation: 3900ms linear blur;
   perspective: 10px;
+  overflow-y: auto;
+}
+.second-page.active {
+  animation: 2000ms linear blur;
+}
+.second-page.active .curtain {
+  animation: 1200ms cubic-bezier(0.075, 0.82, 0.165, 1) animate-curtain forwards;
+  animation-delay: 1000ms;
+}
+.second-page.active .curtain::after {
+  animation: 800ms linear forwards opacity;
 }
 .second-page .curtain {
   position: absolute;
@@ -158,13 +168,6 @@ button {
   z-index: 2;
   background-image: radial-gradient(rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.4));
   opacity: 0;
-}
-.second-page .curtain.active {
-  animation: 1200ms cubic-bezier(0.075, 0.82, 0.165, 1) animate-curtain forwards;
-  animation-delay: 1000ms;
-}
-.second-page .curtain.active::after {
-  animation: 800ms linear forwards opacity;
 }
 .second-page .text-wrapper {
   position: absolute;
@@ -185,9 +188,10 @@ button {
 .second-page .text-wrapper p:nth-child(3) {
   animation-delay: 1950ms;
 }
-.second-page canvas {
-  cursor: grab;
-}
-.second-page canvas:active {
-  cursor: grabbing;
+.second-page #spline-flower {
+  pointer-events: auto;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: -10;
 }/*# sourceMappingURL=index.css.map */

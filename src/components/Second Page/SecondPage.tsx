@@ -1,22 +1,41 @@
 import Flower from "./Flower";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function SecondPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [render, setRender] = useState(false);
+  const timerRef = useRef<number | null>(null);
 
   useEffect(() => {
-    window.setTimeout(() => {
-      setRender(true);
-    }, 1500);
+    timerRef.current = window.setTimeout(() => {
+      if (loading) {
+        setError("KARA YOUR INTERNET SLOW");
+      }
+    }, 3000);
+
+    return () => {
+      if (timerRef.current) {
+        window.clearTimeout(timerRef.current);
+      }
+    };
   }, []);
 
-  return (
-    <section className="second-page">
-      <div className={`curtain ${!loading && render ? "active" : null}`}></div>
+  useEffect(() => {
+    if (!loading && timerRef.current) {
+      window.clearTimeout(timerRef.current);
 
-      {!loading && render && (
+      window.setTimeout(() => {
+        setRender(true);
+      }, 200);
+    }
+  }, [loading]);
+
+  return (
+    <section className={`second-page ${render ? "active" : null}`}>
+      <div className="curtain">{error}</div>
+
+      {render && (
         <>
           <div className="text-wrapper">
             <p>Here's a lily i made,</p>
@@ -27,8 +46,6 @@ export default function SecondPage() {
           </div>
         </>
       )}
-
-      {!loading && !render && <p>YOUR INTERNET NOT WOKRING GIRL</p>}
 
       <Flower setLoading={setLoading} setError={setError} />
     </section>
