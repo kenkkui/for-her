@@ -137,13 +137,51 @@ button {
     filter: blur(14px);
   }
 }
-.second-page {
-  background: #F4A891;
-  height: 100vh;
-  width: 100vw;
+.flower-page {
+  background-color: #F4A891;
   position: relative;
-  perspective: 10px;
-  overflow-y: auto;
+  width: 100vw;
+  height: 100vh;
+}
+.flower-page #spline-flower {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flower-page #spline-flower canvas {
+  cursor: grab;
+}
+.flower-page #spline-flower canvas:active {
+  cursor: grabbing;
+}
+
+.text-wrapper {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+}
+.text-wrapper p {
+  opacity: 0;
+  filter: blur(12px);
+  transform: translate3d(-200%, 0, 0);
+}
+.text-wrapper.active p {
+  animation: 1000ms cubic-bezier(0.075, 0.82, 0.165, 1) animate-text forwards;
+}
+.text-wrapper.active p:nth-child(2) {
+  animation-delay: 100ms;
+}
+.text-wrapper.active p:nth-child(3) {
+  animation-delay: 150ms;
+}
+
+.second-page {
+  min-height: 400vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-image: linear-gradient(to bottom, rgb(36, 24, 20), #F4A891);
 }
 .second-page.active {
   animation: 2000ms linear blur;
@@ -156,10 +194,17 @@ button {
   animation: 800ms linear forwards opacity;
 }
 .second-page .curtain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
   z-index: 1;
   background-color: inherit;
+  opacity: 0.8;
 }
 .second-page .curtain::after {
   content: "";
@@ -168,30 +213,4 @@ button {
   z-index: 2;
   background-image: radial-gradient(rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.4));
   opacity: 0;
-}
-.second-page .text-wrapper {
-  position: absolute;
-  top: 100px;
-  left: 100px;
-}
-.second-page .text-wrapper p {
-  line-height: 1.6;
-  opacity: 0;
-  filter: blur(12px);
-  transform: translate3d(-200%, 0, 0);
-  animation: 1000ms cubic-bezier(0.075, 0.82, 0.165, 1) animate-text forwards;
-  animation-delay: 1800ms;
-}
-.second-page .text-wrapper p:nth-child(2) {
-  animation-delay: 1900ms;
-}
-.second-page .text-wrapper p:nth-child(3) {
-  animation-delay: 1950ms;
-}
-.second-page #spline-flower {
-  pointer-events: auto;
-  position: sticky;
-  top: 0;
-  left: 0;
-  z-index: -10;
 }/*# sourceMappingURL=index.css.map */

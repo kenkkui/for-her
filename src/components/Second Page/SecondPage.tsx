@@ -1,5 +1,6 @@
-import Flower from "./Flower";
 import { useState, useEffect, useRef } from "react";
+import Flower from "./Flower";
+import Spline from "@splinetool/react-spline";
 
 export default function SecondPage() {
   const [loading, setLoading] = useState(true);
@@ -24,7 +25,6 @@ export default function SecondPage() {
   useEffect(() => {
     if (!loading && timerRef.current) {
       window.clearTimeout(timerRef.current);
-
       window.setTimeout(() => {
         setRender(true);
       }, 200);
@@ -33,21 +33,13 @@ export default function SecondPage() {
 
   return (
     <section className={`second-page ${render ? "active" : null}`}>
-      <div className="curtain">{error}</div>
+      <div className="curtain">
+        <h1>{error}</h1>
+      </div>
 
-      {render && (
-        <>
-          <div className="text-wrapper">
-            <p>Here's a lily i made,</p>
-            <p>
-              IT TOOK <strong>SCOOPER</strong> LONG
-            </p>
-            <p>but worth it </p>
-          </div>
-        </>
-      )}
+      <section className="intro"></section>
 
-      <Flower setLoading={setLoading} setError={setError} />
+      <Flower setLoading={setLoading} render={render} />
     </section>
   );
 }
