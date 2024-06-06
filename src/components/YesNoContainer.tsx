@@ -4,6 +4,15 @@ import { Link } from "react-router-dom";
 interface BtnContainerProps {
   yesTo: string;
   noTo?: string;
+  setPageState?: React.Dispatch<
+    React.SetStateAction<{
+      page: number;
+      currentMessage: number;
+      currentLetter: number;
+      showing: boolean;
+    }>
+  >;
+  noBtnHandler: () => void;
   isButton: boolean;
 }
 
@@ -11,6 +20,7 @@ export default function YesNoContainer({
   yesTo,
   noTo = "/404",
   isButton,
+  noBtnHandler,
 }: BtnContainerProps) {
   const noButtonRef = useRef<HTMLButtonElement | HTMLAnchorElement | null>(
     null
@@ -19,21 +29,11 @@ export default function YesNoContainer({
 
   function handleClickNo() {
     if (noButtonRef.current) {
-      const computedStyle = window.getComputedStyle(noButtonRef.current);
-      const currOpacity = computedStyle.getPropertyValue("opacity");
-      if (currOpacity < "0.2") {
-        noButtonRef.current.style.display = "none";
-        if (yesButtonRef.current) {
-          yesButtonRef.current.style.scale = "1.6";
-        }
-      }
-
-      noButtonRef.current.style.opacity = String(
-        parseFloat(currOpacity) - 0.25
-      );
-
-      noButtonRef.current.style.transform = "translateY(0)";
+      noButtonRef.current.style.scale = "0.8";
+      noButtonRef.current.style.opacity = "0.5";
     }
+
+    noBtnHandler();
   }
 
   return (
