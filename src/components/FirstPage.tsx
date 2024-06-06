@@ -10,11 +10,11 @@ const gifs = [
 ];
 
 const messages = [
-  { message: "Is this Kara? :)", duration: 1800 },
-  { message: ">:(", duration: 1000 },
+  { message: "Is this Kara? :)", duration: 2200 },
+  { message: ">:(", duration: 1800 },
   {
-    message: "OFC IT IS, I WONT BE GIVING THIS TO ANYONE ELSE THAN YOU🤬",
-    duration: 2000,
+    message: "OFC IT IS, I WONT BE GIVING THIS TO ANYONE ELSE BUTT YOU🤬",
+    duration: 5600,
   },
   { message: "okay now answer me:>, are you kara" },
 ];
@@ -30,12 +30,26 @@ export default function FirstPage() {
     }, 400);
   }
 
+  let counter = 0;
   function handleNoBtnClick() {
+    if (counter === 0) {
+      setCurrentImage(1);
+    }
+    counter += 1;
     setTimeout(() => {
       setCurrentMessage((prev) => (prev + 1 === 4 ? prev : prev + 1));
       handleNoBtnClick();
     }, messages[currentMessage].duration);
   }
+
+  useEffect(() => {
+    if (currentMessage === 1) {
+      setCurrentImage(2);
+    }
+    if (currentMessage === messages.length - 1) {
+      setCurrentImage(0);
+    }
+  }, [currentMessage]);
 
   return (
     <>
