@@ -1,4 +1,7 @@
 @keyframes animate-text {
+  from {
+    transform: translateX(-200%);
+  }
   to {
     filter: none;
     opacity: 1;
@@ -36,7 +39,6 @@
 }
 
 .flower-page {
-  background-color: #F4A891 ;
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -54,6 +56,7 @@
 }
 
 .text-wrapper {
+  z-index: 100;
   position: absolute;
   top: 100px;
   left: 100px;
@@ -61,13 +64,11 @@
   p {
     opacity: 0;
     filter: blur(12px);
-    transform: translate3d(-200%, 0, 0);
   }
 
   &.active {
     p {
       animation: 1000ms cubic-bezier(0.075, 0.82, 0.165, 1) animate-text forwards;
-      // animation-delay: 100ms;
   
       &:nth-child(2) {
         animation-delay: 100ms;
@@ -81,7 +82,7 @@
 }
 
 .second-page {
-  min-height: 400vh;
+  min-height: 2000vh;
   width: 100vw;
 
   display: flex;
@@ -91,7 +92,7 @@
   background-image: linear-gradient(
     to bottom,
     rgb(36, 24, 20),
-    #F4A891,
+    #cc8e7c,
   );
   
   &.active {

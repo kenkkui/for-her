@@ -1,4 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+  --curtain: #1a1818;
+  --main-bg: #cc8e7c;
+  --btn-red: #FF3131;
+  --btn-green: #98FB98;
+}
+
 *,
 *::before,
 *::after {
@@ -11,7 +18,7 @@ body {
   font-family: Poppins, sans-serif;
   font-size: 16px;
   overflow-x: hidden;
-  background-color: #F4A891;
+  background-color: var(--main-bg);
 }
 
 img {
@@ -82,15 +89,15 @@ button {
 .btn-container a, .btn-container button {
   padding: 14px 32px;
   border-radius: 8px;
-  background: #FF3131;
+  background: var(--btn-red);
   color: white;
   transition: 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
   cursor: pointer;
   filter: drop-shadow(2px 2px 12px rgba(31, 31, 31, 0.2));
 }
 .btn-container a[data-btn-yes], .btn-container button[data-btn-yes] {
-  background: #98FB98;
-  color: black;
+  background: var(--btn-green);
+  color: #000000;
 }
 .btn-container a:hover, .btn-container button:hover {
   scale: 1.05;
@@ -109,6 +116,9 @@ button {
 }
 
 @keyframes animate-text {
+  from {
+    transform: translateX(-200%);
+  }
   to {
     filter: none;
     opacity: 1;
@@ -139,7 +149,6 @@ button {
   }
 }
 .flower-page {
-  background-color: #F4A891;
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -157,6 +166,7 @@ button {
 }
 
 .text-wrapper {
+  z-index: 100;
   position: absolute;
   top: 100px;
   left: 100px;
@@ -164,7 +174,6 @@ button {
 .text-wrapper p {
   opacity: 0;
   filter: blur(12px);
-  transform: translate3d(-200%, 0, 0);
 }
 .text-wrapper.active p {
   animation: 1000ms cubic-bezier(0.075, 0.82, 0.165, 1) animate-text forwards;
@@ -177,12 +186,12 @@ button {
 }
 
 .second-page {
-  min-height: 400vh;
+  min-height: 2000vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  background-image: linear-gradient(to bottom, rgb(36, 24, 20), #F4A891);
+  background-image: linear-gradient(to bottom, rgb(36, 24, 20), #cc8e7c);
 }
 .second-page.active {
   animation: 2000ms linear blur;
