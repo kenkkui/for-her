@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import YesNoContainer from "./YesNoContainer";
 import MainContent from "./MainContent";
 import MouseLeaveMsg from "./MouseLeaveMsg";
@@ -31,16 +31,10 @@ export default function FirstPage() {
   }
 
   function handleNoBtnClick() {
-    debugger;
-    if (currentMessage <= 2) {
-      setTimeout(() => {
-        setCurrentMessage((prev) => (prev += 1));
-
-        handleNoBtnClick();
-      }, messages[currentMessage].duration);
-    } else {
-      console.log("im bigger than 2");
-    }
+    setTimeout(() => {
+      setCurrentMessage((prev) => (prev + 1 === 4 ? prev : prev + 1));
+      handleNoBtnClick();
+    }, messages[currentMessage].duration);
   }
 
   return (
