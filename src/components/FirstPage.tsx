@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import YesNoContainer from "./YesNoContainer";
 import MainContent from "./MainContent";
 import MouseLeaveMsg from "./MouseLeaveMsg";
@@ -24,22 +24,29 @@ export default function FirstPage() {
   const [currentImage, setCurrentImage] = useState(0);
   const [currentMessage, setCurrentMessage] = useState(0);
   const [isPressed, setIsPressed] = useState(false);
+  const msgTimer = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     if (!isPressed) return;
 
-    const timer = setTimeout(() => {
-      setCurrentMessage((prev) => (prev + 1 === 4 ? prev : prev + 1));
-    }, messages[currentMessage].duration);
+    if (currentMessage < 3) {
+      msgTimer.current = setTimeout(() => {
+        setCurrentMessage((prev) => prev + 1);
+      }, messages[currentMessage].duration);
+    }
 
     if (currentMessage === 1) {
       setCurrentImage(2);
-    }
-    if (currentMessage === messages.length - 1) {
+    } else if (currentMessage === messages.length - 1) {
       setCurrentImage(0);
     }
 
-    return () => clearTimeout(timer);
+    return () => {
+      if (msgTimer.current) {
+        clearTimeout(msgTimer.current);
+        msgTimer.current = null;
+      }
+    };
   }, [isPressed, currentMessage]);
 
   function handleNoBtnClick() {
