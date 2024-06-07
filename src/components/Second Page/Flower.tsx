@@ -1,5 +1,4 @@
 import Spline from "@splinetool/react-spline";
-import { useRef, useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
 
 interface FlowerProps {
@@ -8,7 +7,7 @@ interface FlowerProps {
 }
 
 export default function Flower({ setLoading, render }: FlowerProps) {
-  const { ref: textRef, inView: elemVisible, entry } = useInView();
+  const { ref: textRef, inView: elemVisible } = useInView();
 
   function handleFlowerLoad() {
     setLoading(false);
@@ -31,7 +30,7 @@ export default function Flower({ setLoading, render }: FlowerProps) {
 
       <Spline
         id="spline-flower"
-        scene="https://prod.spline.design/WLNXFsN8lrlPl9Kp/scene.splinecode"
+        scene="https://prod.spline.design/o3v1HPnOwXUx88B6/scene.splinecode"
         onLoad={handleFlowerLoad}
       />
     </section>

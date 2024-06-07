@@ -14,7 +14,7 @@ const messages = [
   { message: ">:(", duration: 1800 },
   {
     message: "OFC IT IS, I WONT BE GIVING THIS TO ANYONE ELSE BUTT YOU🤬",
-    duration: 5600,
+    duration: 3600,
   },
   { message: "okay now answer me:>, are you kara" },
 ];
@@ -23,33 +23,35 @@ export default function FirstPage() {
   const [mouseOut, setMouseOut] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
   const [currentMessage, setCurrentMessage] = useState(0);
-
-  function handleMouseLeave() {
-    setTimeout(() => {
-      setMouseOut(true);
-    }, 400);
-  }
-
-  let counter = 0;
-  function handleNoBtnClick() {
-    if (counter === 0) {
-      setCurrentImage(1);
-    }
-    counter += 1;
-    setTimeout(() => {
-      setCurrentMessage((prev) => (prev + 1 === 4 ? prev : prev + 1));
-      handleNoBtnClick();
-    }, messages[currentMessage].duration);
-  }
+  const [isPressed, setIsPressed] = useState(false);
 
   useEffect(() => {
+    if (!isPressed) return;
+
+    const timer = setTimeout(() => {
+      setCurrentMessage((prev) => (prev + 1 === 4 ? prev : prev + 1));
+    }, messages[currentMessage].duration);
+
     if (currentMessage === 1) {
       setCurrentImage(2);
     }
     if (currentMessage === messages.length - 1) {
       setCurrentImage(0);
     }
-  }, [currentMessage]);
+
+    return () => clearTimeout(timer);
+  }, [isPressed, currentMessage]);
+
+  function handleNoBtnClick() {
+    setCurrentImage(1);
+    setIsPressed(true);
+  }
+
+  function handleMouseLeave() {
+    setTimeout(() => {
+      setMouseOut(true);
+    }, 400);
+  }
 
   return (
     <>
