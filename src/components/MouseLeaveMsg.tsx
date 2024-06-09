@@ -6,6 +6,7 @@ interface MouseProps {
 }
 
 export default function MouseLeaveMsg({ mouseOut }: MouseProps) {
+  const [isActive, setIsActive] = useState([]);
   const [idle, setIdle] = useState(false);
   const element = useRef<HTMLDivElement | null>(null);
   const timeoutRef = useRef<number | null>(null);

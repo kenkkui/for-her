@@ -31,6 +31,7 @@ export default function SecondPage() {
       <div className="curtain">
         <p>{error}</p>
       </div>
+
       <section className="reading-content"></section>
 
       <Flower setLoading={setLoading} />
