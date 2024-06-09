@@ -1,11 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import Flower from "./Flower";
-import Spline from "@splinetool/react-spline";
 
 export default function SecondPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [render, setRender] = useState(false);
   const timerRef = useRef<number | null>(null);
 
   useEffect(() => {
@@ -25,21 +23,17 @@ export default function SecondPage() {
   useEffect(() => {
     if (!loading && timerRef.current) {
       window.clearTimeout(timerRef.current);
-      window.setTimeout(() => {
-        setRender(true);
-      }, 200);
     }
   }, [loading]);
 
   return (
-    <section className={`second-page ${render ? "active" : null}`}>
+    <section className={`second-page ${!loading ? "active" : null}`}>
       <div className="curtain">
-        <h1>{error}</h1>
+        <p>{error}</p>
       </div>
+      <section className="reading-content"></section>
 
-      <section className="intro"></section>
-
-      <Flower setLoading={setLoading} render={render} />
+      <Flower setLoading={setLoading} />
     </section>
   );
 }
