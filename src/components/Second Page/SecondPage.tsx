@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import Flower from "./Flower";
+import ReadingContent from "./ReadingContent";
 
 export default function SecondPage() {
   const [loading, setLoading] = useState(true);
@@ -28,12 +29,11 @@ export default function SecondPage() {
 
   return (
     <section className={`second-page ${!loading ? "active" : null}`}>
-      <div className="curtain">
+      {/* <div className="curtain">
         <p>{error}</p>
-      </div>
+      </div> */}
 
-      <section className="reading-content"></section>
-
+      <ReadingContent />
       <Flower setLoading={setLoading} />
     </section>
   );

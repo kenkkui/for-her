@@ -6,6 +6,14 @@
 
   --btn-red: #FF3131;
   --btn-green: #98FB98;
+
+  --clr-light: #D6FFF8;
+  --clr-dark: #2B1E1C;
+
+  // Font size
+  --fs-500: 25.89px;
+  --fs-600: 41.89px;
+  --fs-700: 67.77px;
 }
 
 *,
@@ -133,4 +141,5 @@ button {
   }
 }
 
-@import "../components/Second Page/SecondPage"
+@import "../components/Second Page/SecondPage";
+@import "../components/Second Page/ReadingContent"

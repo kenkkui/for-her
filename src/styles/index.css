@@ -4,6 +4,11 @@
   --main-bg: #cc8e7c;
   --btn-red: #FF3131;
   --btn-green: #98FB98;
+  --clr-light: #D6FFF8;
+  --clr-dark: #2B1E1C;
+  --fs-500: 25.89px;
+  --fs-600: 41.89px;
+  --fs-700: 67.77px;
 }
 
 *,
@@ -121,13 +126,8 @@ button {
   }
 }
 .second-page {
-  height: 600vh;
+  height: 100%;
   width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  position: relative;
-  background-image: linear-gradient(to bottom, rgb(36, 24, 20), #cc8e7c);
 }
 .second-page.active .curtain {
   transform: translate3d(0, -100%, 0);
@@ -148,17 +148,9 @@ button {
 .second-page .curtain p {
   color: rgba(255, 255, 255, 0.9294117647);
 }
-.second-page .reading-content {
-  height: 100vh;
-  width: 100vw;
-  padding: 0 100px;
-  background: rgb(36, 24, 20);
-  display: grid;
-  grid-template-columns: repeat(1fr, 12);
-  gap: 4px;
-}
 
 .flower-page {
+  position: relative;
   width: 100vw;
   height: 100vh;
 }
@@ -197,4 +189,182 @@ button {
 }
 .text-wrapper.active p:nth-child(3) {
   transition-delay: 150ms;
+}
+
+@keyframes animate-steps {
+  to {
+    background-position: 100%;
+  }
+}
+.reading-content {
+  height: 100vh;
+  width: 100vw;
+  padding: 0 100px;
+  background: #1B2120;
+}
+.reading-content .content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: var(--clr-light);
+  text-wrap: nowrap;
+}
+.reading-content .content * {
+  position: absolute;
+  z-index: 100;
+}
+.reading-content .content p {
+  font-size: 16px;
+  font-weight: 500;
+}
+.reading-content .content h4 {
+  font-size: var(--fs-700);
+  font-weight: 500;
+}
+.reading-content .content h5 {
+  font-size: var(--fs-600);
+  font-weight: 500;
+}
+.reading-content .content h6 {
+  font-size: var(--fs-500);
+  font-weight: 500;
+}
+
+.outer-most-section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 4px;
+  position: relative;
+}
+.outer-most-section::before {
+  content: "";
+  background: rgba(72, 91, 88, 0.15);
+  flex: 1;
+}
+.outer-most-section::after {
+  content: "";
+  background: rgba(72, 91, 88, 0.15);
+  flex: 1;
+}
+.outer-most-section .content h4 {
+  display: inline-block;
+  left: 0;
+  top: 75px;
+  position: relative;
+}
+.outer-most-section .content h4 p {
+  bottom: -8px;
+  left: 80px;
+}
+.outer-most-section .content h4 #exclamation {
+  right: -72px;
+  top: 0;
+  width: 65px;
+  aspect-ratio: 1/1;
+  background-image: url("../assets/exclamation.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: 1500ms steps(2) infinite animate-steps;
+}
+
+.outer-section {
+  flex: 10;
+  display: flex;
+  gap: 4px;
+  position: relative;
+}
+.outer-section::before {
+  content: "";
+  background: rgba(72, 91, 88, 0.15);
+  flex: 1;
+}
+.outer-section::after {
+  content: "";
+  background: rgba(72, 91, 88, 0.15);
+  flex: 1;
+}
+
+.inner-section {
+  flex: 8;
+  display: flex;
+  gap: 4px;
+  position: relative;
+}
+.inner-section::before {
+  content: "";
+  background: rgba(72, 91, 88, 0.15);
+  flex: 1;
+}
+.inner-section::after {
+  content: "";
+  background: rgba(72, 91, 88, 0.15);
+  flex: 1;
+}
+.inner-section .content #shark-boom {
+  background-image: url(../assets/shark.png);
+  height: 244.95px;
+  aspect-ratio: 1/1;
+  right: 0;
+  top: 108px;
+}
+.inner-section .content #shark-boom #woah-frame {
+  position: absolute;
+  right: -72px;
+  top: 30%;
+  width: 125px;
+  aspect-ratio: 1/1;
+  background-image: url(../assets/woah-frame.svg);
+  animation: 3000ms steps(2) infinite animate-steps;
+}
+
+.inner-most-section {
+  flex: 6;
+  display: flex;
+  gap: 4px;
+  position: relative;
+}
+.inner-most-section::before {
+  content: "";
+  background: rgba(72, 91, 88, 0.15);
+  flex: 1;
+}
+.inner-most-section::after {
+  content: "";
+  background: rgba(72, 91, 88, 0.15);
+  flex: 1;
+}
+
+.outer-core-section {
+  flex: 4;
+  display: flex;
+  gap: 4px;
+  position: relative;
+}
+.outer-core-section::before {
+  content: "";
+  background: rgba(72, 91, 88, 0.15);
+  flex: 1;
+}
+.outer-core-section::after {
+  content: "";
+  background: rgba(72, 91, 88, 0.15);
+  flex: 1;
+}
+
+.core-section {
+  flex: 2;
+  display: flex;
+  gap: 4px;
+  position: relative;
+}
+.core-section::before {
+  content: "";
+  background: rgba(72, 91, 88, 0.15);
+  flex: 1;
+}
+.core-section::after {
+  content: "";
+  background: rgba(72, 91, 88, 0.15);
+  flex: 1;
 }/*# sourceMappingURL=index.css.map */
