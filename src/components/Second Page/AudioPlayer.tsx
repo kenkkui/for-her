@@ -10,8 +10,6 @@ export default function AudioPlayer({ setError }: AudioPlayerProps) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  const [currentSteps, setCurrentSteps] = useState(0);
-
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current
@@ -25,7 +23,7 @@ export default function AudioPlayer({ setError }: AudioPlayerProps) {
 
   useEffect(() => {
     if (audioRef.current) {
-      audioRef.current.volume = 1;
+      audioRef.current.volume = 0.4;
     }
   }, [isPlaying]);
 
