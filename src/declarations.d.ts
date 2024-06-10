@@ -1,21 +1,16 @@
-declare module "@splinetool/react-spline" {
-  import * as React from "react";
-
-  interface SplineProps {
-    scene: string;
-    onLoad?: (spline: SplineInstance) => void;
-    onError?: (error: Error) => void;
-    [key: string]: any;
-  }
-
-  interface SplineInstance {s
-    play: () => void;
-    pause: () => void;
-    stop: () => void;
-    [key: string]: any;
-  }
-
-  const Spline: React.FC<SplineProps>;
-
-  export default Spline;
+declare module '*.gif' {
+  const content: string;
+  export default content;
+}
+declare module '*.jpg' {
+  const content: string;
+  export default content;
+}
+declare module '*.png' {
+  const content: string;
+  export default content;
+}
+declare module '*.mp3' {
+  const content: string;
+  export default content;
 }

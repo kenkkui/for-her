@@ -22,6 +22,36 @@
   }
 }
 
+@keyframes drawPath {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes static-effect {
+  from {
+    transform: translate(-20%, -20%);
+  }
+
+  25% {
+    transform: translate(-50%, -20%);
+  }
+
+  50% {
+    transform: translate(-50%, -50%);
+  }
+
+  to {
+    transform: translate(-10%, -50%);
+  }
+}
+
+@keyframes rotate {
+  to {
+    rotate: 360deg;
+  }
+}
+
 .reading-content {
   height: 100vh;
   width: 100vw;
@@ -35,6 +65,15 @@
     height: 100%;
     color: var(--clr-light);
     text-wrap: nowrap;
+
+    .hidden {
+      font-size: 16px;
+      font-weight: 500;
+      text-transform: uppercase;
+      color: var(--clr-light);
+      opacity: 75%;
+    }
+
     * {
       position: absolute;
       z-index: 100;
@@ -68,13 +107,29 @@
     h4 {
       display: inline-block;
       left: 0;
-      top: 75px;
+      top: 50px;
 
       position: relative;
 
       p {
         bottom: -8px;
         left: 80px;
+
+        span {
+          position: relative;
+
+          #you-highlight {
+            width: 51px;
+            height: 12px;
+            bottom: 0;
+            left: -14px;
+            transform: translateY(100%);
+
+            path {
+              animation: 1200ms cubic-bezier(0, 0.69, 1, 0.65) drawPath forwards;
+            }
+          }
+        }
       }
 
       #exclamation {
@@ -95,6 +150,55 @@
 .outer-section {
   flex: 10;    
   @include pseudoElemColumn();
+
+  .content {
+    .cat {
+      top: 275px;
+      left: 0;
+      width: 323px;
+      aspect-ratio: 1 / 1;
+
+      background-image: url(../assets/tenor.gif);
+      background-size: cover;
+      background-repeat: no-repeat;
+
+      .hidden {
+        bottom: -66px;
+        right: -24px;
+        transform: translateX(100%);
+
+        span {
+          position: relative;
+
+          #arrow-kozmo {
+            width: 370px;
+            height: 125px;
+            top: 50%;
+            transform: translateY(-30%);
+            right: 4px;
+            
+            background-image: url(../assets/arrows-kozmo.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
+
+            animation: 1500ms steps(3) infinite animate-steps;
+          }
+
+          #kozmo-encircle {
+            width: 49px;
+            height: 37px;
+
+            background-image: url(../assets/kozmo-encircle.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+      }
+    }
+  }
 }
 
 .inner-section {
@@ -107,7 +211,7 @@
       height: 244.95px;
       aspect-ratio: 1 / 1;
       right: 0;
-      top: 108px;
+      top: 83px;
 
       #woah-frame {
         position: absolute;

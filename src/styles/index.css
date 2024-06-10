@@ -196,6 +196,30 @@ button {
     background-position: 100%;
   }
 }
+@keyframes drawPath {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes static-effect {
+  from {
+    transform: translate(-20%, -20%);
+  }
+  25% {
+    transform: translate(-50%, -20%);
+  }
+  50% {
+    transform: translate(-50%, -50%);
+  }
+  to {
+    transform: translate(-10%, -50%);
+  }
+}
+@keyframes rotate {
+  to {
+    rotate: 360deg;
+  }
+}
 .reading-content {
   height: 100vh;
   width: 100vw;
@@ -208,6 +232,13 @@ button {
   height: 100%;
   color: var(--clr-light);
   text-wrap: nowrap;
+}
+.reading-content .content .hidden {
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--clr-light);
+  opacity: 75%;
 }
 .reading-content .content * {
   position: absolute;
@@ -250,12 +281,25 @@ button {
 .outer-most-section .content h4 {
   display: inline-block;
   left: 0;
-  top: 75px;
+  top: 50px;
   position: relative;
 }
 .outer-most-section .content h4 p {
   bottom: -8px;
   left: 80px;
+}
+.outer-most-section .content h4 p span {
+  position: relative;
+}
+.outer-most-section .content h4 p span #you-highlight {
+  width: 51px;
+  height: 12px;
+  bottom: 0;
+  left: -14px;
+  transform: translateY(100%);
+}
+.outer-most-section .content h4 p span #you-highlight path {
+  animation: 1200ms cubic-bezier(0, 0.69, 1, 0.65) drawPath forwards;
 }
 .outer-most-section .content h4 #exclamation {
   right: -72px;
@@ -284,6 +328,44 @@ button {
   background: rgba(72, 91, 88, 0.15);
   flex: 1;
 }
+.outer-section .content .cat {
+  top: 275px;
+  left: 0;
+  width: 323px;
+  aspect-ratio: 1/1;
+  background-image: url(../assets/tenor.gif);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.outer-section .content .cat .hidden {
+  bottom: -66px;
+  right: -24px;
+  transform: translateX(100%);
+}
+.outer-section .content .cat .hidden span {
+  position: relative;
+}
+.outer-section .content .cat .hidden span #arrow-kozmo {
+  width: 370px;
+  height: 125px;
+  top: 50%;
+  transform: translateY(-30%);
+  right: 4px;
+  background-image: url(../assets/arrows-kozmo.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation: 1500ms steps(3) infinite animate-steps;
+}
+.outer-section .content .cat .hidden span #kozmo-encircle {
+  width: 49px;
+  height: 37px;
+  background-image: url(../assets/kozmo-encircle.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 .inner-section {
   flex: 8;
@@ -306,7 +388,7 @@ button {
   height: 244.95px;
   aspect-ratio: 1/1;
   right: 0;
-  top: 108px;
+  top: 83px;
 }
 .inner-section .content #shark-boom #woah-frame {
   position: absolute;
@@ -367,4 +449,76 @@ button {
   content: "";
   background: rgba(72, 91, 88, 0.15);
   flex: 1;
+}
+
+#music {
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  width: 200.63px;
+  height: 200.67px;
+  cursor: pointer;
+  scale: 0.9;
+  opacity: 0.8;
+  transition: 200ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition-property: opacity, scale;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#music.playing {
+  scale: 1;
+}
+#music:hover {
+  opacity: 1;
+}
+#music:hover .music-about {
+  animation-play-state: paused;
+}
+#music:hover .music-image .action-btn {
+  opacity: 1;
+}
+#music .music-about {
+  width: 100%;
+  height: 100%;
+  background-image: url(../assets/only-about-love.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  scale: 0.7;
+  opacity: 0;
+  transition: 200ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition-property: opacity, scale;
+  animation: 46000ms linear infinite rotate;
+}
+#music .music-about.active {
+  scale: 1;
+  opacity: 1;
+}
+#music .music-image {
+  aspect-ratio: 1/1;
+  width: 136px;
+  border-radius: 50%;
+  opacity: 0.8;
+  transition: 0.15s cubic-bezier(0.075, 0.82, 0.165, 1) opacity;
+}
+#music .music-image .action-btn {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 50%;
+  background: rgba(51, 34, 24, 0.8);
+  opacity: 0;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) opacity;
+}
+#music .music-image img {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
 }/*# sourceMappingURL=index.css.map */

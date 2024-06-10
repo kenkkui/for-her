@@ -4,13 +4,13 @@ import ReadingContent from "./ReadingContent";
 
 export default function SecondPage() {
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string[]>([]);
   const timerRef = useRef<number | null>(null);
 
   useEffect(() => {
     timerRef.current = window.setTimeout(() => {
       if (loading) {
-        setError("KARA YOUR INTERNET SLOW");
+        setError((prev) => [...prev, "KARA YOUR INTERNET SLOW"]);
       }
     }, 3000);
 
@@ -29,11 +29,11 @@ export default function SecondPage() {
 
   return (
     <section className={`second-page ${!loading ? "active" : null}`}>
-      {/* <div className="curtain">
+      <div className="curtain">
         <p>{error}</p>
-      </div> */}
+      </div>
 
-      <ReadingContent />
+      <ReadingContent setError={setError} />
       <Flower setLoading={setLoading} />
     </section>
   );
