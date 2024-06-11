@@ -1,8 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Flower from "./Flower";
 import Curtain from "./Curtain";
-import ContentWrapper from "./Contents/ContentWrapper";
-import ContentStructure2 from "./ContentSructure-2";
+import ContentWrapper from "./ContentsWrapper";
 
 export default function SecondPage() {
   const [loading, setLoading] = useState(false);
@@ -32,8 +31,7 @@ export default function SecondPage() {
   return (
     <section className={`second-page ${!loading ? "active" : null}`}>
       <Curtain error={error} />
-      {/* <ContentWrapper setError={setError} /> */}
-      <ContentStructure2 />
+      <ContentWrapper setError={setError} />
       {/* <Flower setLoading={setLoading} /> */}
     </section>
   );

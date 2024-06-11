@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
-import YesNoContainer from "./YesNoContainer";
+import YesNoContainer from "../YesNoContainer";
 import MainContent from "./MainContent";
-import MouseLeaveMsg from "./MouseLeaveMsg";
+import MouseLeaveMsg from "../MouseLeaveMsg";
 
 const gifs = [
   "https://media.tenor.com/JhVlbsQoCboAAAAi/cute-dancing.gif",
