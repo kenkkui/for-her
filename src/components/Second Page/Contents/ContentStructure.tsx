@@ -8,9 +8,9 @@ interface ContentStructureProps {
   innerMost?: ReactNode;
   outerCore?: ReactNode;
   core?: ReactNode;
+  id: string;
 }
 
-// Create the reusable component
 export default function ContentStructure({
   extra,
   outerMost,
@@ -19,9 +19,10 @@ export default function ContentStructure({
   innerMost,
   outerCore,
   core,
+  id,
 }: ContentStructureProps) {
   return (
-    <section className="reading-content">
+    <section id={id} className="reading-content">
       {extra}
       <div className="outer-most-section">
         {outerMost}

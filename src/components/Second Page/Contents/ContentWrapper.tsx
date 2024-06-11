@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
-import AudioPlayer from "./AudioPlayer";
-import ContentStructure from "./Contents/ContentStructure";
+import AudioPlayer from "../AudioPlayer";
+import ContentStructure from "./ContentStructure";
 
 interface ContentWrapperProps {
   setError: React.Dispatch<React.SetStateAction<string[]>>;
@@ -22,6 +22,7 @@ export default function ContentWrapper({ setError }: ContentWrapperProps) {
   return (
     <>
       <ContentStructure
+        id="content-1"
         extra={
           <div className="line-scroll">
             <div className="scroll-indicator"></div>
@@ -128,6 +129,20 @@ export default function ContentWrapper({ setError }: ContentWrapperProps) {
                 />
               </svg>
             </p>
+          </div>
+        }
+      />
+      <ContentStructure
+        id="content-2"
+        outer={
+          <div className="content">
+            <h6>SO, first of all</h6>
+
+            <div id="bday-letter">
+              <h5>
+                Happy Birthday&nbsp;<span>Kara</span>
+              </h5>
+            </div>
           </div>
         }
       />

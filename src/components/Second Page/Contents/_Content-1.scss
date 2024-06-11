@@ -1,135 +1,136 @@
+#content-1 {
+  .outer-most-section {
+    .content {
+      h4 {
+        display: inline-block;
+        left: 0;
+        top: 100px;
 
-.outer-most-section {
-  .content {
-    h4 {
-      display: inline-block;
-      left: 0;
-      top: 100px;
+        position: relative;
 
-      position: relative;
+        p {
+          bottom: -8px;
+          left: 80px;
 
-      p {
-        bottom: -8px;
-        left: 80px;
+          span {
+            position: relative;
 
-        span {
-          position: relative;
+            #you-highlight {
+              width: 51px;
+              height: 12px;
+              bottom: 0;
+              left: -14px;
+              transform: translateY(100%);
 
-          #you-highlight {
-            width: 51px;
-            height: 12px;
-            bottom: 0;
-            left: -14px;
-            transform: translateY(100%);
+              path {
+                animation: 1200ms cubic-bezier(0, 0.69, 1, 0.65) drawPath forwards;
+              }
+            }
+          }
+        }
 
-            path {
-              animation: 1200ms cubic-bezier(0, 0.69, 1, 0.65) drawPath forwards;
+        #exclamation {
+          right: -72px;
+          top: 0;
+          width: 65px;
+          aspect-ratio: 1 / 1;
+          background-image: url("../assets/exclamation.svg");
+          background-repeat: no-repeat;
+          background-size: cover;
+
+          animation: 1500ms steps(2) infinite animate-steps;
+        }
+      }
+
+      .text {
+        right: 0;
+        width: 560px;
+        text-wrap: wrap;
+        text-align: right;
+        top: 60%;
+        transform: translateY(-50%);
+
+        svg {
+          top: 12px;
+          left: 18px;
+          transform: translate(-100%, -100%);
+        }
+      }
+    }
+  }
+
+  .outer-section {
+    .content {
+      .cat {
+        bottom: 190px;
+        left: 0;
+        width: 216px;
+        aspect-ratio: 1 / 1;
+
+        background-image: url(../assets/tenor.gif);
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        .hidden {
+          bottom: -66px;
+          right: -24px;
+          transform: translateX(100%);
+
+          span {
+            position: relative;
+
+            #arrow-kozmo {
+              pointer-events: none;
+              width: 370px;
+              height: 125px;
+              top: 50%;
+              transform: translateY(-30%);
+              right: 4px;
+              
+              background-image: url(../assets/arrows-kozmo.svg);
+              background-size: cover;
+              background-repeat: no-repeat;
+
+              // animation: 1500ms steps(3) infinite animate-steps;
+            }
+
+            #kozmo-encircle {
+              pointer-events: none;
+              width: 49px;
+              height: 37px;
+
+              background-image: url(../assets/kozmo-encircle.svg);
+              background-size: cover;
+              background-repeat: no-repeat;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
             }
           }
         }
       }
-
-      #exclamation {
-        right: -72px;
-        top: 0;
-        width: 65px;
-        aspect-ratio: 1 / 1;
-        background-image: url("../assets/exclamation.svg");
-        background-repeat: no-repeat;
-        background-size: cover;
-
-        animation: 1500ms steps(2) infinite animate-steps;
-      }
-    }
-
-    .text {
-      right: 0;
-      width: 560px;
-      text-wrap: wrap;
-      text-align: right;
-      top: 60%;
-      transform: translateY(-50%);
-
-      svg {
-        top: 12px;
-        left: 18px;
-        transform: translate(-100%, -100%);
-      }
     }
   }
-}
 
-.outer-section {
-  .content {
-    .cat {
-      bottom: 190px;
-      left: 0;
-      width: 216px;
-      aspect-ratio: 1 / 1;
+  .inner-section {
+    .content {
+      #shark-boom {
+        background-image: url(../assets/shark.png);
+        height: 244.95px;
+        aspect-ratio: 1 / 1;
+        right: 0;
+        top: 83px;
 
-      background-image: url(../assets/tenor.gif);
-      background-size: cover;
-      background-repeat: no-repeat;
+        #woah-frame {
+          position: absolute;
+          right: -72px;
+          top: 30%;
+          width: 125px;
+          aspect-ratio: 1 / 1;
+          background-image: url(../assets/woah-frame.svg);
 
-      .hidden {
-        bottom: -66px;
-        right: -24px;
-        transform: translateX(100%);
-
-        span {
-          position: relative;
-
-          #arrow-kozmo {
-            pointer-events: none;
-            width: 370px;
-            height: 125px;
-            top: 50%;
-            transform: translateY(-30%);
-            right: 4px;
-            
-            background-image: url(../assets/arrows-kozmo.svg);
-            background-size: cover;
-            background-repeat: no-repeat;
-
-            animation: 1500ms steps(3) infinite animate-steps;
-          }
-
-          #kozmo-encircle {
-            pointer-events: none;
-            width: 49px;
-            height: 37px;
-
-            background-image: url(../assets/kozmo-encircle.svg);
-            background-size: cover;
-            background-repeat: no-repeat;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-          }
+          animation: 3000ms steps(2) infinite animate-steps;
         }
-      }
-    }
-  }
-}
-
-.inner-section {
-  .content {
-    #shark-boom {
-      background-image: url(../assets/shark.png);
-      height: 244.95px;
-      aspect-ratio: 1 / 1;
-      right: 0;
-      top: 83px;
-
-      #woah-frame {
-        position: absolute;
-        right: -72px;
-        top: 30%;
-        width: 125px;
-        aspect-ratio: 1 / 1;
-        background-image: url(../assets/woah-frame.svg);
-
-        animation: 3000ms steps(2) infinite animate-steps;
       }
     }
   }

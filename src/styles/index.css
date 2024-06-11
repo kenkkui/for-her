@@ -165,29 +165,28 @@ button {
 .flower-page #spline-flower canvas:active {
   cursor: grabbing;
 }
-
-.text-wrapper {
+.flower-page .text-wrapper {
   z-index: 100;
   position: absolute;
   top: 100px;
   left: 100px;
 }
-.text-wrapper p {
+.flower-page .text-wrapper p {
   opacity: 0;
   filter: blur(12px);
   transform: translateX(-100%);
   transition: 1000ms cubic-bezier(0.075, 0.82, 0.165, 1);
   transition-property: opacity, filter, transform;
 }
-.text-wrapper.active p {
+.flower-page .text-wrapper.active p {
   opacity: 1;
   filter: none;
   transform: translateX(0);
 }
-.text-wrapper.active p:nth-child(2) {
+.flower-page .text-wrapper.active p:nth-child(2) {
   transition-delay: 100ms;
 }
-.text-wrapper.active p:nth-child(3) {
+.flower-page .text-wrapper.active p:nth-child(3) {
   transition-delay: 150ms;
 }
 
@@ -397,30 +396,30 @@ button {
   flex: 1;
 }
 
-.outer-most-section .content h4 {
+#content-1 .outer-most-section .content h4 {
   display: inline-block;
   left: 0;
   top: 100px;
   position: relative;
 }
-.outer-most-section .content h4 p {
+#content-1 .outer-most-section .content h4 p {
   bottom: -8px;
   left: 80px;
 }
-.outer-most-section .content h4 p span {
+#content-1 .outer-most-section .content h4 p span {
   position: relative;
 }
-.outer-most-section .content h4 p span #you-highlight {
+#content-1 .outer-most-section .content h4 p span #you-highlight {
   width: 51px;
   height: 12px;
   bottom: 0;
   left: -14px;
   transform: translateY(100%);
 }
-.outer-most-section .content h4 p span #you-highlight path {
+#content-1 .outer-most-section .content h4 p span #you-highlight path {
   animation: 1200ms cubic-bezier(0, 0.69, 1, 0.65) drawPath forwards;
 }
-.outer-most-section .content h4 #exclamation {
+#content-1 .outer-most-section .content h4 #exclamation {
   right: -72px;
   top: 0;
   width: 65px;
@@ -430,7 +429,7 @@ button {
   background-size: cover;
   animation: 1500ms steps(2) infinite animate-steps;
 }
-.outer-most-section .content .text {
+#content-1 .outer-most-section .content .text {
   right: 0;
   width: 560px;
   text-wrap: wrap;
@@ -438,13 +437,12 @@ button {
   top: 60%;
   transform: translateY(-50%);
 }
-.outer-most-section .content .text svg {
+#content-1 .outer-most-section .content .text svg {
   top: 12px;
   left: 18px;
   transform: translate(-100%, -100%);
 }
-
-.outer-section .content .cat {
+#content-1 .outer-section .content .cat {
   bottom: 190px;
   left: 0;
   width: 216px;
@@ -453,15 +451,15 @@ button {
   background-size: cover;
   background-repeat: no-repeat;
 }
-.outer-section .content .cat .hidden {
+#content-1 .outer-section .content .cat .hidden {
   bottom: -66px;
   right: -24px;
   transform: translateX(100%);
 }
-.outer-section .content .cat .hidden span {
+#content-1 .outer-section .content .cat .hidden span {
   position: relative;
 }
-.outer-section .content .cat .hidden span #arrow-kozmo {
+#content-1 .outer-section .content .cat .hidden span #arrow-kozmo {
   pointer-events: none;
   width: 370px;
   height: 125px;
@@ -471,9 +469,8 @@ button {
   background-image: url(../assets/arrows-kozmo.svg);
   background-size: cover;
   background-repeat: no-repeat;
-  animation: 1500ms steps(3) infinite animate-steps;
 }
-.outer-section .content .cat .hidden span #kozmo-encircle {
+#content-1 .outer-section .content .cat .hidden span #kozmo-encircle {
   pointer-events: none;
   width: 49px;
   height: 37px;
@@ -484,15 +481,14 @@ button {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
-.inner-section .content #shark-boom {
+#content-1 .inner-section .content #shark-boom {
   background-image: url(../assets/shark.png);
   height: 244.95px;
   aspect-ratio: 1/1;
   right: 0;
   top: 83px;
 }
-.inner-section .content #shark-boom #woah-frame {
+#content-1 .inner-section .content #shark-boom #woah-frame {
   position: absolute;
   right: -72px;
   top: 30%;
