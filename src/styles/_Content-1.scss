@@ -1,6 +1,6 @@
 #content-1 {
   .title-column {
-    grid-column: 1 / 8;
+    grid-area: 1 / 1 / 2 / 8;
 
     .title-container {
       position: relative;
@@ -50,24 +50,31 @@
     }
   }
 
-  .text {
-    right: 0;
-    width: 560px;
-    text-wrap: wrap;
-    text-align: right;
-    top: 60%;
-    transform: translateY(-50%);
+  .text-column {
+    grid-area: 1 / 8 / 2 /13;
+    position: relative;
 
-    svg {
+    .text {
       position: absolute;
-      top: 12px;
-      left: 18px;
-      transform: translate(-100%, -100%);
+      right: 0;
+      top: 60%;
+      transform: translateY(-50%);
+
+      width: 560px;
+      text-wrap: wrap;
+      text-align: right;
+  
+      svg {
+        position: absolute;
+        top: 12px;
+        left: 18px;
+        transform: translate(-100%, -100%);
+      }
     }
   }
 
   .cat-column {
-    grid-column: 2 / 4;
+    grid-area: 1 / 2 / 2 / 4;
     position: relative;
 
     .cat {
@@ -126,7 +133,8 @@
   }
 
   .shark-column {
-    grid-column: 9 / 12;
+    grid-area: 1 / 9 / 2 / 12 ;
+    z-index: 1100;
     position: relative;
     
     #shark-boom {

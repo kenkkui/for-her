@@ -309,7 +309,7 @@ button {
 }
 
 #content-1 .title-column {
-  grid-column: 1/8;
+  grid-area: 1/1/2/8;
 }
 #content-1 .title-column .title-container {
   position: relative;
@@ -350,22 +350,27 @@ button {
 #content-1 .title-column .title-container .subtitle span #you-highlight path {
   animation: 1200ms cubic-bezier(0, 0.69, 1, 0.65) drawPath forwards;
 }
-#content-1 .text {
+#content-1 .text-column {
+  grid-area: 1/8/2/13;
+  position: relative;
+}
+#content-1 .text-column .text {
+  position: absolute;
   right: 0;
+  top: 60%;
+  transform: translateY(-50%);
   width: 560px;
   text-wrap: wrap;
   text-align: right;
-  top: 60%;
-  transform: translateY(-50%);
 }
-#content-1 .text svg {
+#content-1 .text-column .text svg {
   position: absolute;
   top: 12px;
   left: 18px;
   transform: translate(-100%, -100%);
 }
 #content-1 .cat-column {
-  grid-column: 2/4;
+  grid-area: 1/2/2/4;
   position: relative;
 }
 #content-1 .cat-column .cat {
@@ -413,7 +418,8 @@ button {
   transform: translate(-50%, -50%);
 }
 #content-1 .shark-column {
-  grid-column: 9/12;
+  grid-area: 1/9/2/12;
+  z-index: 1100;
   position: relative;
 }
 #content-1 .shark-column #shark-boom {
