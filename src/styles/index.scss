@@ -32,6 +32,10 @@ body {
   background-color: var(--main-bg);
 }
 
+::selection {
+  background-color: #141818;
+}
+
 img {
   display: block;
 }
@@ -55,6 +59,11 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@mixin bgBoilerPlate() {
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .App {

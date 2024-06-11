@@ -1,14 +1,31 @@
 #content-1 {
   .outer-most-section {
     .content {
-      h4 {
-        display: inline-block;
+      .title-container {
+        position: relative;
         left: 0;
         top: 100px;
 
-        position: relative;
+        h4 {
+          display: inline-block;
+          position: relative;
 
-        p {
+          #exclamation {
+            position: absolute;
+            right: -72px;
+            top: 0;
+            width: 65px;
+            aspect-ratio: 1 / 1;
+            background-image: url("../assets/exclamation.svg");
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            animation: 1500ms steps(2) infinite animate-steps;
+          }
+        }
+
+        .subtitle {
+          position: absolute;
           bottom: -8px;
           left: 80px;
 
@@ -16,9 +33,10 @@
             position: relative;
 
             #you-highlight {
+              position: absolute;
               width: 51px;
               height: 12px;
-              bottom: 0;
+              bottom: 4px;
               left: -14px;
               transform: translateY(100%);
 
@@ -28,19 +46,8 @@
             }
           }
         }
-
-        #exclamation {
-          right: -72px;
-          top: 0;
-          width: 65px;
-          aspect-ratio: 1 / 1;
-          background-image: url("../assets/exclamation.svg");
-          background-repeat: no-repeat;
-          background-size: cover;
-
-          animation: 1500ms steps(2) infinite animate-steps;
-        }
       }
+
 
       .text {
         right: 0;
@@ -51,6 +58,7 @@
         transform: translateY(-50%);
 
         svg {
+          position: absolute;
           top: 12px;
           left: 18px;
           transform: translate(-100%, -100%);
@@ -72,6 +80,7 @@
         background-repeat: no-repeat;
 
         .hidden {
+          position: absolute;
           bottom: -66px;
           right: -24px;
           transform: translateX(100%);
@@ -80,6 +89,7 @@
             position: relative;
 
             #arrow-kozmo {
+              position: absolute;
               pointer-events: none;
               width: 370px;
               height: 125px;
@@ -95,6 +105,7 @@
             }
 
             #kozmo-encircle {
+              position: absolute;
               pointer-events: none;
               width: 49px;
               height: 37px;

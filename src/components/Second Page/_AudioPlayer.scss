@@ -1,4 +1,5 @@
 #music {
+  position: absolute;
   top: 0;
   right: 0;
   transform: translate(50%, -50%);
@@ -32,6 +33,7 @@
   }
 
   .music-about {
+    position: absolute; 
     width: 100%;
     height: 100%;
 
@@ -53,6 +55,7 @@
   }
 
   .music-image {
+    position: relative;
     aspect-ratio: 1 / 1;
     width: 136px;  
     border-radius: 50%;
@@ -61,6 +64,7 @@
     transition: 0.15s cubic-bezier(0.075, 0.82, 0.165, 1) opacity;
 
     .action-btn {
+      position: absolute;
       width: 100%;
       height: 100%;
       display: block;

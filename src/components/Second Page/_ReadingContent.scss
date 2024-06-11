@@ -89,7 +89,7 @@
       opacity: 75%;
     }
 
-    * {
+    & > * {
       position: absolute;
       z-index: 100;
     }
