@@ -150,6 +150,6 @@ button {
   }
 }
 
-@import "../components/Second Page/SecondPage";
-@import "../components/Second Page/ReadingContent";
-@import "../components/Second Page/AudioPlayer";
+@import "./SecondPage";
+@import "./ReadingContent";
+@import "./AudioPlayer";

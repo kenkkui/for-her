@@ -1,147 +1,137 @@
 #content-1 {
-  .outer-most-section {
-    .content {
-      .title-container {
-        position: relative;
-        left: 0;
-        top: 100px;
+  .title-container {
+    position: relative;
+    left: 0;
+    top: 100px;
 
-        h4 {
-          display: inline-block;
-          position: relative;
+    h4 {
+      display: inline-block;
+      position: relative;
 
-          #exclamation {
-            position: absolute;
-            right: -72px;
-            top: 0;
-            width: 65px;
-            aspect-ratio: 1 / 1;
-            background-image: url("../assets/exclamation.svg");
-            background-repeat: no-repeat;
-            background-size: cover;
-
-            animation: 1500ms steps(2) infinite animate-steps;
-          }
-        }
-
-        .subtitle {
-          position: absolute;
-          bottom: -8px;
-          left: 80px;
-
-          span {
-            position: relative;
-
-            #you-highlight {
-              position: absolute;
-              width: 51px;
-              height: 12px;
-              bottom: 4px;
-              left: -14px;
-              transform: translateY(100%);
-
-              path {
-                animation: 1200ms cubic-bezier(0, 0.69, 1, 0.65) drawPath forwards;
-              }
-            }
-          }
-        }
-      }
-
-
-      .text {
-        right: 0;
-        width: 560px;
-        text-wrap: wrap;
-        text-align: right;
-        top: 60%;
-        transform: translateY(-50%);
-
-        svg {
-          position: absolute;
-          top: 12px;
-          left: 18px;
-          transform: translate(-100%, -100%);
-        }
-      }
-    }
-  }
-
-  .outer-section {
-    .content {
-      .cat {
-        bottom: 190px;
-        left: 0;
-        width: 216px;
+      #exclamation {
+        position: absolute;
+        right: -72px;
+        top: 0;
+        width: 65px;
         aspect-ratio: 1 / 1;
-
-        background-image: url(../assets/tenor.gif);
-        background-size: cover;
+        background-image: url("../assets/exclamation.svg");
         background-repeat: no-repeat;
+        background-size: cover;
 
-        .hidden {
-          position: absolute;
-          bottom: -66px;
-          right: -24px;
-          transform: translateX(100%);
+        animation: 1500ms steps(2) infinite animate-steps;
+      }
+    }
+  }
 
-          span {
-            position: relative;
+  .subtitle {
+    position: absolute;
+    bottom: -8px;
+    left: 80px;
 
-            #arrow-kozmo {
-              position: absolute;
-              pointer-events: none;
-              width: 370px;
-              height: 125px;
-              top: 50%;
-              transform: translateY(-30%);
-              right: 4px;
-              
-              background-image: url(../assets/arrows-kozmo.svg);
-              background-size: cover;
-              background-repeat: no-repeat;
+    span {
+      position: relative;
 
-              // animation: 1500ms steps(3) infinite animate-steps;
-            }
+      #you-highlight {
+        position: absolute;
+        width: 51px;
+        height: 12px;
+        bottom: 4px;
+        left: -14px;
+        transform: translateY(100%);
 
-            #kozmo-encircle {
-              position: absolute;
-              pointer-events: none;
-              width: 49px;
-              height: 37px;
-
-              background-image: url(../assets/kozmo-encircle.svg);
-              background-size: cover;
-              background-repeat: no-repeat;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-            }
-          }
+        path {
+          animation: 1200ms cubic-bezier(0, 0.69, 1, 0.65) drawPath forwards;
         }
       }
     }
   }
 
-  .inner-section {
-    .content {
-      #shark-boom {
-        background-image: url(../assets/shark.png);
-        height: 244.95px;
-        aspect-ratio: 1 / 1;
-        right: 0;
-        top: 83px;
+  .text {
+    right: 0;
+    width: 560px;
+    text-wrap: wrap;
+    text-align: right;
+    top: 60%;
+    transform: translateY(-50%);
 
-        #woah-frame {
+    svg {
+      position: absolute;
+      top: 12px;
+      left: 18px;
+      transform: translate(-100%, -100%);
+    }
+  }
+
+  .cat {
+    bottom: 190px;
+    left: 0;
+    width: 216px;
+    aspect-ratio: 1 / 1;
+
+    background-image: url(../assets/tenor.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .hidden {
+      position: absolute;
+      bottom: -66px;
+      right: -24px;
+      transform: translateX(100%);
+
+      span {
+        position: relative;
+
+        #arrow-kozmo {
           position: absolute;
-          right: -72px;
-          top: 30%;
-          width: 125px;
-          aspect-ratio: 1 / 1;
-          background-image: url(../assets/woah-frame.svg);
+          pointer-events: none;
+          width: 370px;
+          height: 125px;
+          top: 50%;
+          transform: translateY(-30%);
+          right: 4px;
+          
+          background-image: url(../assets/arrows-kozmo.svg);
+          background-size: cover;
+          background-repeat: no-repeat;
 
-          animation: 3000ms steps(2) infinite animate-steps;
+          // animation: 1500ms steps(3) infinite animate-steps;
         }
+
+        #kozmo-encircle {
+          position: absolute;
+          pointer-events: none;
+          width: 49px;
+          height: 37px;
+
+          background-image: url(../assets/kozmo-encircle.svg);
+          background-size: cover;
+          background-repeat: no-repeat;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+  }
+
+  .shark-column {
+    grid-column: 9 / 12;
+    background: red;
+    
+    #shark-boom {
+      background-image: url(../assets/shark.png);
+      height: 244.95px;
+      aspect-ratio: 1 / 1;
+
+      #woah-frame {
+        position: absolute;
+        right: -72px;
+        top: 30%;
+        width: 125px;
+        aspect-ratio: 1 / 1;
+        background-image: url(../assets/woah-frame.svg);
+
+        animation: 3000ms steps(2) infinite animate-steps;
       }
     }
   }

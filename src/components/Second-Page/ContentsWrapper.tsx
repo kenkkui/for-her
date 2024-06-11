@@ -23,15 +23,17 @@ export default function ContentWrapper({ setError }: ContentWrapperProps) {
   return (
     <>
       <ContentStructure id="content-1">
-        <div className="line-scroll">
+        {/* <div className="line-scroll">
           <div className="scroll-indicator"></div>
-        </div>
+        </div> */}
 
-        <div id="shark-boom">
-          <div id="woah-frame"></div>
-        </div>
+        <section className="shark-column">
+          <div id="shark-boom">
+            <div id="woah-frame"></div>
+          </div>
+        </section>
 
-        <div className="cat">
+        {/* <div className="cat">
           <AudioPlayer setError={setError} />
           <p className="hidden">
             KOZMO TOLD ME TO ADD&nbsp;
@@ -41,8 +43,8 @@ export default function ContentWrapper({ setError }: ContentWrapperProps) {
               <div id="kozmo-encircle"></div>
             </span>
           </p>
-        </div>
-        <div className="title-container">
+        </div> */}
+        {/* <div className="title-container">
           <h4>
             HI KARA
             <div id="exclamation"></div>
@@ -72,8 +74,8 @@ export default function ContentWrapper({ setError }: ContentWrapperProps) {
               </div>
             </span>
           </p>
-        </div>
-        <p className="text">
+        </div> */}
+        {/* <p className="text">
           I coded and designed everything BASTA I DID EVERYTHING , so please
           pelaes easpleapl pretty pleaese take your time and read this :&gt;
           <svg
@@ -120,9 +122,9 @@ export default function ContentWrapper({ setError }: ContentWrapperProps) {
               stroke-linecap="round"
             />
           </svg>
-        </p>
+        </p> */}
       </ContentStructure>
-      <ContentStructure id="content-2">
+      {/* <ContentStructure id="content-2">
         <h6>
           <div id="number-one">
             <div className="number"></div>
@@ -133,7 +135,7 @@ export default function ContentWrapper({ setError }: ContentWrapperProps) {
         </h6>
 
         <BdayLetter />
-      </ContentStructure>
+      </ContentStructure> */}
     </>
   );
 }

@@ -239,47 +239,6 @@ button {
     opacity: 1;
   }
 }
-.reading-content {
-  height: 100vh;
-  width: 100vw;
-  padding: 0 100px;
-  background: #1B2120;
-}
-.reading-content .content {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  color: var(--clr-light);
-  text-wrap: nowrap;
-}
-.reading-content .content .hidden {
-  font-size: 16px;
-  font-weight: 500;
-  text-transform: uppercase;
-  color: var(--clr-light);
-  opacity: 75%;
-}
-.reading-content .content > * {
-  position: absolute;
-  z-index: 100;
-}
-.reading-content .content p {
-  font-size: 16px;
-  font-weight: 500;
-}
-.reading-content .content h4 {
-  font-size: var(--fs-700);
-  font-weight: 500;
-}
-.reading-content .content h5 {
-  font-size: var(--fs-600);
-  font-weight: 500;
-}
-.reading-content .content h6 {
-  font-size: var(--fs-500);
-  font-weight: 500;
-}
-
 .line-scroll {
   position: absolute;
   bottom: 0;
@@ -301,109 +260,6 @@ button {
   animation: 18000ms cubic-bezier(0.81, -0.27, 0.55, 1) infinite scroll-indicator;
 }
 
-.outer-most-section {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  gap: 4px;
-  position: relative;
-}
-.outer-most-section::before {
-  content: "";
-  background: rgba(72, 91, 88, 0.15);
-  flex: 1;
-}
-.outer-most-section::after {
-  content: "";
-  background: rgba(72, 91, 88, 0.15);
-  flex: 1;
-}
-
-.outer-section {
-  flex: 10;
-  display: flex;
-  gap: 4px;
-  position: relative;
-}
-.outer-section::before {
-  content: "";
-  background: rgba(72, 91, 88, 0.15);
-  flex: 1;
-}
-.outer-section::after {
-  content: "";
-  background: rgba(72, 91, 88, 0.15);
-  flex: 1;
-}
-
-.inner-section {
-  flex: 8;
-  display: flex;
-  gap: 4px;
-  position: relative;
-}
-.inner-section::before {
-  content: "";
-  background: rgba(72, 91, 88, 0.15);
-  flex: 1;
-}
-.inner-section::after {
-  content: "";
-  background: rgba(72, 91, 88, 0.15);
-  flex: 1;
-}
-
-.inner-most-section {
-  flex: 6;
-  display: flex;
-  gap: 4px;
-  position: relative;
-}
-.inner-most-section::before {
-  content: "";
-  background: rgba(72, 91, 88, 0.15);
-  flex: 1;
-}
-.inner-most-section::after {
-  content: "";
-  background: rgba(72, 91, 88, 0.15);
-  flex: 1;
-}
-
-.outer-core-section {
-  flex: 4;
-  display: flex;
-  gap: 4px;
-  position: relative;
-}
-.outer-core-section::before {
-  content: "";
-  background: rgba(72, 91, 88, 0.15);
-  flex: 1;
-}
-.outer-core-section::after {
-  content: "";
-  background: rgba(72, 91, 88, 0.15);
-  flex: 1;
-}
-
-.core-section {
-  flex: 2;
-  display: flex;
-  gap: 4px;
-  position: relative;
-}
-.core-section::before {
-  content: "";
-  background: rgba(72, 91, 88, 0.15);
-  flex: 1;
-}
-.core-section::after {
-  content: "";
-  background: rgba(72, 91, 88, 0.15);
-  flex: 1;
-}
-
 .content-structure {
   height: 100vh;
   width: 100vw;
@@ -414,9 +270,28 @@ button {
   gap: 4px;
   grid-template-columns: repeat(12, 1fr);
 }
-.content-structure .item {
-  background: rgba(255, 31, 31, 0.15);
-  grid-column: 3/5;
+.content-structure .hidden {
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--clr-light);
+  opacity: 75%;
+}
+.content-structure p {
+  font-size: 16px;
+  font-weight: 500;
+}
+.content-structure h4 {
+  font-size: var(--fs-700);
+  font-weight: 500;
+}
+.content-structure h5 {
+  font-size: var(--fs-600);
+  font-weight: 500;
+}
+.content-structure h6 {
+  font-size: var(--fs-500);
+  font-weight: 500;
 }
 
 .content-structure-background {
@@ -432,16 +307,16 @@ button {
   background: rgba(72, 91, 88, 0.15);
 }
 
-#content-1 .outer-most-section .content .title-container {
+#content-1 .title-container {
   position: relative;
   left: 0;
   top: 100px;
 }
-#content-1 .outer-most-section .content .title-container h4 {
+#content-1 .title-container h4 {
   display: inline-block;
   position: relative;
 }
-#content-1 .outer-most-section .content .title-container h4 #exclamation {
+#content-1 .title-container h4 #exclamation {
   position: absolute;
   right: -72px;
   top: 0;
@@ -452,15 +327,15 @@ button {
   background-size: cover;
   animation: 1500ms steps(2) infinite animate-steps;
 }
-#content-1 .outer-most-section .content .title-container .subtitle {
+#content-1 .subtitle {
   position: absolute;
   bottom: -8px;
   left: 80px;
 }
-#content-1 .outer-most-section .content .title-container .subtitle span {
+#content-1 .subtitle span {
   position: relative;
 }
-#content-1 .outer-most-section .content .title-container .subtitle span #you-highlight {
+#content-1 .subtitle span #you-highlight {
   position: absolute;
   width: 51px;
   height: 12px;
@@ -468,10 +343,10 @@ button {
   left: -14px;
   transform: translateY(100%);
 }
-#content-1 .outer-most-section .content .title-container .subtitle span #you-highlight path {
+#content-1 .subtitle span #you-highlight path {
   animation: 1200ms cubic-bezier(0, 0.69, 1, 0.65) drawPath forwards;
 }
-#content-1 .outer-most-section .content .text {
+#content-1 .text {
   right: 0;
   width: 560px;
   text-wrap: wrap;
@@ -479,13 +354,13 @@ button {
   top: 60%;
   transform: translateY(-50%);
 }
-#content-1 .outer-most-section .content .text svg {
+#content-1 .text svg {
   position: absolute;
   top: 12px;
   left: 18px;
   transform: translate(-100%, -100%);
 }
-#content-1 .outer-section .content .cat {
+#content-1 .cat {
   bottom: 190px;
   left: 0;
   width: 216px;
@@ -494,16 +369,16 @@ button {
   background-size: cover;
   background-repeat: no-repeat;
 }
-#content-1 .outer-section .content .cat .hidden {
+#content-1 .cat .hidden {
   position: absolute;
   bottom: -66px;
   right: -24px;
   transform: translateX(100%);
 }
-#content-1 .outer-section .content .cat .hidden span {
+#content-1 .cat .hidden span {
   position: relative;
 }
-#content-1 .outer-section .content .cat .hidden span #arrow-kozmo {
+#content-1 .cat .hidden span #arrow-kozmo {
   position: absolute;
   pointer-events: none;
   width: 370px;
@@ -515,7 +390,7 @@ button {
   background-size: cover;
   background-repeat: no-repeat;
 }
-#content-1 .outer-section .content .cat .hidden span #kozmo-encircle {
+#content-1 .cat .hidden span #kozmo-encircle {
   position: absolute;
   pointer-events: none;
   width: 49px;
@@ -527,14 +402,16 @@ button {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-#content-1 .inner-section .content #shark-boom {
+#content-1 .shark-column {
+  grid-column: 9/12;
+  background: red;
+}
+#content-1 .shark-column #shark-boom {
   background-image: url(../assets/shark.png);
   height: 244.95px;
   aspect-ratio: 1/1;
-  right: 0;
-  top: 83px;
 }
-#content-1 .inner-section .content #shark-boom #woah-frame {
+#content-1 .shark-column #shark-boom #woah-frame {
   position: absolute;
   right: -72px;
   top: 30%;
