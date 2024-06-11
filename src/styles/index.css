@@ -240,10 +240,11 @@ button {
   }
 }
 .line-scroll {
+  z-index: 100;
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translate(calc(-50% + 7px), 50%);
+  transform: translate(-50%, 50%);
   width: 2px;
   height: 160px;
   background-image: linear-gradient(#D6FFF8 10%, rgba(214, 255, 248, 0));
@@ -260,14 +261,19 @@ button {
   animation: 18000ms cubic-bezier(0.81, -0.27, 0.55, 1) infinite scroll-indicator;
 }
 
+.contents-container {
+  height: 100%;
+  position: relative;
+}
+
 .content-wrapper {
+  height: 100vh;
+  width: 100vw;
   position: relative;
 }
 .content-wrapper .content-structure {
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
-  inset: 0;
+  height: inherit;
+  width: inherit;
   padding: 0 100px;
   display: grid;
   gap: 4px;
@@ -298,8 +304,9 @@ button {
   font-weight: 500;
 }
 .content-wrapper .content-structure-background {
-  height: 100vh;
-  width: 100vw;
+  z-index: -10;
+  position: absolute;
+  inset: 0;
   background-color: #1B2120;
   padding: 0 100px;
   display: grid;
@@ -569,11 +576,8 @@ button {
   position: absolute;
   top: 0;
   right: 16px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url(../assets/arrow-two.svg);
-  height: 305px;
-  width: 1030px;
+  z-index: 10000;
+  background-color: red;
 }
 
 #music {

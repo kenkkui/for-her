@@ -137,19 +137,17 @@
         font-size: 14px;
         line-height: normal;
     
+
         span {
           position: relative;
           color: #b1d7ff;
-    
+ 
           #arrow-two {
             position: absolute;
             top: 0;
             right: 16px;
-    
-            @include bgBoilerPlate();
-            background-image: url(../assets/arrow-two.svg);
-            height: 305px;
-            width: 1030px;
+            z-index: 10000;
+            background-color: red;
           }
         }
       }

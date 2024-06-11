@@ -21,11 +21,11 @@ export default function ContentWrapper({ setError }: ContentWrapperProps) {
   }, []);
 
   return (
-    <>
+    <section className="contents-container">
       <ContentStructure id="content-1">
-        {/* <div className="line-scroll">
+        <div className="line-scroll">
           <div className="scroll-indicator"></div>
-        </div> */}
+        </div>
 
         <section className="title-column">
           <div className="title-container">
@@ -148,7 +148,9 @@ export default function ContentWrapper({ setError }: ContentWrapperProps) {
         <BdayLetter />
       </ContentStructure>
 
-      <ContentStructure id="content-3">section.ji</ContentStructure>
-    </>
+      <ContentStructure id="content-3">
+        <section className="joke"></section>
+      </ContentStructure>
+    </section>
   );
 }
