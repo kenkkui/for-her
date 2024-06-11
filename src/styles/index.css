@@ -260,7 +260,10 @@ button {
   animation: 18000ms cubic-bezier(0.81, -0.27, 0.55, 1) infinite scroll-indicator;
 }
 
-.content-structure {
+.content-wrapper {
+  position: relative;
+}
+.content-wrapper .content-structure {
   height: 100vh;
   width: 100vw;
   position: absolute;
@@ -271,31 +274,30 @@ button {
   grid-template-columns: repeat(12, 1fr);
   color: var(--clr-light);
 }
-.content-structure .hidden {
+.content-wrapper .content-structure .hidden {
   font-size: 16px;
   font-weight: 500;
   text-transform: uppercase;
   color: var(--clr-light);
   opacity: 75%;
 }
-.content-structure p {
+.content-wrapper .content-structure p {
   font-size: 16px;
   font-weight: 500;
 }
-.content-structure h4 {
+.content-wrapper .content-structure h4 {
   font-size: var(--fs-700);
   font-weight: 500;
 }
-.content-structure h5 {
+.content-wrapper .content-structure h5 {
   font-size: var(--fs-600);
   font-weight: 500;
 }
-.content-structure h6 {
+.content-wrapper .content-structure h6 {
   font-size: var(--fs-500);
   font-weight: 500;
 }
-
-.content-structure-background {
+.content-wrapper .content-structure-background {
   height: 100vh;
   width: 100vw;
   background-color: #1B2120;
@@ -304,7 +306,7 @@ button {
   gap: 4px;
   grid-template-columns: repeat(12, 1fr);
 }
-.content-structure-background .column {
+.content-wrapper .content-structure-background .column {
   background: rgba(72, 91, 88, 0.15);
 }
 
@@ -440,16 +442,20 @@ button {
   animation: 3000ms steps(2) infinite animate-steps;
 }
 
-#content-2 .outer-most-section img {
+#content-2 img {
   top: 150px;
   opacity: 90%;
 }
-#content-2 .outer-section h6 {
+#content-2 .title-column {
+  grid-area: 1/2/2/4;
+  position: relative;
+}
+#content-2 .title-column h6 {
   top: 80px;
   position: relative;
   display: inline-block;
 }
-#content-2 .outer-section h6 #number-one {
+#content-2 .title-column h6 #number-one {
   position: absolute;
   left: -10px;
   top: 50%;
@@ -460,14 +466,14 @@ button {
   align-items: center;
   justify-content: center;
 }
-#content-2 .outer-section h6 #number-one .number {
+#content-2 .title-column h6 #number-one .number {
   width: 100%;
   height: 100%;
   background-image: url("../assets/number-1.svg");
   background-position: center;
   background-repeat: no-repeat;
 }
-#content-2 .outer-section h6 #number-one .circle {
+#content-2 .title-column h6 #number-one .circle {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -476,7 +482,7 @@ button {
   background-size: cover;
   animation: 6000ms steps(3) infinite animate-steps;
 }
-#content-2 .outer-section h6 #arrow-one {
+#content-2 .title-column h6 #arrow-one {
   position: absolute;
   right: -50px;
   top: -75px;
@@ -488,73 +494,78 @@ button {
   background-repeat: no-repeat;
   background-size: cover;
 }
-#content-2 .outer-section #bday-letter {
+#content-2 .bday-column {
+  position: relative;
+  grid-area: 1/6/2/12;
+}
+#content-2 .bday-column #bday-letter {
+  position: absolute;
   right: 0;
   top: 60%;
   transform: translateY(-50%);
   text-align: right;
-  width: 55%;
 }
-#content-2 .outer-section #bday-letter > img {
+#content-2 .bday-column #bday-letter > img {
   position: absolute;
   left: 0;
   top: 0;
+  scale: 0.9;
   transform: translate(-125%);
 }
-#content-2 .outer-section #bday-letter .letter {
+#content-2 .bday-column #bday-letter .letter {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-#content-2 .outer-section #bday-letter .letter .letter-body {
+#content-2 .bday-column #bday-letter .letter .letter-body {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-#content-2 .outer-section #bday-letter .letter .letter-body p {
+#content-2 .bday-column #bday-letter .letter .letter-body p {
   position: relative;
 }
-#content-2 .outer-section #bday-letter .letter .letter-body p .alien-wtf {
+#content-2 .bday-column #bday-letter .letter .letter-body p .alien-wtf {
   position: absolute;
   right: 5px;
   top: -10px;
   transform: translate(100%, 0);
 }
-#content-2 .outer-section #bday-letter h5 {
+#content-2 .bday-column #bday-letter h5 {
   line-height: 200%;
 }
-#content-2 .outer-section #bday-letter h5 span {
+#content-2 .bday-column #bday-letter h5 span {
   position: relative;
   color: #F9CFF4;
   font-weight: 700;
 }
-#content-2 .outer-section #bday-letter h5 span img {
+#content-2 .bday-column #bday-letter h5 span img {
   position: absolute;
   top: 15px;
   transform: translateY(-100%);
   right: -20px;
   width: 158px;
 }
-#content-2 .outer-section #bday-letter p {
+#content-2 .bday-column #bday-letter p {
   text-wrap: wrap;
-  line-height: 1.8;
+  line-height: 1.7;
   font-weight: 400;
 }
-#content-2 .outer-section #bday-letter p span {
+#content-2 .bday-column #bday-letter p span {
   font-size: 14px;
 }
-#content-2 .outer-section #bday-letter p span:nth-child(1) {
+#content-2 .bday-column #bday-letter p span:nth-child(1) {
   opacity: 60%;
 }
-#content-2 .outer-section #bday-letter .author {
+#content-2 .bday-column #bday-letter .author {
   font-size: 14px;
   line-height: normal;
 }
-#content-2 .outer-section #bday-letter .author span {
+#content-2 .bday-column #bday-letter .author span {
   position: relative;
   color: #b1d7ff;
 }
-#content-2 .outer-section #bday-letter .author span #arrow-two {
+#content-2 .bday-column #bday-letter .author span #arrow-two {
   position: absolute;
   top: 0;
   right: 16px;

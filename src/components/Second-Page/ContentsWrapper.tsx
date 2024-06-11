@@ -132,18 +132,23 @@ export default function ContentWrapper({ setError }: ContentWrapperProps) {
           </p>
         </section>
       </ContentStructure>
-      {/* <ContentStructure id="content-2">
-        <h6>
-          <div id="number-one">
-            <div className="number"></div>
-            <div className="circle"></div>
-          </div>
-          SO, first of all
-          <div id="arrow-one"></div>
-        </h6>
+
+      <ContentStructure id="content-2">
+        <section className="title-column">
+          <h6>
+            <div id="number-one">
+              <div className="number"></div>
+              <div className="circle"></div>
+            </div>
+            SO, first of all
+            <div id="arrow-one"></div>
+          </h6>
+        </section>
 
         <BdayLetter />
-      </ContentStructure> */}
+      </ContentStructure>
+
+      <ContentStructure id="content-3">section.ji</ContentStructure>
     </>
   );
 }
