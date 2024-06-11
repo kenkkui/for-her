@@ -105,6 +105,7 @@
   display: grid;
   gap: 4px;
   grid-template-columns: repeat(12, 1fr);
+  color: var(--clr-light);
 
   .hidden {
     font-size: 16px;

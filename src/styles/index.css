@@ -269,6 +269,7 @@ button {
   display: grid;
   gap: 4px;
   grid-template-columns: repeat(12, 1fr);
+  color: var(--clr-light);
 }
 .content-structure .hidden {
   font-size: 16px;
@@ -307,16 +308,19 @@ button {
   background: rgba(72, 91, 88, 0.15);
 }
 
-#content-1 .title-container {
+#content-1 .title-column {
+  grid-column: 1/8;
+}
+#content-1 .title-column .title-container {
   position: relative;
   left: 0;
   top: 100px;
 }
-#content-1 .title-container h4 {
+#content-1 .title-column .title-container h4 {
   display: inline-block;
   position: relative;
 }
-#content-1 .title-container h4 #exclamation {
+#content-1 .title-column .title-container h4 #exclamation {
   position: absolute;
   right: -72px;
   top: 0;
@@ -327,15 +331,15 @@ button {
   background-size: cover;
   animation: 1500ms steps(2) infinite animate-steps;
 }
-#content-1 .subtitle {
+#content-1 .title-column .title-container .subtitle {
   position: absolute;
   bottom: -8px;
   left: 80px;
 }
-#content-1 .subtitle span {
+#content-1 .title-column .title-container .subtitle span {
   position: relative;
 }
-#content-1 .subtitle span #you-highlight {
+#content-1 .title-column .title-container .subtitle span #you-highlight {
   position: absolute;
   width: 51px;
   height: 12px;
@@ -343,7 +347,7 @@ button {
   left: -14px;
   transform: translateY(100%);
 }
-#content-1 .subtitle span #you-highlight path {
+#content-1 .title-column .title-container .subtitle span #you-highlight path {
   animation: 1200ms cubic-bezier(0, 0.69, 1, 0.65) drawPath forwards;
 }
 #content-1 .text {
@@ -360,25 +364,31 @@ button {
   left: 18px;
   transform: translate(-100%, -100%);
 }
-#content-1 .cat {
+#content-1 .cat-column {
+  grid-column: 2/4;
+  position: relative;
+}
+#content-1 .cat-column .cat {
+  position: absolute;
   bottom: 190px;
   left: 0;
-  width: 216px;
+  width: 100%;
   aspect-ratio: 1/1;
   background-image: url(../assets/tenor.gif);
   background-size: cover;
   background-repeat: no-repeat;
 }
-#content-1 .cat .hidden {
+#content-1 .cat-column .cat .hidden {
   position: absolute;
   bottom: -66px;
   right: -24px;
+  text-wrap: nowrap;
   transform: translateX(100%);
 }
-#content-1 .cat .hidden span {
+#content-1 .cat-column .cat .hidden span {
   position: relative;
 }
-#content-1 .cat .hidden span #arrow-kozmo {
+#content-1 .cat-column .cat .hidden span #arrow-kozmo {
   position: absolute;
   pointer-events: none;
   width: 370px;
@@ -390,7 +400,7 @@ button {
   background-size: cover;
   background-repeat: no-repeat;
 }
-#content-1 .cat .hidden span #kozmo-encircle {
+#content-1 .cat-column .cat .hidden span #kozmo-encircle {
   position: absolute;
   pointer-events: none;
   width: 49px;
@@ -404,9 +414,12 @@ button {
 }
 #content-1 .shark-column {
   grid-column: 9/12;
-  background: red;
+  position: relative;
 }
 #content-1 .shark-column #shark-boom {
+  position: absolute;
+  left: 0;
+  top: 100px;
   background-image: url(../assets/shark.png);
   height: 244.95px;
   aspect-ratio: 1/1;
@@ -576,11 +589,6 @@ button {
 }
 #music .music-about {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  background-image: url(../assets/only-about-love.svg);
-  background-size: cover;
-  background-repeat: no-repeat;
   pointer-events: none;
   scale: 0.7;
   opacity: 0;
@@ -591,6 +599,14 @@ button {
 #music .music-about.active {
   scale: 1;
   opacity: 1;
+}
+#music .music-about text {
+  fill: #D6FFF8;
+  white-space: "pre";
+  font-family: "Poppins";
+  font-size: 16;
+  font-weight: 500;
+  letter-spacing: 0em;
 }
 #music .music-image {
   position: relative;

@@ -1,6 +1,8 @@
 import { useRef, useEffect, useState } from "react";
 import OnlyAboutLoveImg from "../../assets/only-about-love.jpg";
 import OnlyAboutLove from "../../assets/grentperez - (Only) About Love (Official Lyric Video).mp3";
+import OnlyAboutLoveAbout from "../../assets/only-about-love.svg";
+import MusicAboutSVG from "./MusicAboutSVG";
 
 interface AudioPlayerProps {
   setError: React.Dispatch<React.SetStateAction<string[]>>;
@@ -54,7 +56,7 @@ export default function AudioPlayer({ setError }: AudioPlayerProps) {
         GIRL HOW DOES UR BROWSER NOT SUPPPORT MP3 (your browser does not support
         mp3 files)
       </audio>
-      <div className={`music-about ${isPlaying ? "active" : ""}`}></div>
+      <MusicAboutSVG isPlaying={isPlaying} />
     </div>
   );
 }

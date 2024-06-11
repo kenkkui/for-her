@@ -27,54 +27,59 @@ export default function ContentWrapper({ setError }: ContentWrapperProps) {
           <div className="scroll-indicator"></div>
         </div> */}
 
+        <section className="title-column">
+          <div className="title-container">
+            <h4>
+              HI KARA
+              <div id="exclamation"></div>
+            </h4>
+
+            <p className="subtitle">
+              Since you’re obviously reading this, this is just a short web i
+              made for&nbsp;
+              <span>
+                you.
+                <div id="you-highlight">
+                  <svg
+                    width="51"
+                    height="12"
+                    viewBox="0 0 51 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      ref={lineOneRef}
+                      d="M44.4397 2.04875C36.2598 2.04875 24.9527 0.252429 17.7292 4.80052C16.0407 5.86364 13.021 9.45733 16.7753 9.82708C24.7395 10.6114 33.3027 10.2766 41.2843 9.86377C43.9882 9.72391 51.0384 9.21676 49.026 7.40552C48.1373 6.60575 44.4679 6.37636 44.1462 6.34151C37.067 5.5746 29.9044 5.23242 22.7925 4.98397C16.1791 4.75293 -3.65325 4.78648 2.94306 5.31418C6.17268 5.57255 9.50153 5.35087 12.7393 5.35087"
+                      stroke="#D6FFF8"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                    />
+                  </svg>
+                </div>
+              </span>
+            </p>
+          </div>
+        </section>
+
         <section className="shark-column">
           <div id="shark-boom">
             <div id="woah-frame"></div>
           </div>
         </section>
 
-        {/* <div className="cat">
-          <AudioPlayer setError={setError} />
-          <p className="hidden">
-            KOZMO TOLD ME TO ADD&nbsp;
-            <span>
-              THIS
-              <div id="arrow-kozmo"></div>
-              <div id="kozmo-encircle"></div>
-            </span>
-          </p>
-        </div> */}
-        {/* <div className="title-container">
-          <h4>
-            HI KARA
-            <div id="exclamation"></div>
-          </h4>
-
-          <p className="subtitle">
-            Since you’re obviously reading this, this is just a short web i made
-            for&nbsp;
-            <span>
-              you.
-              <div id="you-highlight">
-                <svg
-                  width="51"
-                  height="12"
-                  viewBox="0 0 51 12"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    ref={lineOneRef}
-                    d="M44.4397 2.04875C36.2598 2.04875 24.9527 0.252429 17.7292 4.80052C16.0407 5.86364 13.021 9.45733 16.7753 9.82708C24.7395 10.6114 33.3027 10.2766 41.2843 9.86377C43.9882 9.72391 51.0384 9.21676 49.026 7.40552C48.1373 6.60575 44.4679 6.37636 44.1462 6.34151C37.067 5.5746 29.9044 5.23242 22.7925 4.98397C16.1791 4.75293 -3.65325 4.78648 2.94306 5.31418C6.17268 5.57255 9.50153 5.35087 12.7393 5.35087"
-                    stroke="#D6FFF8"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                  />
-                </svg>
-              </div>
-            </span>
-          </p>
-        </div> */}
+        <section className="cat-column">
+          <div className="cat">
+            <AudioPlayer setError={setError} />
+            <p className="hidden">
+              KOZMO TOLD ME TO ADD&nbsp;
+              <span>
+                THIS
+                <div id="arrow-kozmo"></div>
+                <div id="kozmo-encircle"></div>
+              </span>
+            </p>
+          </div>
+        </section>
         {/* <p className="text">
           I coded and designed everything BASTA I DID EVERYTHING , so please
           pelaes easpleapl pretty pleaese take your time and read this :&gt;
