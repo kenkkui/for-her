@@ -133,7 +133,7 @@ export default function ContentWrapper({ setError }: ContentWrapperProps) {
         </section>
       </ContentStructure>
 
-      <ContentStructure id="content-2">
+      <ContentStructure id="content-2" linearBg>
         <section className="title-column">
           <h6>
             <div id="number-one">
@@ -148,8 +148,8 @@ export default function ContentWrapper({ setError }: ContentWrapperProps) {
         <BdayLetter />
       </ContentStructure>
 
-      <ContentStructure id="content-3">
-        <section className="joke"></section>
+      <ContentStructure id="content-3" redBg>
+        <section className="opportunity"></section>
       </ContentStructure>
     </section>
   );

@@ -263,11 +263,10 @@ button {
 
 .contents-container {
   height: 100%;
-  position: relative;
 }
 
 .content-wrapper {
-  height: 100vh;
+  height: 1024px;
   width: 100vw;
   position: relative;
 }
@@ -312,6 +311,12 @@ button {
   display: grid;
   gap: 4px;
   grid-template-columns: repeat(12, 1fr);
+}
+.content-wrapper .content-structure-background.linear-bg {
+  background-image: linear-gradient(#1B2120 60%, #522A2A);
+}
+.content-wrapper .content-structure-background.red-bg {
+  background-color: #522A2A;
 }
 .content-wrapper .content-structure-background .column {
   background: rgba(72, 91, 88, 0.15);
@@ -574,10 +579,9 @@ button {
 }
 #content-2 .bday-column #bday-letter .author span #arrow-two {
   position: absolute;
-  top: 0;
-  right: 16px;
+  top: 5px;
+  right: 14px;
   z-index: 10000;
-  background-color: red;
 }
 
 #music {

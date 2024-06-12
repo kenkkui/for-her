@@ -80,11 +80,10 @@
 
 .contents-container {
   height: 100%;
-  position: relative;
 }
 
 .content-wrapper {
-  height: 100vh;
+  height: 1024px;
   width: 100vw;
   position: relative;
   
@@ -135,6 +134,17 @@
     display: grid;
     gap: 4px;
     grid-template-columns: repeat(12, 1fr);
+
+    &.linear-bg {
+      background-image: linear-gradient(
+        #1B2120 60%,
+        #522A2A
+      );
+    }
+
+    &.red-bg {
+      background-color: #522A2A;
+    }
   
     .column {
       background: rgba(72, 91, 88, 0.15);
