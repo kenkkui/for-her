@@ -656,6 +656,61 @@ button {
   animation-range: 300px 900px;
 }
 
+#arrow-three {
+  position: absolute;
+  top: -70px;
+  left: 0;
+  translate: -100% -100%;
+}
+
+#content-4 {
+  height: 1024px;
+}
+#content-4 .text-column {
+  position: relative;
+}
+#content-4 .text-column:nth-child(1) {
+  grid-area: 1/7/2/12;
+}
+#content-4 .text-column:nth-child(1) p {
+  position: absolute;
+  top: 30%;
+  transform: translateY(-50%);
+  text-align: right;
+}
+#content-4 .text-column:nth-child(1) p img {
+  position: absolute;
+  top: 15px;
+  left: 60%;
+  translate: -50% -100%;
+}
+#content-4 .text-column:nth-child(1) p .oval-blur {
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 20px);
+  translate: -50% -50%;
+  height: 290px;
+  width: 500px;
+  background-color: #3dffa2;
+  opacity: 0.1;
+  border-radius: 50%;
+  filter: blur(40px);
+}
+#content-4 .text-column:nth-child(2) {
+  grid-area: 1/1/2/6;
+}
+#content-4 .text-column:nth-child(2) p {
+  position: absolute;
+  top: 70%;
+  transform: translateY(-50%);
+}
+#content-4 .text-column:nth-child(2) p img {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  translate: 100% -50%;
+}
+
 #music {
   position: absolute;
   top: 0;

@@ -4,6 +4,8 @@ import AudioPlayer from "./AudioPlayer";
 import BdayLetter from "./BdayLetter";
 import AngPogi from "../../assets/ang-pogi.png";
 import CatEvil from "../../assets/cat-evil-laugh.png";
+import AlienAwkward from "../../assets/alien-awkward.png";
+import SharkCry from "../../assets/shark-cry.png";
 
 interface ContentWrapperProps {
   setError: React.Dispatch<React.SetStateAction<string[]>>;
@@ -172,8 +174,39 @@ export default function ContentWrapper({ setError }: ContentWrapperProps) {
 
         <img id="cat-evil" src={CatEvil} alt="NYEHEHEHAH" />
       </ContentStructure>
-      <ContentStructure id="content-4">
-        <div className="section yes"></div>
+
+      <ContentStructure id="content-4" redBg>
+        <section className="text-column">
+          <p>
+            <svg
+              id="arrow-three"
+              width="420"
+              height="225"
+              viewBox="0 0 420 225"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2.51463 3C1.80627 37.1528 26.9217 63.4595 55.1096 77.4534C77.2859 88.4628 105.623 94.9474 130.323 91.1573C138.495 89.9034 150.858 85.0158 150.625 74.4159C150.355 62.0958 136.183 57.1882 126.508 58.8047C106.602 62.1306 92.6147 81.0944 86.176 99.7753C77.6062 124.64 90.9834 145.279 110.77 158.9C153.31 188.183 205.597 192.977 253.771 178.396C282.476 169.708 308.533 155.523 339.204 156.428C380.321 157.64 399.697 185.083 417.5 222"
+                stroke="#D6FFF8"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+            </svg>
+            <img src={AlienAwkward} alt="yeah..." />
+            I’ve actually been meaning to tell you that, i have developped some
+            sorta kinda small weenie itti bittie feelings for you.
+            <div className="oval-blur"></div>
+          </p>
+        </section>
+
+        <section className="text-column">
+          <p>
+            I didn’t know how to tell you that, especially that I’ll be leaving
+            the country, well i wont no more... and it’s already summer break.
+            <img src={SharkCry} alt=":(" />
+          </p>
+        </section>
       </ContentStructure>
     </section>
   );
