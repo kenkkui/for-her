@@ -83,13 +83,13 @@
 }
 
 .content-wrapper {
-  height: 1024px;
+  height: 100vh;
   width: 100vw;
   position: relative;
   
   .content-structure {
-    height: inherit;
-    width: inherit;
+    height: 100%;
+    width: 100%;
     padding: 0 100px;
     
     display: grid;
@@ -155,3 +155,4 @@
 
 @import "./Content-1";
 @import "./Content-2";
+@import "./Content-3";

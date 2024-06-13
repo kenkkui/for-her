@@ -40,7 +40,7 @@
           background-image: url("../assets/number-circle.svg");
           @include bgBoilerPlate();
     
-          animation: 6000ms steps(3) infinite animate-steps;
+          animation: 3000ms steps(3) infinite animate-steps;
         }
       }
     

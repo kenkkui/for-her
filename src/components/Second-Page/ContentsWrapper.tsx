@@ -2,6 +2,8 @@ import { useRef, useEffect } from "react";
 import ContentStructure from "./ContentSructure";
 import AudioPlayer from "./AudioPlayer";
 import BdayLetter from "./BdayLetter";
+import AngPogi from "../../assets/ang-pogi.png";
+import CatEvil from "../../assets/cat-evil-laugh.png";
 
 interface ContentWrapperProps {
   setError: React.Dispatch<React.SetStateAction<string[]>>;
@@ -149,7 +151,29 @@ export default function ContentWrapper({ setError }: ContentWrapperProps) {
       </ContentStructure>
 
       <ContentStructure id="content-3" redBg>
-        <section className="opportunity"></section>
+        <section className="opportunity-column">
+          <p>I also want to take the opportunity to tell you...</p>
+        </section>
+
+        <img id="pogi-png" src={AngPogi} alt="Yes" />
+
+        <section className="secondly-column">
+          <p className="text">
+            <p>WELL I am...</p>
+            <h6>
+              but secondly
+              <div id="number-two">
+                <div className="number"></div>
+                <div className="circle"></div>
+              </div>
+            </h6>
+          </p>
+        </section>
+
+        <img id="cat-evil" src={CatEvil} alt="NYEHEHEHAH" />
+      </ContentStructure>
+      <ContentStructure id="content-4">
+        <div className="section yes"></div>
       </ContentStructure>
     </section>
   );
