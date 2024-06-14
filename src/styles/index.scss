@@ -1,14 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 :root {
   --curtain: #1a1818;
   --main-bg: #cc8e7c;
 
-  --btn-red: #FF3131;
-  --btn-green: #98FB98;
+  --btn-red: #ff3131;
+  --btn-green: #98fb98;
 
-  --clr-light: #D6FFF8;
-  --clr-dark: #2B1E1C;
+  --clr-light: #d6fff8;
+  --clr-dark: #2b1e1c;
+
+  --clr-her: #f9cff4;
 
   // Font size
   --fs-500: 25.89px;
@@ -24,12 +26,20 @@
   margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: Poppins, sans-serif;
   font-size: 16px;
 
-  overflow-x: hidden;
   background-color: var(--main-bg);
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 ::selection {
@@ -94,8 +104,8 @@ button {
   // opacity: 0;
   transition-property: opacity;
   transition: 0.2s cubic-bezier(0.075, 0.82, 0.165, 0.8);
-  pointer-events:none;
-  
+  pointer-events: none;
+
   &.active {
     opacity: 1;
   }
@@ -115,8 +125,8 @@ button {
   display: flex;
   gap: 160px;
 
-
-  a, button {
+  a,
+  button {
     padding: 14px 32px;
     border-radius: 8px;
     background: var(--btn-red);
@@ -143,7 +153,7 @@ button {
   &.second {
     position: relative;
     padding: 24px;
-  
+
     @include flexCenter();
     flex-direction: column;
     gap: 24px;

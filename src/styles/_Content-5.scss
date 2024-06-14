@@ -1,0 +1,49 @@
+#content-5 {
+  height: 1024px;
+
+  .text-column {
+    position: relative;
+
+    &:nth-child(1) {
+      grid-area: 1 / 7 / 2 / 12;
+
+      & > div {
+        text-align: right;
+        position: absolute;
+        top: 50px;
+
+        img {
+          position: absolute;
+          top: 50%;
+          translate: -450px -50%;
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      grid-area: 1 / 2 / 2 / 6;
+
+      p {
+        position: absolute;
+        top: 50%;
+        translate: 0 -50%;
+      }
+    }
+
+    &:nth-child(3) {
+      grid-area: 1 / 9 / 2 / 12;
+
+      p {
+        position: absolute;
+        right: 0;
+        bottom: 120px;
+        text-align: right;
+
+        span {
+          color: var(--clr-her);
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

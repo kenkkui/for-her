@@ -44,7 +44,7 @@
     bottom: 100%;
   }
 
-  35% { 
+  35% {
     opacity: 1;
   }
 }
@@ -55,48 +55,53 @@
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 50%);
-    
+
   width: 2px;
   height: 160px;
-  background-image: linear-gradient(
-    #D6FFF8 10%,
-    #d6fff800
-  );
+  background-image: linear-gradient(#d6fff8 10%, #d6fff800);
 
   .scroll-indicator {
     position: absolute;
 
     aspect-ratio: 1 / 1;
     width: 8px;
-    background-color: #D6FFF8;
+    background-color: #d6fff8;
     border-radius: 50%;
     bottom: 100%;
     left: 50%;
     transform: translate(-50%, 0);
 
-    animation: 18000ms cubic-bezier(0.81,-0.27, 0.55, 1) infinite scroll-indicator;
+    animation: 18000ms cubic-bezier(0.81, -0.27, 0.55, 1) infinite
+      scroll-indicator;
   }
 }
 
 .contents-container {
-  height: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  bottom: 0;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .content-wrapper {
   height: 100vh;
   width: 100vw;
   position: relative;
-  
+
   .content-structure {
     height: 100%;
     width: 100%;
     padding: 0 100px;
-    
+
     display: grid;
     gap: 4px;
     grid-template-columns: repeat(12, 1fr);
     color: var(--clr-light);
-    
+
     .hidden {
       font-size: 16px;
       font-weight: 500;
@@ -104,7 +109,7 @@
       color: var(--clr-light);
       opacity: 75%;
     }
-  
+
     p {
       font-size: 16px;
       font-weight: 500;
@@ -122,38 +127,35 @@
       font-weight: 500;
     }
   }
-  
+
   .content-structure-background {
     z-index: -10;
     position: absolute;
     inset: 0;
-  
-    background-color: #1B2120;
+
+    background-color: #1b2120;
     padding: 0 100px;
-  
+
     display: grid;
     gap: 4px;
     grid-template-columns: repeat(12, 1fr);
 
     &.linear-bg {
-      background-image: linear-gradient(
-        #1B2120 60%,
-        #522A2A
-      );
+      background-image: linear-gradient(#1b2120 60%, #522a2a);
     }
 
     &.red-bg {
-      background-color: #522A2A;
+      background-color: #522a2a;
     }
-  
+
     .column {
       background: rgba(72, 91, 88, 0.15);
     }
   }
 }
 
-
 @import "./Content-1";
 @import "./Content-2";
 @import "./Content-3";
 @import "./Content-4";
+@import "./Content-5";
