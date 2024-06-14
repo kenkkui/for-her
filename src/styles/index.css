@@ -250,31 +250,7 @@ button {
     opacity: 1;
   }
 }
-.line-scroll {
-  z-index: 100;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, 50%);
-  width: 2px;
-  height: 160px;
-  background-image: linear-gradient(#d6fff8 10%, rgba(214, 255, 248, 0));
-}
-.line-scroll .scroll-indicator {
-  position: absolute;
-  aspect-ratio: 1/1;
-  width: 8px;
-  background-color: #d6fff8;
-  border-radius: 50%;
-  bottom: 100%;
-  left: 50%;
-  transform: translate(-50%, 0);
-  animation: 18000ms cubic-bezier(0.81, -0.27, 0.55, 1) infinite scroll-indicator;
-}
-
 .contents-container {
-  height: 100vh;
-  overflow-y: auto;
   overflow-x: hidden;
   bottom: 0;
 }
@@ -339,6 +315,27 @@ button {
   background: rgba(72, 91, 88, 0.15);
 }
 
+#content-1 .line-scroll {
+  z-index: 100;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  width: 2px;
+  height: 160px;
+  background-image: linear-gradient(#d6fff8 10%, rgba(214, 255, 248, 0));
+}
+#content-1 .line-scroll .scroll-indicator {
+  position: absolute;
+  aspect-ratio: 1/1;
+  width: 8px;
+  background-color: #d6fff8;
+  border-radius: 50%;
+  bottom: 100%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  animation: 18000ms cubic-bezier(0.81, -0.27, 0.55, 1) infinite scroll-indicator;
+}
 #content-1 .title-column {
   grid-area: 1/1/2/8;
 }
@@ -728,8 +725,29 @@ button {
   translate: 100% -50%;
 }
 
-#content-5 {
+.content-5-container {
+  height: 2560px;
+  width: 100vw;
+  position: relative;
+}
+.content-5-container > div[data-stick-prop] {
+  position: sticky;
+  top: 0;
   height: 1024px;
+  width: 100%;
+  opacity: 0.4;
+}
+
+.test {
+  position: sticky;
+  top: 0px;
+  height: 100px;
+  aspect-ratio: 1/1;
+  background-color: red;
+}
+
+#content-5 {
+  height: 100%;
 }
 #content-5 .text-column {
   position: relative;

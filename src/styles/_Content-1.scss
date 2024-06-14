@@ -1,4 +1,31 @@
 #content-1 {
+  .line-scroll {
+    z-index: 100;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+
+    width: 2px;
+    height: 160px;
+    background-image: linear-gradient(#d6fff8 10%, #d6fff800);
+
+    .scroll-indicator {
+      position: absolute;
+
+      aspect-ratio: 1 / 1;
+      width: 8px;
+      background-color: #d6fff8;
+      border-radius: 50%;
+      bottom: 100%;
+      left: 50%;
+      transform: translate(-50%, 0);
+
+      animation: 18000ms cubic-bezier(0.81, -0.27, 0.55, 1) infinite
+        scroll-indicator;
+    }
+  }
+
   .title-column {
     grid-area: 1 / 1 / 2 / 8;
 
@@ -6,11 +33,11 @@
       position: relative;
       left: 0;
       top: 100px;
-  
+
       h4 {
         display: inline-block;
         position: relative;
-  
+
         #exclamation {
           position: absolute;
           right: -72px;
@@ -20,7 +47,7 @@
           background-image: url("../assets/exclamation.svg");
           background-repeat: no-repeat;
           background-size: cover;
-  
+
           animation: 1500ms steps(2) infinite animate-steps;
         }
       }
@@ -29,10 +56,10 @@
         position: absolute;
         bottom: -8px;
         left: 80px;
-    
+
         span {
           position: relative;
-    
+
           #you-highlight {
             position: absolute;
             width: 51px;
@@ -40,7 +67,7 @@
             bottom: 4px;
             left: -14px;
             transform: translateY(100%);
-    
+
             path {
               animation: 1200ms cubic-bezier(0, 0.69, 1, 0.65) drawPath forwards;
             }
@@ -63,7 +90,7 @@
       width: 560px;
       text-wrap: wrap;
       text-align: right;
-  
+
       svg {
         position: absolute;
         top: 12px;
@@ -106,7 +133,7 @@
             top: 50%;
             transform: translateY(-30%);
             right: 4px;
-            
+
             background-image: url(../assets/arrows-kozmo.svg);
             background-size: cover;
             background-repeat: no-repeat;
@@ -133,10 +160,10 @@
   }
 
   .shark-column {
-    grid-area: 1 / 9 / 2 / 12 ;
+    grid-area: 1 / 9 / 2 / 12;
     z-index: 1100;
     position: relative;
-    
+
     #shark-boom {
       position: absolute;
       left: 0;

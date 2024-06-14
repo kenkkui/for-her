@@ -29,16 +29,16 @@ export default function ContentWrapper({ setError }: ContentWrapperProps) {
 
   function handleScroll() {
     const element = contentsRef.current as HTMLElement;
-
     const { scrollTop, scrollHeight, clientHeight } = element;
-
-    if (scrollTop + clientHeight >= scrollHeight) {
+    // Remove decimal for scrolltop, and minus one px for scroll height for some reason, i dont undertsand but if it work -- dont touch it
+    if (Math.trunc(scrollTop) + clientHeight === scrollHeight - 1) {
       console.log("sa bottom na ako");
     }
   }
 
   return (
     <section className="contents-container" ref={contentsRef}>
+      <div className="test"></div>
       <ContentStructure1 setError={setError} />
       <ContentStructure2 />
       <ContentStructure3 />

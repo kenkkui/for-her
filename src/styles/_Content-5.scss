@@ -1,5 +1,27 @@
+.content-5-container {
+  height: 2560px;
+  width: 100vw;
+  position: relative;
+
+  & > div[data-stick-prop] {
+    position: sticky;
+    top: 0;
+    height: 1024px;
+    width: 100%;
+    opacity: 0.4;
+  }
+}
+
+.test {
+  position: sticky;
+  top: 0px;
+  height: 100px;
+  aspect-ratio: 1 / 1;
+  background-color: red;
+}
+
 #content-5 {
-  height: 1024px;
+  height: 100%;
 
   .text-column {
     position: relative;

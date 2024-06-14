@@ -49,36 +49,7 @@
   }
 }
 
-.line-scroll {
-  z-index: 100;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, 50%);
-
-  width: 2px;
-  height: 160px;
-  background-image: linear-gradient(#d6fff8 10%, #d6fff800);
-
-  .scroll-indicator {
-    position: absolute;
-
-    aspect-ratio: 1 / 1;
-    width: 8px;
-    background-color: #d6fff8;
-    border-radius: 50%;
-    bottom: 100%;
-    left: 50%;
-    transform: translate(-50%, 0);
-
-    animation: 18000ms cubic-bezier(0.81, -0.27, 0.55, 1) infinite
-      scroll-indicator;
-  }
-}
-
 .contents-container {
-  height: 100vh;
-  overflow-y: auto;
   overflow-x: hidden;
   bottom: 0;
 
