@@ -5,6 +5,7 @@ interface ContentSructureProps {
   id: string;
   linearBg?: boolean;
   redBg?: boolean;
+  beigeBg?: boolean;
 }
 
 // Do not change var below
@@ -15,6 +16,7 @@ export default function ContentStructure({
   id,
   linearBg,
   redBg,
+  beigeBg,
 }: ContentSructureProps) {
   const columns = Array.from({ length: columnsNum }, (_, i) => {
     return <div className="column" key={i}></div>;
@@ -27,7 +29,7 @@ export default function ContentStructure({
       <section
         className={`content-structure-background ${
           linearBg ? "linear-bg" : ""
-        } ${redBg ? "red-bg" : ""}`}
+        } ${redBg ? "red-bg" : ""} ${beigeBg ? "beige-bg" : ""}`}
       >
         {columns}
       </section>

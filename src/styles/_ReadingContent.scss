@@ -118,6 +118,14 @@
       background-color: #522a2a;
     }
 
+    &.beige-bg {
+      background-image: linear-gradient(#64443b, #a87465);
+
+      .column {
+        opacity: 0;
+      }
+    }
+
     .column {
       background: rgba(72, 91, 88, 0.15);
     }
@@ -129,3 +137,4 @@
 @import "./Content-3";
 @import "./Content-4";
 @import "./Content-5";
+@import "./Flower-content";
