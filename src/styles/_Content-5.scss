@@ -1,27 +1,13 @@
 .content-5-container {
-  height: 2560px;
-  width: 100vw;
-  position: relative;
-
-  & > div[data-stick-prop] {
-    position: sticky;
-    top: 0;
-    height: 1024px;
-    width: 100%;
-    opacity: 0.4;
-  }
-}
-
-.test {
-  position: sticky;
-  top: 0px;
-  height: 100px;
-  aspect-ratio: 1 / 1;
-  background-color: red;
+  height: calc(1024px * 4);
+  width: 100%;
 }
 
 #content-5 {
-  height: 100%;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
 
   .text-column {
     position: relative;
@@ -47,7 +33,7 @@
 
       p {
         position: absolute;
-        top: 50%;
+        top: 60%;
         translate: 0 -50%;
       }
     }
@@ -58,7 +44,7 @@
       p {
         position: absolute;
         right: 0;
-        bottom: 120px;
+        bottom: 12%;
         text-align: right;
 
         span {

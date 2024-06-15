@@ -32,7 +32,6 @@ export default function SecondPage() {
     <section className={`second-page ${!loading ? "active" : null}`}>
       <Curtain error={error} />
       <ContentWrapper setError={setError} />
-      <section style={{ width: "100vw", height: "100vh" }}></section>
       {/* <Flower setLoading={setLoading} /> */}
     </section>
   );

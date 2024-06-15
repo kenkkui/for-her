@@ -37,13 +37,14 @@ export default function ContentWrapper({ setError }: ContentWrapperProps) {
   }
 
   return (
-    <section className="contents-container" ref={contentsRef}>
-      <div className="test"></div>
-      <ContentStructure1 setError={setError} />
-      <ContentStructure2 />
-      <ContentStructure3 />
-      <ContentStructure4 />
-      <ContentStructure5 />
-    </section>
+    <>
+      <section className="contents-container" ref={contentsRef}>
+        <ContentStructure1 setError={setError} />
+        <ContentStructure2 />
+        <ContentStructure3 />
+        <ContentStructure4 />
+        <ContentStructure5 />
+      </section>
+    </>
   );
 }
