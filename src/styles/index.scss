@@ -8,11 +8,12 @@
   --btn-green: #98fb98;
 
   --clr-light: #d6fff8;
-  --clr-dark: #2b1e1c;
+  --clr-dark: #150f0f;
 
   --clr-her: #f9cff4;
 
   // Font size
+  --fs-400: 16px;
   --fs-500: 25.89px;
   --fs-600: 41.89px;
   --fs-700: 67.77px;
@@ -32,7 +33,7 @@ html {
 
 body {
   font-family: Poppins, sans-serif;
-  font-size: 16px;
+  font-size: var(--fs-400);
 
   background-color: var(--main-bg);
   overflow-x: hidden;

@@ -5,8 +5,9 @@
   --btn-red: #ff3131;
   --btn-green: #98fb98;
   --clr-light: #d6fff8;
-  --clr-dark: #2b1e1c;
+  --clr-dark: #150f0f;
   --clr-her: #f9cff4;
+  --fs-400: 16px;
   --fs-500: 25.89px;
   --fs-600: 41.89px;
   --fs-700: 67.77px;
@@ -26,7 +27,7 @@ html {
 
 body {
   font-family: Poppins, sans-serif;
-  font-size: 16px;
+  font-size: var(--fs-400);
   background-color: var(--main-bg);
   overflow-x: hidden;
 }
@@ -690,11 +691,17 @@ button {
 }
 
 .content-5-container {
-  height: 4096px;
+  height: 3072px;
   width: 100%;
 }
 
+.white-space {
+  width: 100%;
+  height: 50vh;
+}
+
 #content-5 {
+  position: sticky;
   top: 0;
   height: 100vh;
   width: 100vw;
@@ -737,6 +744,23 @@ button {
   text-decoration: underline;
 }
 
+.flower-container {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 1000;
+}
+.flower-container .white-space {
+  background: #a87465;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flower-container .white-space::after {
+  content: "*insert whitespace (empty space)*";
+  color: var(--clr-light);
+}
+
 #flower-content {
   height: 1024px;
 }
@@ -755,6 +779,7 @@ button {
 }
 #flower-content .cat-flower-column #flower-cat .flower-text-one {
   letter-spacing: 6px;
+  text-transform: capitalize;
   position: absolute;
   top: -20px;
   left: -24px;
@@ -785,47 +810,121 @@ button {
   background-repeat: no-repeat;
   animation: 1500ms steps(3) infinite animate-steps;
 }
+#flower-content .cat-flower-column #flower-cat .text-container .scroll-button {
+  position: absolute;
+  left: 50px;
+  bottom: -50%;
+  translate: -100% 200%;
+  padding: 8px 56px;
+  border-radius: 6px;
+  background-color: #31253a;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--clr-light);
+  letter-spacing: 2px;
+  text-wrap: nowrap;
+  cursor: pointer;
+  transition: 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition-property: scale;
+}
+#flower-content .cat-flower-column #flower-cat .text-container .scroll-button::after {
+  content: "Click, for the better experience or maybe not and just scroll";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+#flower-content .cat-flower-column #flower-cat .text-container .scroll-button::before {
+  content: "";
+  height: 100%;
+  width: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--clr-light);
+  border-radius: 6px;
+  transition: 0.6s cubic-bezier(0.075, 0.82, 0.165, 1) width;
+}
+#flower-content .cat-flower-column #flower-cat .text-container .scroll-button:hover {
+  scale: 1.03;
+  color: var(--clr-dark);
+}
+#flower-content .cat-flower-column #flower-cat .text-container .scroll-button:hover::before {
+  width: 100%;
+}
 
-.flower-page {
+#flower-page {
   background: #a87465;
   position: relative;
   width: 100vw;
   height: 100vh;
 }
-.flower-page #spline-flower {
+#flower-page #spline-flower {
+  position: relative;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.flower-page #spline-flower canvas {
+#flower-page #spline-flower canvas {
   cursor: grab;
 }
-.flower-page #spline-flower canvas:active {
+#flower-page #spline-flower canvas:active {
   cursor: grabbing;
 }
-.flower-page .text-wrapper {
+#flower-page .text-container {
   z-index: 100;
   position: absolute;
-  top: 100px;
-  left: 100px;
 }
-.flower-page .text-wrapper p {
+#flower-page .text-container p {
+  color: var(--clr-dark);
+  font-weight: 500;
+}
+#flower-page .text-container:nth-child(1) {
+  bottom: 25%;
+  right: 5%;
+  translate: -50% -50%;
+}
+#flower-page .text-container:nth-child(1) p {
+  text-align: right;
   opacity: 0;
-  filter: blur(12px);
-  transform: translateX(-100%);
-  transition: 1000ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  filter: blur(8px);
+  transform: translateX(100%);
+  transition: 1800ms cubic-bezier(0.075, 0.82, 0.165, 1);
   transition-property: opacity, filter, transform;
 }
-.flower-page .text-wrapper.active p {
+#flower-page .text-container:nth-child(1).active p {
   opacity: 1;
   filter: none;
   transform: translateX(0);
 }
-.flower-page .text-wrapper.active p:nth-child(2) {
+#flower-page .text-container:nth-child(1).active p:nth-child(2) {
   transition-delay: 100ms;
 }
-.flower-page .text-wrapper.active p:nth-child(3) {
+#flower-page .text-container:nth-child(1).active p:nth-child(3) {
   transition-delay: 150ms;
+}
+#flower-page .text-container:nth-child(2) {
+  left: 50%;
+  top: 15%;
+  translate: -50% -50%;
+}
+#flower-page .text-container:nth-child(2).active p {
+  transform: translateY(0);
+}
+#flower-page .text-container:nth-child(2) p {
+  letter-spacing: 3px;
+  transform: translateY(40px);
+  transition: 1500ms cubic-bezier(0.075, 0.82, 0.165, 1) 200ms transform;
+}
+#flower-page .text-container:nth-child(2)::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  bottom: 0;
+  translate: 0 100%;
+  background-color: #a87465;
 }
 
 #music {

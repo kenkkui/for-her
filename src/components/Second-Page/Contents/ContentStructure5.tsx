@@ -1,8 +1,15 @@
 import ContentStructure from "../ContentSructure";
 import TextColumns from "../TextColumns";
 import PusheenCool from "../../../assets/pusheen-cool.png";
+import FlowerContainer from "../FlowerContainer";
 
-export default function ContentStructure5() {
+interface ContentStructure5Props {
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export default function ContentStructure5({
+  setLoading,
+}: ContentStructure5Props) {
   return (
     <section className="content-5-container">
       <ContentStructure id="content-5" redBg>
@@ -36,6 +43,12 @@ export default function ContentStructure5() {
           </p>
         </TextColumns>
       </ContentStructure>
+
+      <aside className="white-space"></aside>
+
+      <section className="flower-container">
+        <FlowerContainer setLoading={setLoading} />
+      </section>
     </section>
   );
 }
