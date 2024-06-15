@@ -30,9 +30,14 @@ body {
   background-color: var(--main-bg);
   overflow-x: hidden;
 }
+body::-webkit-scrollbar {
+  display: none;
+}
+
 ::-moz-selection {
   background-color: #141818;
 }
+
 ::selection {
   background-color: #141818;
 }
