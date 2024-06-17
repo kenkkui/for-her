@@ -3,12 +3,18 @@ import { useInView } from "react-intersection-observer";
 import { useState, useEffect, useRef } from "react";
 
 interface FlowerProps {
+  loading: boolean;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   setMouseOverFlower: React.Dispatch<React.SetStateAction<boolean>>;
   forwardedRef: React.RefObject<HTMLElement>;
 }
 
-function Flower({ setLoading, forwardedRef, setMouseOverFlower }: FlowerProps) {
+function Flower({
+  setLoading,
+  forwardedRef,
+  setMouseOverFlower,
+  loading,
+}: FlowerProps) {
   const { ref: text1Ref, inView: text1Visible } = useInView();
   const [text1State, setText1State] = useState(false);
   const flowerRef = useRef<HTMLDivElement | null>(null);
@@ -77,12 +83,14 @@ function Flower({ setLoading, forwardedRef, setMouseOverFlower }: FlowerProps) {
         <p>okay here are the actual flowers for you</p>
       </div>
 
-      <Spline
-        ref={flowerRef}
-        id="spline-flower"
-        scene="https://prod.spline.design/o3v1HPnOwXUx88B6/scene.splinecode"
-        onLoad={loadingDone}
-      />
+      {!loading && (
+        <Spline
+          ref={flowerRef}
+          id="spline-flower"
+          scene="https://prod.spline.design/o3v1HPnOwXUx88B6/scene.splinecode"
+          onLoad={loadingDone}
+        />
+      )}
     </section>
   );
 }

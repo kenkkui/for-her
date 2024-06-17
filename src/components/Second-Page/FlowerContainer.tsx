@@ -6,6 +6,7 @@ import Flower from "./Flower";
 const textFlowerOne = "Flower for you";
 
 interface FlowerContainerProps {
+  loading: boolean;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   setMouseOverScrollBtn: React.Dispatch<React.SetStateAction<boolean>>;
   setMouseOverFlower: React.Dispatch<React.SetStateAction<boolean>>;
@@ -15,6 +16,7 @@ export default function FlowerContainer({
   setLoading,
   setMouseOverScrollBtn,
   setMouseOverFlower,
+  loading,
 }: FlowerContainerProps) {
   const flowerPageRef = useRef<HTMLElement | null>(null);
 
@@ -55,6 +57,7 @@ export default function FlowerContainer({
       <div className="white-space"></div>
 
       <Flower
+        loading={loading}
         setLoading={setLoading}
         forwardedRef={flowerPageRef}
         setMouseOverFlower={setMouseOverFlower}

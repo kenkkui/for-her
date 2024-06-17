@@ -6,6 +6,7 @@ import ArrowFive from "../../Svg-components/ArrowFive";
 import ContinueSvg from "../../Svg-components/ContinueSvg";
 
 interface ContentStructure5Props {
+  loading: boolean;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   setMouseOverScrollBtn: React.Dispatch<React.SetStateAction<boolean>>;
   setMouseOverFlower: React.Dispatch<React.SetStateAction<boolean>>;
@@ -15,6 +16,7 @@ export default function ContentStructure5({
   setLoading,
   setMouseOverScrollBtn,
   setMouseOverFlower,
+  loading,
 }: ContentStructure5Props) {
   return (
     <section className="content-5-container">
@@ -59,6 +61,7 @@ export default function ContentStructure5({
 
       <section className="flower-container">
         <FlowerContainer
+          loading={loading}
           setMouseOverFlower={setMouseOverFlower}
           setLoading={setLoading}
           setMouseOverScrollBtn={setMouseOverScrollBtn}

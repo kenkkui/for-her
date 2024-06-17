@@ -71,6 +71,7 @@ export default function SecondPage() {
       <Curtain error={error} loading={loading} curtainUp={curtainUp} />
 
       <ContentWrapper
+        loading={loading}
         setError={setError}
         setLoading={setLoading}
         setMouseOverMusic={setMouseOverMusic}

@@ -5,6 +5,7 @@ import ContentStructure4 from "./Contents/ContentStructure4";
 import ContentStructure5 from "./Contents/ContentStructure5";
 
 interface ContentWrapperProps {
+  loading: boolean;
   setError: React.Dispatch<React.SetStateAction<string[]>>;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   setMouseOverMusic: React.Dispatch<React.SetStateAction<boolean>>;
@@ -18,6 +19,7 @@ export default function ContentWrapper({
   setMouseOverMusic,
   setMouseOverScrollBtn,
   setMouseOverFlower,
+  loading,
 }: ContentWrapperProps) {
   return (
     <>
@@ -30,6 +32,7 @@ export default function ContentWrapper({
         <ContentStructure3 />
         <ContentStructure4 />
         <ContentStructure5
+          loading={loading}
           setLoading={setLoading}
           setMouseOverScrollBtn={setMouseOverScrollBtn}
           setMouseOverFlower={setMouseOverFlower}

@@ -15,16 +15,16 @@ export default function AudioPlayer({
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  // useEffect(() => {
-  //   if (audioRef.current) {
-  //     audioRef.current
-  //       .play()
-  //       .then(() => setIsPlaying(true))
-  //       .catch((error) => {
-  //         setError((prev) => [...prev, error.message]);
-  //       });
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current
+        .play()
+        .then(() => setIsPlaying(true))
+        .catch((error) => {
+          setError((prev) => [...prev, error.message]);
+        });
+    }
+  }, []);
 
   useEffect(() => {
     if (audioRef.current) {
