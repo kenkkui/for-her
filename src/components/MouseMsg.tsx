@@ -17,7 +17,7 @@ export default function MouseMsg({ mouseOut, actionBtnMouseOver }: MouseProps) {
 
   useEffect(() => {
     const handlePointerMove = (e: PointerEvent) => {
-      const { clientX: x, clientY: y } = e;
+      const { pageX: x, pageY: y } = e;
 
       if (element.current) {
         element.current.animate(
