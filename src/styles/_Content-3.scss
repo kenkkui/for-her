@@ -29,11 +29,11 @@
   .secondly-column {
     position: relative;
     height: 100%;
-    grid-area: 1 / 2 / 2 / 4; 
+    grid-area: 1 / 2 / 2 / 4;
     .text {
       position: absolute;
       bottom: 42px;
-      
+
       h6 {
         line-height: 200%;
         position: relative;
@@ -60,10 +60,10 @@
             position: absolute;
             width: 100%;
             height: 100%;
-      
+
             background-image: url("../assets/number-circle.svg");
             @include bgBoilerPlate();
-      
+
             animation: 3000ms steps(3) infinite animate-steps;
           }
         }
@@ -71,12 +71,18 @@
     }
   }
 
-  img#cat-evil {
-    position: absolute;
-    top: 60%;
+  .cat-evil-column {
+    grid-area: 1 / 1 / 2 / 13;
+    position: relative;
 
-    animation: evil-cat-visible cubic-bezier(0.63, 0.14, 0.14, 0.63);
-    animation-timeline: view();
-    animation-range: 300px 900px;
+    #cat-evil {
+      position: absolute;
+      top: 60%;
+      left: 0;
+
+      animation: evil-cat-visible ease-in-out;
+      animation-timeline: view();
+      animation-range: block 900px;
+    }
   }
 }

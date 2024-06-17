@@ -33,8 +33,31 @@ export default function SecondPage() {
   const [mouseOverScrollBtn, setMouseOverScrollBtn] = useState(false);
   const [mouseOverFlower, setMouseOverFlower] = useState(false);
 
+  const [curtainUp, setCurtainUp] = useState(false);
+  const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {
+    if (!loading) {
+      window.setTimeout(() => {
+        setCurtainUp(true);
+      }, 7350);
+    }
+  }, [loading]);
+
+  useEffect(() => {
+    if (curtainUp) {
+      setTimeout(() => {
+        setIsActive(true);
+      }, 400);
+    }
+  }, [curtainUp]);
+
   return (
-    <section className={`second-page ${!loading ? "page-loaded" : ""}`}>
+    <section
+      className={`second-page ${!loading ? "page-loaded" : ""} ${
+        isActive ? "active" : ""
+      }`}
+    >
       <section className="mouse-msg-container">
         <div className="mouse-msg-limit">
           <MouseMsg
@@ -45,7 +68,7 @@ export default function SecondPage() {
         </div>
       </section>
 
-      <Curtain error={error} loading={loading} />
+      <Curtain error={error} loading={loading} curtainUp={curtainUp} />
 
       <ContentWrapper
         setError={setError}

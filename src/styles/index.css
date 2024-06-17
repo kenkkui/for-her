@@ -97,7 +97,7 @@ button {
   padding: 14px 32px;
   border-radius: 8px;
   background: var(--btn-red);
-  color: white;
+  color: #ffffff;
   transition: 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
   cursor: pointer;
   filter: drop-shadow(2px 2px 12px rgba(31, 31, 31, 0.2));
@@ -270,6 +270,21 @@ button {
   --bg: #0d0c0c;
   height: 100%;
   width: 100vw;
+}
+.second-page.active #arrow-kozmo path {
+  animation: 1000ms cubic-bezier(0.205, 0.6, 0.165, 0.9) forwards drawPath;
+}
+.second-page.active #arrow-kozmo path:nth-child(2) {
+  animation: 800ms ease-out 1000ms forwards drawPath;
+}
+.second-page.active #you-highlight path {
+  animation: 800ms ease-out drawPath forwards;
+}
+.second-page.active #woah-frame {
+  animation: 1500ms steps(2) infinite animate-steps;
+}
+.second-page.active #exclamation {
+  animation: 1500ms steps(2) infinite animate-steps;
 }
 .second-page .curtain {
   display: flex;
@@ -459,7 +474,6 @@ button {
   background-image: url("../assets/exclamation.svg");
   background-repeat: no-repeat;
   background-size: cover;
-  animation: 1500ms steps(2) infinite animate-steps;
 }
 #content-1 .title-column .title-container .subtitle {
   position: absolute;
@@ -476,9 +490,6 @@ button {
   bottom: 4px;
   left: -14px;
   transform: translateY(100%);
-}
-#content-1 .title-column .title-container .subtitle span #you-highlight path {
-  animation: 1200ms cubic-bezier(0, 0.69, 1, 0.65) drawPath forwards;
 }
 #content-1 .text-column {
   grid-area: 1/8/2/13;
@@ -532,9 +543,6 @@ button {
   transform: translateY(-30%);
   right: 4px;
 }
-#content-1 .cat-column .cat .hidden span #arrow-kozmo path {
-  animation: 1000ms cubic-bezier(0.205, 0.6, 0.165, 0.9) drawPath infinite;
-}
 #content-1 .cat-column .cat .hidden span #kozmo-encircle {
   position: absolute;
   pointer-events: none;
@@ -569,7 +577,6 @@ button {
   width: 125px;
   aspect-ratio: 1/1;
   background-image: url(../assets/woah-frame.svg);
-  animation: 3000ms steps(2) infinite animate-steps;
 }
 
 #content-2 {
@@ -589,8 +596,8 @@ button {
   right: 15px;
   z-index: 10000;
 }
-#content-2 .arrow-two-column #arrow-two path {
-  animation: 800ms cubic-bezier(0.39, 0.575, 0.565, 1) drawPath forwards infinite;
+#content-2 .arrow-two-column #arrow-two.in-view path {
+  animation: 800ms cubic-bezier(0.39, 0.575, 0.365, 1) forwards drawPath;
 }
 #content-2 .arrow-two-column p {
   position: absolute;
@@ -639,8 +646,11 @@ button {
   top: -60px;
   transform: translate(100%, 0);
 }
-#content-2 .title-column h6 #arrow-one path {
-  animation: 1400ms cubic-bezier(0.205, 0.6, 0.165, 0.8) drawPath forwards infinite;
+#content-2 .title-column h6 #arrow-one.in-view path {
+  animation: 1200ms cubic-bezier(0.205, 0.6, 0.165, 0.8) drawPath forwards;
+}
+#content-2 .title-column h6 #arrow-one.in-view path:nth-child(2) {
+  animation: 400ms ease-out 1000ms drawPath forwards;
 }
 #content-2 .bday-column {
   position: relative;
@@ -778,12 +788,17 @@ button {
   background-size: cover;
   animation: 3000ms steps(3) infinite animate-steps;
 }
-#content-3 img#cat-evil {
+#content-3 .cat-evil-column {
+  grid-area: 1/1/2/13;
+  position: relative;
+}
+#content-3 .cat-evil-column #cat-evil {
   position: absolute;
   top: 60%;
-  animation: evil-cat-visible cubic-bezier(0.63, 0.14, 0.14, 0.63);
+  left: 0;
+  animation: evil-cat-visible ease-in-out;
   animation-timeline: view();
-  animation-range: 300px 900px;
+  animation-range: block 900px;
 }
 
 #arrow-three {
@@ -792,8 +807,8 @@ button {
   left: 0;
   translate: -100% -100%;
 }
-#arrow-three path {
-  animation: 1400ms ease-out drawPath forwards infinite;
+#arrow-three.in-view path {
+  animation: 1200ms ease-out forwards drawPath;
 }
 
 #content-4 {
@@ -864,16 +879,16 @@ button {
   grid-area: 1/1/2/4;
   position: relative;
 }
-#content-5 .continue-column #arrow-five {
+#content-5 .continue-column .arrow-five-container {
   position: absolute;
   bottom: 10px;
   left: 80%;
 }
-#content-5 .continue-column #arrow-five path {
-  animation: 1000ms cubic-bezier(0.205, 0.6, 0.165, 0.9) drawPath infinite;
+#content-5 .continue-column .arrow-five-container #arrow-five.in-view path {
+  animation: 1000ms cubic-bezier(0.205, 0.6, 0.165, 0.9) forwards drawPath;
 }
-#content-5 .continue-column #arrow-five path:nth-child(2) {
-  animation: 1400ms ease-out 600ms infinite forwards drawPath;
+#content-5 .continue-column .arrow-five-container #arrow-five.in-view path:nth-child(2) {
+  animation: 1400ms ease-out 400ms drawPath forwards;
 }
 #content-5 .continue-column #continue-svg {
   position: absolute;
@@ -926,13 +941,14 @@ button {
 }
 .flower-container .white-space {
   background: #a87465;
+  height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .flower-container .white-space::after {
-  content: "*insert whitespace* (empty space -- cuz ik u dont know what white space is 😝)";
-  color: var(--clr-light);
+  content: "*insert whitespace* (empty space - cuz ik u dont know what it is 😝)";
+  color: var(--clr-dark);
 }
 
 #flower-content {

@@ -16,9 +16,10 @@
       right: 15px;
       z-index: 10000;
 
-      path {
-        animation: 800ms cubic-bezier(0.39, 0.575, 0.565, 1) drawPath forwards
-          infinite;
+      &.in-view {
+        path {
+          animation: 800ms cubic-bezier(0.39, 0.575, 0.365, 1) forwards drawPath;
+        }
       }
     }
 
@@ -75,9 +76,15 @@
         top: -60px;
         transform: translate(100%, 0);
 
-        path {
-          animation: 1400ms cubic-bezier(0.205, 0.6, 0.165, 0.8) drawPath
-            forwards infinite;
+        &.in-view {
+          path {
+            animation: 1200ms cubic-bezier(0.205, 0.6, 0.165, 0.8) drawPath
+              forwards;
+
+            &:nth-child(2) {
+              animation: 400ms ease-out 1000ms drawPath forwards;
+            }
+          }
         }
       }
     }

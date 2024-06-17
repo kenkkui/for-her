@@ -6,11 +6,12 @@
 
   .white-space {
     background: #a87465;
+    height: 50vh;
     @include flexCenter();
 
     &::after {
-      content: "*insert whitespace* (empty space -- cuz ik u dont know what white space is 😝)";
-      color: var(--clr-light);
+      content: "*insert whitespace* (empty space - cuz ik u dont know what it is 😝)";
+      color: var(--clr-dark);
     }
   }
 }
