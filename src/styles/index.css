@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 :root {
   --curtain: #1a1818;
@@ -78,23 +79,6 @@ button {
   font: inherit;
 }
 
-.mouse-leave-msg {
-  position: absolute;
-  z-index: 1000;
-  padding: 3px 12px;
-  background: rgb(98, 171, 117);
-  border-radius: 4px;
-  font-family: consolas, monospace;
-  font-size: 14px;
-  filter: drop-shadow(2px 2px 24px rgba(29, 28, 28, 0.2));
-  transition-property: opacity;
-  transition: 0.2s cubic-bezier(0.075, 0.82, 0.165, 0.8);
-  pointer-events: none;
-}
-.mouse-leave-msg.active {
-  opacity: 1;
-}
-
 .main-content {
   display: flex;
   flex-direction: column;
@@ -138,6 +122,60 @@ button {
   justify-content: center;
   flex-direction: column;
   gap: 24px;
+}
+
+@keyframes animate-text {
+  to {
+    opacity: 1;
+    filter: none;
+  }
+}
+.mouse-leave-msg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 100;
+  height: 16px;
+  width: 16px;
+  border-radius: 8px;
+  font-family: consolas, monospace;
+  font-size: 14px;
+  background: rgb(160, 120, 70);
+  filter: drop-shadow(2px 2px 24px rgba(29, 28, 28, 0.2));
+  pointer-events: none;
+  transition: 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.mouse-leave-msg .mouse-msg {
+  text-wrap: nowrap;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  opacity: 0;
+  filter: blur(6px);
+  transition: 600ms cubic-bezier(0.075, 0.82, 0.165, 1) 100ms;
+  transition-property: opacity, filter;
+}
+.mouse-leave-msg.mouse-out {
+  border-radius: 6px;
+  padding: 6px 16px;
+  width: 340px;
+  height: 24px;
+}
+.mouse-leave-msg.mouse-out .mouse-msg {
+  opacity: 1;
+  filter: none;
+}
+.mouse-leave-msg.idle {
+  border-radius: 6px;
+  padding: 6px 16px;
+  width: 220px;
+  height: 24px;
+}
+.mouse-leave-msg.idle .mouse-msg {
+  opacity: 1;
+  filter: none;
 }
 
 @keyframes opacity {
@@ -757,7 +795,7 @@ button {
   justify-content: center;
 }
 .flower-container .white-space::after {
-  content: "*insert whitespace (empty space)*";
+  content: "*insert whitespace* (empty space -- cuz ik u dont know what white space is 😝)";
   color: var(--clr-light);
 }
 

@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import Flower from "./Flower";
 import Curtain from "./Curtain";
 import ContentWrapper from "./ContentsWrapper";
 

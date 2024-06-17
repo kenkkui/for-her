@@ -91,27 +91,6 @@ button {
   font: inherit;
 }
 
-.mouse-leave-msg {
-  position: absolute;
-  z-index: 1000;
-  padding: 3px 12px;
-  background: rgb(98, 171, 117);
-  border-radius: 4px;
-
-  font-family: consolas, monospace;
-  font-size: 14px;
-
-  filter: drop-shadow(2px 2px 24px rgba(29, 28, 28, 0.2));
-  // opacity: 0;
-  transition-property: opacity;
-  transition: 0.2s cubic-bezier(0.075, 0.82, 0.165, 0.8);
-  pointer-events: none;
-
-  &.active {
-    opacity: 1;
-  }
-}
-
 .main-content {
   display: flex;
   flex-direction: column;
@@ -161,5 +140,6 @@ button {
   }
 }
 
+@import "./MouseCursor";
 @import "./SecondPage";
 @import "./AudioPlayer";

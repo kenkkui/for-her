@@ -10,7 +10,7 @@ const gifs = [
 ];
 
 const messages = [
-  { message: "Is this Kara? :)", duration: 2200 },
+  { message: "", duration: 2200 },
   { message: ">:(", duration: 1800 },
   {
     message: "OFC IT IS, I WONT BE GIVING THIS TO ANYONE ELSE BUTT YOU🤬",
@@ -54,19 +54,13 @@ export default function FirstPage() {
     setIsPressed(true);
   }
 
-  function handleMouseLeave() {
-    setTimeout(() => {
-      setMouseOut(true);
-    }, 400);
-  }
-
   return (
     <>
       <MouseLeaveMsg mouseOut={mouseOut} />
 
       <section
         className="content first"
-        onMouseLeave={handleMouseLeave}
+        onMouseLeave={() => setMouseOut(true)}
         onMouseEnter={() => setMouseOut(false)}
       >
         <MainContent src={gifs[currentImage]} alt="cutie">

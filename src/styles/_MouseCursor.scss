@@ -1,0 +1,70 @@
+@keyframes animate-text {
+  to {
+    opacity: 1;
+    filter: none;
+  }
+}
+
+.mouse-leave-msg {
+  @include flexCenter();
+  position: absolute;
+  z-index: 100;
+  height: 16px;
+  width: 16px;
+  border-radius: 8px;
+
+  font-family: consolas, monospace;
+  font-size: 14px;
+
+  background: rgb(160, 120, 70);
+  filter: drop-shadow(2px 2px 24px rgba(29, 28, 28, 0.2));
+  pointer-events: none;
+
+  transition: 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  @mixin common-styles {
+    border-radius: 6px;
+    padding: 6px 16px;
+  }
+
+  @mixin pseudo-styles {
+    opacity: 0;
+    filter: blur(8px);
+  }
+
+  .mouse-msg {
+    text-wrap: nowrap;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+
+    opacity: 0;
+    filter: blur(6px);
+
+    transition: 600ms cubic-bezier(0.075, 0.82, 0.165, 1) 100ms;
+    transition-property: opacity, filter;
+  }
+
+  &.mouse-out {
+    @include common-styles();
+    width: 340px;
+    height: 24px;
+
+    .mouse-msg {
+      opacity: 1;
+      filter: none;
+    }
+  }
+
+  &.idle {
+    @include common-styles();
+    width: 220px;
+    height: 24px;
+
+    .mouse-msg {
+      opacity: 1;
+      filter: none;
+    }
+  }
+}

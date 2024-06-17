@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { SyntheticEvent, useEffect, useRef, useState } from "react";
 
 const idleTime = 2400;
 interface MouseProps {
@@ -6,9 +6,9 @@ interface MouseProps {
 }
 
 export default function MouseLeaveMsg({ mouseOut }: MouseProps) {
-  const [isActive, setIsActive] = useState([]);
   const [idle, setIdle] = useState(false);
   const element = useRef<HTMLDivElement | null>(null);
+  const mouseMsgRef = useRef<HTMLDivElement | null>(null);
   const timeoutRef = useRef<number | null>(null);
 
   useEffect(() => {
@@ -22,7 +22,8 @@ export default function MouseLeaveMsg({ mouseOut }: MouseProps) {
             top: `${y - 30}px`,
           },
           {
-            duration: 480,
+            easing: "ease-out",
+            duration: 1200,
             fill: "forwards",
           }
         );
@@ -49,12 +50,28 @@ export default function MouseLeaveMsg({ mouseOut }: MouseProps) {
     };
   }, []);
 
+  useEffect(() => {
+    const text = mouseMsgRef.current;
+
+    if (text) {
+      if (!mouseOut && !idle) {
+        text.innerHTML = "";
+      } else if (mouseOut) {
+        text.innerHTML = "Hey where do you think you're going >:(";
+      } else if (idle) {
+        text.innerHTML = "Hey why did you leave :(";
+      }
+    }
+  }, [mouseOut, idle]);
+
   return (
     <div
-      className={`mouse-leave-msg ${mouseOut || idle ? "active" : ""}`}
+      className={`mouse-leave-msg ${mouseOut ? "mouse-out" : ""} ${
+        idle ? "idle" : ""
+      }`}
       ref={element}
     >
-      {!idle ? "Hey where do u think ure going >:(" : "Hey where are you :("}
+      <div className="mouse-msg" ref={mouseMsgRef}></div>
     </div>
   );
 }
