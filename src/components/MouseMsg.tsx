@@ -1,11 +1,11 @@
-import { SyntheticEvent, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const idleTime = 2400;
 interface MouseProps {
   mouseOut: boolean;
 }
 
-export default function MouseLeaveMsg({ mouseOut }: MouseProps) {
+export default function MouseMsg({ mouseOut }: MouseProps) {
   const [idle, setIdle] = useState(false);
   const element = useRef<HTMLDivElement | null>(null);
   const mouseMsgRef = useRef<HTMLDivElement | null>(null);
@@ -66,9 +66,10 @@ export default function MouseLeaveMsg({ mouseOut }: MouseProps) {
 
   return (
     <div
-      className={`mouse-leave-msg ${mouseOut ? "mouse-out" : ""} ${
-        idle ? "idle" : ""
-      }`}
+      className={`mouse-leave-msg 
+        ${mouseOut ? "mouse-out" : ""} 
+        ${idle ? "idle" : ""}
+      `}
       ref={element}
     >
       <div className="mouse-msg" ref={mouseMsgRef}></div>
