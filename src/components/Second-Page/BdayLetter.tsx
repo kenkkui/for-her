@@ -44,10 +44,7 @@ export default function BdayLetter() {
           <aside className="author">
             Well anyways,
             <br />
-            <span>
-              Kenzo
-              <ArrowTwo />
-            </span>
+            <span>Kenzo</span>
           </aside>
         </section>
       </div>

@@ -533,7 +533,7 @@ button {
   right: 4px;
 }
 #content-1 .cat-column .cat .hidden span #arrow-kozmo path {
-  animation: 1200ms cubic-bezier(0, 0.69, 1, 0.65) drawPath forwards;
+  animation: 1000ms cubic-bezier(0.205, 0.6, 0.165, 0.9) drawPath infinite;
 }
 #content-1 .cat-column .cat .hidden span #kozmo-encircle {
   position: absolute;
@@ -572,9 +572,30 @@ button {
   animation: 3000ms steps(2) infinite animate-steps;
 }
 
+#content-2 {
+  height: 1024px;
+}
 #content-2 img {
   top: 150px;
   opacity: 90%;
+}
+#content-2 .arrow-two-column {
+  grid-area: 1/1/2/12;
+  position: relative;
+}
+#content-2 .arrow-two-column #arrow-two {
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+  z-index: 10000;
+}
+#content-2 .arrow-two-column #arrow-two path {
+  animation: 800ms cubic-bezier(0.39, 0.575, 0.565, 1) drawPath forwards infinite;
+}
+#content-2 .arrow-two-column p {
+  position: absolute;
+  bottom: -48px;
+  left: 120px;
 }
 #content-2 .title-column {
   grid-area: 1/2/2/4;
@@ -614,15 +635,12 @@ button {
 }
 #content-2 .title-column h6 #arrow-one {
   position: absolute;
-  right: -50px;
-  top: -75px;
+  right: -10px;
+  top: -60px;
   transform: translate(100%, 0);
-  height: 245px;
-  width: 400px;
-  scale: 0.9;
-  background-image: url(../assets/arrow-one.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
+}
+#content-2 .title-column h6 #arrow-one path {
+  animation: 1400ms cubic-bezier(0.205, 0.6, 0.165, 0.8) drawPath forwards infinite;
 }
 #content-2 .bday-column {
   position: relative;
@@ -631,7 +649,7 @@ button {
 #content-2 .bday-column #bday-letter {
   position: absolute;
   right: 0;
-  top: 60%;
+  top: 55%;
   transform: translateY(-50%);
   text-align: right;
 }
@@ -666,7 +684,7 @@ button {
 }
 #content-2 .bday-column #bday-letter h5 span {
   position: relative;
-  color: #F9CFF4;
+  color: #f9cff4;
   font-weight: 700;
 }
 #content-2 .bday-column #bday-letter h5 span img {
@@ -694,12 +712,6 @@ button {
 #content-2 .bday-column #bday-letter .author span {
   position: relative;
   color: #b1d7ff;
-}
-#content-2 .bday-column #bday-letter .author span #arrow-two {
-  position: absolute;
-  top: 5px;
-  right: 14px;
-  z-index: 10000;
 }
 
 @keyframes evil-cat-visible {
@@ -780,6 +792,9 @@ button {
   left: 0;
   translate: -100% -100%;
 }
+#arrow-three path {
+  animation: 1400ms ease-out drawPath forwards infinite;
+}
 
 #content-4 {
   height: 1024px;
@@ -836,7 +851,7 @@ button {
 
 .white-space {
   width: 100%;
-  height: 50vh;
+  height: 150vh;
 }
 
 #content-5 {
@@ -844,6 +859,26 @@ button {
   top: 0;
   height: 100vh;
   width: 100vw;
+}
+#content-5 .continue-column {
+  grid-area: 1/1/2/4;
+  position: relative;
+}
+#content-5 .continue-column #arrow-five {
+  position: absolute;
+  bottom: 10px;
+  left: 80%;
+}
+#content-5 .continue-column #arrow-five path {
+  animation: 1000ms cubic-bezier(0.205, 0.6, 0.165, 0.9) drawPath infinite;
+}
+#content-5 .continue-column #arrow-five path:nth-child(2) {
+  animation: 1400ms ease-out 600ms infinite forwards drawPath;
+}
+#content-5 .continue-column #continue-svg {
+  position: absolute;
+  bottom: 9%;
+  left: 15%;
 }
 #content-5 .text-column {
   position: relative;

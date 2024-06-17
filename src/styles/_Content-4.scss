@@ -3,6 +3,10 @@
   top: -70px;
   left: 0;
   translate: -100% -100%;
+
+  path {
+    animation: 1400ms ease-out drawPath forwards infinite;
+  }
 }
 
 #content-4 {

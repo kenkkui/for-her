@@ -2,6 +2,8 @@ import ContentStructure from "../ContentSructure";
 import TextColumns from "../TextColumns";
 import PusheenCool from "../../../assets/pusheen-cool.png";
 import FlowerContainer from "../FlowerContainer";
+import ArrowFive from "../../Svg-components/ArrowFive";
+import ContinueSvg from "../../Svg-components/ContinueSvg";
 
 interface ContentStructure5Props {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
@@ -46,6 +48,11 @@ export default function ContentStructure5({
             just in short, gusto <span>kita</span>.
           </p>
         </TextColumns>
+
+        <section className="continue-column">
+          <ContinueSvg />
+          <ArrowFive />
+        </section>
       </ContentStructure>
 
       <aside className="white-space"></aside>

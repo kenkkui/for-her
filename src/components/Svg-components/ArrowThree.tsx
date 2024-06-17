@@ -1,4 +1,19 @@
+import { useEffect, useRef } from "react";
+
 export default function ArrowThree() {
+  const pathRef = useRef<SVGPathElement | null>(null);
+
+  useEffect(() => {
+    const path = pathRef.current;
+    if (path) {
+      const length = path.getTotalLength();
+
+      path.style.setProperty("--path-length", `${length}`);
+      path.style.strokeDasharray = `${length} ${length}`;
+      path.style.strokeDashoffset = `${length}`;
+    }
+  }, []);
+
   return (
     <svg
       id="arrow-three"
@@ -13,6 +28,7 @@ export default function ArrowThree() {
         stroke="#D6FFF8"
         strokeWidth="3"
         strokeLinecap="round"
+        ref={pathRef}
       />
     </svg>
   );
