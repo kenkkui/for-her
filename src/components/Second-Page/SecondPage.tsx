@@ -28,17 +28,31 @@ export default function SecondPage() {
     }
   }, [loading]);
 
+  const [mouseOverMusic, setMouseOverMusic] = useState(false);
+  const [mouseOverScrollBtn, setMouseOverScrollBtn] = useState(false);
+  const [mouseOverFlower, setMouseOverFlower] = useState(false);
+
   return (
     <section className={`second-page ${!loading ? "active" : null}`}>
       <section className="mouse-msg-container">
         <div className="mouse-msg-limit">
-          <MouseMsg />
+          <MouseMsg
+            mouseOverFlower={mouseOverFlower}
+            mouseOverMusic={mouseOverMusic}
+            mouseOverScrollBtn={mouseOverScrollBtn}
+          />
         </div>
       </section>
 
       <Curtain error={error} />
 
-      <ContentWrapper setError={setError} setLoading={setLoading} />
+      <ContentWrapper
+        setError={setError}
+        setLoading={setLoading}
+        setMouseOverMusic={setMouseOverMusic}
+        setMouseOverScrollBtn={setMouseOverScrollBtn}
+        setMouseOverFlower={setMouseOverFlower}
+      />
     </section>
   );
 }

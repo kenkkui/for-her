@@ -5,9 +5,13 @@ import HeartGroup from "../../Svg-components/HeartGroup";
 
 interface ContentSructureProps {
   setError: React.Dispatch<React.SetStateAction<string[]>>;
+  setMouseOverMusic: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function ContentStructure1({ setError }: ContentSructureProps) {
+export default function ContentStructure1({
+  setError,
+  setMouseOverMusic,
+}: ContentSructureProps) {
   return (
     <ContentStructure id="content-1">
       <div className="line-scroll">
@@ -42,7 +46,10 @@ export default function ContentStructure1({ setError }: ContentSructureProps) {
 
       <section className="cat-column">
         <div className="cat">
-          <AudioPlayer setError={setError} />
+          <AudioPlayer
+            setError={setError}
+            setMouseOverMusic={setMouseOverMusic}
+          />
           <div className="hidden">
             KOZMO TOLD ME TO ADD&nbsp;
             <span>

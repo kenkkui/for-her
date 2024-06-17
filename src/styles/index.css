@@ -202,6 +202,36 @@ button {
   opacity: 1;
   filter: none;
 }
+.mouse-leave-msg.over-music {
+  border-radius: 6px;
+  padding: 6px 16px;
+  width: 360px;
+  height: 24px;
+}
+.mouse-leave-msg.over-music .mouse-msg {
+  opacity: 1;
+  filter: none;
+}
+.mouse-leave-msg.over-scroll-btn {
+  border-radius: 6px;
+  padding: 6px 16px;
+  width: 320px;
+  height: 24px;
+}
+.mouse-leave-msg.over-scroll-btn .mouse-msg {
+  opacity: 1;
+  filter: none;
+}
+.mouse-leave-msg.over-flower {
+  border-radius: 6px;
+  padding: 6px 16px;
+  width: 240px;
+  height: 24px;
+}
+.mouse-leave-msg.over-flower .mouse-msg {
+  opacity: 1;
+  filter: none;
+}
 .mouse-leave-msg.idle {
   border-radius: 6px;
   padding: 6px 16px;
@@ -211,6 +241,11 @@ button {
 .mouse-leave-msg.idle .mouse-msg {
   opacity: 1;
   filter: none;
+}
+.mouse-leave-msg.mouse-down {
+  width: 16px;
+  height: 16px;
+  opacity: 0;
 }
 
 @keyframes opacity {

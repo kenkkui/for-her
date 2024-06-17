@@ -7,10 +7,21 @@ interface MouseProps {
     no: boolean;
     yes: boolean;
   };
+  mouseOverMusic?: boolean;
+  mouseOverScrollBtn?: boolean;
+  mouseOverFlower?: boolean;
 }
 
-export default function MouseMsg({ mouseOut, actionBtnMouseOver }: MouseProps) {
+function MouseMsg({
+  mouseOut,
+  actionBtnMouseOver,
+  mouseOverMusic,
+  mouseOverScrollBtn,
+  mouseOverFlower,
+}: MouseProps) {
   const [idle, setIdle] = useState(false);
+  const [mouseDown, setMouseDown] = useState(false);
+
   const mouseMsgContainerRef = useRef<HTMLDivElement | null>(null);
   const mouseMsgRef = useRef<HTMLDivElement | null>(null);
   const timeoutRef = useRef<number | null>(null);
@@ -52,10 +63,20 @@ export default function MouseMsg({ mouseOut, actionBtnMouseOver }: MouseProps) {
       setIdle(false);
     };
 
+    const handleMouseDown = () => {
+      console.log("mosuedown");
+      setMouseDown(true);
+    };
+
+    const handleMouseUp = () => {
+      setMouseDown(false);
+    };
+
     document.body.addEventListener("pointermove", handlePointerMove);
 
     return () => {
       document.body.removeEventListener("pointermove", handlePointerMove);
+
       if (timeoutRef.current !== null) {
         clearTimeout(timeoutRef.current);
       }
@@ -74,19 +95,36 @@ export default function MouseMsg({ mouseOut, actionBtnMouseOver }: MouseProps) {
         text.innerHTML = "no if not yes";
       } else if (actionBtnMouseOver?.yes) {
         text.innerHTML = "yes if not no";
+      } else if (mouseOverMusic) {
+        text.innerText = "Press mee, if i wanna listen to grentperez!";
+      } else if (mouseOverScrollBtn) {
+        text.innerHTML = "uhm pls click me dont scroll:>:>:>>";
+      } else if (mouseOverFlower) {
+        text.innerHTML = "Grab me to orbit aroundd!";
       } else {
         text.innerHTML = "";
       }
     }
-  }, [mouseOut, idle, actionBtnMouseOver]);
+  }, [
+    mouseOut,
+    idle,
+    actionBtnMouseOver,
+    mouseOverMusic,
+    mouseOverScrollBtn,
+    mouseOverFlower,
+  ]);
 
   return (
     <div
-      className={`mouse-leave-msg 
+      className={`mouse-leave-msg
+        ${mouseDown ? "mouse-down" : ""}
         ${mouseOut ? "mouse-out" : ""} 
         ${idle ? "idle" : ""}
         ${actionBtnMouseOver?.no ? "over-no" : ""}
         ${actionBtnMouseOver?.yes ? "over-yes" : ""}
+        ${mouseOverMusic ? "over-music" : ""}
+        ${mouseOverScrollBtn ? "over-scroll-btn" : ""}
+        ${mouseOverFlower ? "over-flower" : ""}
       `}
       ref={mouseMsgContainerRef}
     >
@@ -94,3 +132,5 @@ export default function MouseMsg({ mouseOut, actionBtnMouseOver }: MouseProps) {
     </div>
   );
 }
+
+export default MouseMsg;

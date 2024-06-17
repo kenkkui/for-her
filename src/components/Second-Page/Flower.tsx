@@ -1,15 +1,37 @@
 import Spline from "@splinetool/react-spline";
 import { useInView } from "react-intersection-observer";
-import { useState, useEffect, ReactNode, forwardRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface FlowerProps {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  setMouseOverFlower: React.Dispatch<React.SetStateAction<boolean>>;
   forwardedRef: React.RefObject<HTMLElement>;
 }
 
-export default function Flower({ setLoading, forwardedRef }: FlowerProps) {
+function Flower({ setLoading, forwardedRef, setMouseOverFlower }: FlowerProps) {
   const { ref: text1Ref, inView: text1Visible } = useInView();
   const [text1State, setText1State] = useState(false);
+  const flowerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (flowerRef.current) {
+      flowerRef.current?.firstChild?.addEventListener("mouseover", () =>
+        setMouseOverFlower(true)
+      );
+      flowerRef.current?.firstChild?.addEventListener("mouseout", () =>
+        setMouseOverFlower(false)
+      );
+    }
+
+    return () => {
+      flowerRef.current?.firstChild?.removeEventListener("mouseover", () =>
+        setMouseOverFlower(true)
+      );
+      flowerRef.current?.firstChild?.removeEventListener("mouseout", () =>
+        setMouseOverFlower(false)
+      );
+    };
+  }, []);
 
   useEffect(() => {
     if (text1Visible && !text1State) {
@@ -47,6 +69,7 @@ export default function Flower({ setLoading, forwardedRef }: FlowerProps) {
       </div>
 
       <Spline
+        ref={flowerRef}
         id="spline-flower"
         scene="https://prod.spline.design/o3v1HPnOwXUx88B6/scene.splinecode"
         onLoad={() => setLoading(false)}
@@ -54,3 +77,5 @@ export default function Flower({ setLoading, forwardedRef }: FlowerProps) {
     </section>
   );
 }
+
+export default Flower;

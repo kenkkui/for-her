@@ -7,9 +7,15 @@ const textFlowerOne = "Flower for you";
 
 interface FlowerContainerProps {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  setMouseOverScrollBtn: React.Dispatch<React.SetStateAction<boolean>>;
+  setMouseOverFlower: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function FlowerContainer({ setLoading }: FlowerContainerProps) {
+export default function FlowerContainer({
+  setLoading,
+  setMouseOverScrollBtn,
+  setMouseOverFlower,
+}: FlowerContainerProps) {
   const flowerPageRef = useRef<HTMLElement | null>(null);
 
   function handleButtonScroll() {
@@ -33,7 +39,12 @@ export default function FlowerContainer({ setLoading }: FlowerContainerProps) {
               ANYWAYS BACK TO YOUR BDAY, WAG MAGSCROLL, just press this button
               for a better experience :) and u will see what i made
               <div id="arrow-four"></div>
-              <button className="scroll-button" onClick={handleButtonScroll}>
+              <button
+                className="scroll-button"
+                onClick={handleButtonScroll}
+                onMouseOver={() => setMouseOverScrollBtn(true)}
+                onMouseOut={() => setMouseOverScrollBtn(false)}
+              >
                 Click, for the better experience or maybe not and just scroll
               </button>
             </div>
@@ -43,7 +54,11 @@ export default function FlowerContainer({ setLoading }: FlowerContainerProps) {
 
       <div className="white-space"></div>
 
-      <Flower setLoading={setLoading} forwardedRef={flowerPageRef} />
+      <Flower
+        setLoading={setLoading}
+        forwardedRef={flowerPageRef}
+        setMouseOverFlower={setMouseOverFlower}
+      />
     </>
   );
 }

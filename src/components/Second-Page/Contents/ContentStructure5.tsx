@@ -5,10 +5,14 @@ import FlowerContainer from "../FlowerContainer";
 
 interface ContentStructure5Props {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  setMouseOverScrollBtn: React.Dispatch<React.SetStateAction<boolean>>;
+  setMouseOverFlower: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function ContentStructure5({
   setLoading,
+  setMouseOverScrollBtn,
+  setMouseOverFlower,
 }: ContentStructure5Props) {
   return (
     <section className="content-5-container">
@@ -47,7 +51,11 @@ export default function ContentStructure5({
       <aside className="white-space"></aside>
 
       <section className="flower-container">
-        <FlowerContainer setLoading={setLoading} />
+        <FlowerContainer
+          setMouseOverFlower={setMouseOverFlower}
+          setLoading={setLoading}
+          setMouseOverScrollBtn={setMouseOverScrollBtn}
+        />
       </section>
     </section>
   );

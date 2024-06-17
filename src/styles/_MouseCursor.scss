@@ -95,6 +95,39 @@
     }
   }
 
+  &.over-music {
+    @include common-styles();
+    width: 360px;
+    height: 24px;
+
+    .mouse-msg {
+      opacity: 1;
+      filter: none;
+    }
+  }
+
+  &.over-scroll-btn {
+    @include common-styles();
+    width: 320px;
+    height: 24px;
+
+    .mouse-msg {
+      opacity: 1;
+      filter: none;
+    }
+  }
+
+  &.over-flower {
+    @include common-styles();
+    width: 240px;
+    height: 24px;
+
+    .mouse-msg {
+      opacity: 1;
+      filter: none;
+    }
+  }
+
   &.idle {
     @include common-styles();
     width: 220px;
@@ -104,5 +137,12 @@
       opacity: 1;
       filter: none;
     }
+  }
+
+  &.mouse-down {
+    width: 16px;
+    height: 16px;
+
+    opacity: 0;
   }
 }
