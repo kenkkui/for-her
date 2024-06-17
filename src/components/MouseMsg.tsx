@@ -64,7 +64,6 @@ function MouseMsg({
     };
 
     const handleMouseDown = () => {
-      console.log("mosuedown");
       setMouseDown(true);
     };
 
@@ -73,10 +72,13 @@ function MouseMsg({
     };
 
     document.body.addEventListener("pointermove", handlePointerMove);
+    document.addEventListener("mousedown", handleMouseDown);
+    document.addEventListener("mouseup", handleMouseUp);
 
     return () => {
       document.body.removeEventListener("pointermove", handlePointerMove);
-
+      document.removeEventListener("mousedown", handleMouseDown);
+      document.removeEventListener("mouseup", handleMouseUp);
       if (timeoutRef.current !== null) {
         clearTimeout(timeoutRef.current);
       }

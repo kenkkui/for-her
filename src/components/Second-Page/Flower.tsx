@@ -21,6 +21,9 @@ function Flower({ setLoading, forwardedRef, setMouseOverFlower }: FlowerProps) {
       flowerRef.current?.firstChild?.addEventListener("mouseout", () =>
         setMouseOverFlower(false)
       );
+      flowerRef.current?.firstChild?.addEventListener("click", () =>
+        setMouseOverFlower(false)
+      );
     }
 
     return () => {
