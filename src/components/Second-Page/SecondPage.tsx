@@ -5,6 +5,7 @@ import MouseMsg from "../MouseMsg";
 
 export default function SecondPage() {
   const [loading, setLoading] = useState(false);
+
   const [error, setError] = useState<string[]>([]);
   const timerRef = useRef<number | null>(null);
 
@@ -33,7 +34,7 @@ export default function SecondPage() {
   const [mouseOverFlower, setMouseOverFlower] = useState(false);
 
   return (
-    <section className={`second-page ${!loading ? "active" : null}`}>
+    <section className={`second-page ${!loading ? "page-loaded" : ""}`}>
       <section className="mouse-msg-container">
         <div className="mouse-msg-limit">
           <MouseMsg
@@ -44,7 +45,7 @@ export default function SecondPage() {
         </div>
       </section>
 
-      <Curtain error={error} />
+      <Curtain error={error} loading={loading} />
 
       <ContentWrapper
         setError={setError}

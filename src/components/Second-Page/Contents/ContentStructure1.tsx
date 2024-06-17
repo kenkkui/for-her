@@ -2,6 +2,7 @@ import ContentStructure from "../ContentSructure";
 import YouHighlight from "../../Svg-components/YouHighlight";
 import AudioPlayer from "../AudioPlayer";
 import HeartGroup from "../../Svg-components/HeartGroup";
+import ArrowOne from "../../Svg-components/ArrowKozmo";
 
 interface ContentSructureProps {
   setError: React.Dispatch<React.SetStateAction<string[]>>;
@@ -14,10 +15,6 @@ export default function ContentStructure1({
 }: ContentSructureProps) {
   return (
     <ContentStructure id="content-1">
-      <div className="line-scroll">
-        <div className="scroll-indicator"></div>
-      </div>
-
       <section className="title-column">
         <div className="title-container">
           <h4>
@@ -54,7 +51,7 @@ export default function ContentStructure1({
             KOZMO TOLD ME TO ADD&nbsp;
             <span>
               THIS
-              <div id="arrow-kozmo"></div>
+              <ArrowOne />
               <div id="kozmo-encircle"></div>
             </span>
           </div>

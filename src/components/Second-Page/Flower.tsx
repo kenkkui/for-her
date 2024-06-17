@@ -51,6 +51,12 @@ function Flower({ setLoading, forwardedRef, setMouseOverFlower }: FlowerProps) {
     }
   }, [text2State, text2Visible]);
 
+  function loadingDone() {
+    setTimeout(() => {
+      setLoading(false);
+    }, 300);
+  }
+
   return (
     <section id="flower-page" ref={forwardedRef}>
       <div
@@ -75,7 +81,7 @@ function Flower({ setLoading, forwardedRef, setMouseOverFlower }: FlowerProps) {
         ref={flowerRef}
         id="spline-flower"
         scene="https://prod.spline.design/o3v1HPnOwXUx88B6/scene.splinecode"
-        onLoad={() => setLoading(false)}
+        onLoad={loadingDone}
       />
     </section>
   );

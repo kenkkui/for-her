@@ -7,7 +7,7 @@
 
 .mouse-msg-container {
   position: absolute;
-  z-index: 100000;
+  z-index: 500;
   height: calc(500vh + 3072px);
   width: 100%;
   pointer-events: none;
@@ -24,7 +24,7 @@
 .mouse-leave-msg {
   @include flexCenter();
   position: absolute;
-  z-index: 10000;
+  z-index: 500;
   height: 16px;
   width: 16px;
   border-radius: 8px;
