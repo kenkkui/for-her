@@ -57,6 +57,28 @@
     }
   }
 
+  &.over-yes {
+    @include common-styles();
+    width: 140px;
+    height: 24px;
+
+    .mouse-msg {
+      opacity: 1;
+      filter: none;
+    }
+  }
+
+  &.over-no {
+    @include common-styles();
+    width: 140px;
+    height: 24px;
+
+    .mouse-msg {
+      opacity: 1;
+      filter: none;
+    }
+  }
+
   &.idle {
     @include common-styles();
     width: 220px;

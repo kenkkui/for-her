@@ -3,9 +3,13 @@ import { useEffect, useRef, useState } from "react";
 const idleTime = 2400;
 interface MouseProps {
   mouseOut: boolean;
+  actionBtnMouseOver: {
+    no: boolean;
+    yes: boolean;
+  };
 }
 
-export default function MouseMsg({ mouseOut }: MouseProps) {
+export default function MouseMsg({ mouseOut, actionBtnMouseOver }: MouseProps) {
   const [idle, setIdle] = useState(false);
   const element = useRef<HTMLDivElement | null>(null);
   const mouseMsgRef = useRef<HTMLDivElement | null>(null);
@@ -54,21 +58,27 @@ export default function MouseMsg({ mouseOut }: MouseProps) {
     const text = mouseMsgRef.current;
 
     if (text) {
-      if (!mouseOut && !idle) {
-        text.innerHTML = "";
+      if (idle) {
+        text.innerHTML = "Hey why did you leave :(";
       } else if (mouseOut) {
         text.innerHTML = "Hey where do you think you're going >:(";
-      } else if (idle) {
-        text.innerHTML = "Hey why did you leave :(";
+      } else if (actionBtnMouseOver.no) {
+        text.innerHTML = "no if not yes";
+      } else if (actionBtnMouseOver.yes) {
+        text.innerHTML = "yes if not no";
+      } else {
+        text.innerHTML = "";
       }
     }
-  }, [mouseOut, idle]);
+  }, [mouseOut, idle, actionBtnMouseOver]);
 
   return (
     <div
       className={`mouse-leave-msg 
         ${mouseOut ? "mouse-out" : ""} 
         ${idle ? "idle" : ""}
+        ${actionBtnMouseOver.no ? "over-no" : ""}
+        ${actionBtnMouseOver.yes ? "over-yes" : ""}
       `}
       ref={element}
     >

@@ -1,14 +1,22 @@
 import { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { actionBtnVar } from "../App";
 
 interface BtnContainerProps {
   yesTo: string;
   noBtnHandler: () => void;
+  setActionBtnMouseOver: React.Dispatch<
+    React.SetStateAction<{
+      no: boolean;
+      yes: boolean;
+    }>
+  >;
 }
 
-export default function YesNoContainer({
+function YesNoContainer({
   yesTo,
   noBtnHandler,
+  setActionBtnMouseOver,
 }: BtnContainerProps) {
   const noButtonRef = useRef<HTMLButtonElement | null>(null);
   const yesButtonRef = useRef<HTMLAnchorElement | null>(null);
@@ -31,19 +39,44 @@ export default function YesNoContainer({
     noBtnHandler();
   }
 
+  function MouseOver(key: string) {
+    setActionBtnMouseOver(() => {
+      const newState = {
+        ...actionBtnVar,
+        [key]: true,
+      };
+
+      return newState;
+    });
+  }
+
+  function MouseOut() {
+    setActionBtnMouseOver(actionBtnVar);
+  }
+
   return (
     <div className="btn-container">
       <button
         data-btn-no="true"
         ref={noButtonRef as React.RefObject<HTMLButtonElement>}
         onClick={handleClickNo}
+        onMouseOver={() => MouseOver("no")}
+        onMouseOut={MouseOut}
       >
         Nah, i ain't 😠
       </button>
 
-      <Link data-btn-yes="true" to={yesTo} ref={yesButtonRef}>
+      <Link
+        data-btn-yes="true"
+        to={yesTo}
+        ref={yesButtonRef}
+        onMouseOver={() => MouseOver("yes")}
+        onMouseOut={MouseOut}
+      >
         Yeah, I am 💁🏻
       </Link>
     </div>
   );
 }
+
+export default YesNoContainer;

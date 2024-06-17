@@ -1,12 +1,18 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import YesNoContainer from "../YesNoContainer";
 import MainContentFirstPage from "./MainContentFirstPage";
 
 interface FirstPageProps {
   setMouseOut: React.Dispatch<React.SetStateAction<boolean>>;
+  setActionBtnMouseOver: React.Dispatch<
+    React.SetStateAction<{
+      no: boolean;
+      yes: boolean;
+    }>
+  >;
 }
 
-export default function FirstPage({ setMouseOut }: FirstPageProps) {
+function FirstPage({ setMouseOut, setActionBtnMouseOver }: FirstPageProps) {
   const [currentImage, setCurrentImage] = useState(0);
   const [isPressed, setIsPressed] = useState(false);
 
@@ -28,8 +34,14 @@ export default function FirstPage({ setMouseOut }: FirstPageProps) {
           isPressed={isPressed}
         />
 
-        <YesNoContainer yesTo="/yes-i-am" noBtnHandler={handleNoBtnClick} />
+        <YesNoContainer
+          yesTo="/yes-i-am"
+          noBtnHandler={handleNoBtnClick}
+          setActionBtnMouseOver={setActionBtnMouseOver}
+        />
       </section>
     </>
   );
 }
+
+export default FirstPage;

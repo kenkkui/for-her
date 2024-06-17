@@ -167,6 +167,26 @@ button {
   opacity: 1;
   filter: none;
 }
+.mouse-leave-msg.over-yes {
+  border-radius: 6px;
+  padding: 6px 16px;
+  width: 140px;
+  height: 24px;
+}
+.mouse-leave-msg.over-yes .mouse-msg {
+  opacity: 1;
+  filter: none;
+}
+.mouse-leave-msg.over-no {
+  border-radius: 6px;
+  padding: 6px 16px;
+  width: 140px;
+  height: 24px;
+}
+.mouse-leave-msg.over-no .mouse-msg {
+  opacity: 1;
+  filter: none;
+}
 .mouse-leave-msg.idle {
   border-radius: 6px;
   padding: 6px 16px;
