@@ -11,7 +11,7 @@ interface MouseProps {
 
 export default function MouseMsg({ mouseOut, actionBtnMouseOver }: MouseProps) {
   const [idle, setIdle] = useState(false);
-  const element = useRef<HTMLDivElement | null>(null);
+  const mouseMsgContainerRef = useRef<HTMLDivElement | null>(null);
   const mouseMsgRef = useRef<HTMLDivElement | null>(null);
   const timeoutRef = useRef<number | null>(null);
 
@@ -19,8 +19,23 @@ export default function MouseMsg({ mouseOut, actionBtnMouseOver }: MouseProps) {
     const handlePointerMove = (e: PointerEvent) => {
       const { pageX: x, pageY: y } = e;
 
-      if (element.current) {
-        element.current.animate(
+      updateElementPosition(x, y);
+      resetTimer();
+    };
+
+    const handleScroll = () => {
+      if (mouseMsgContainerRef.current) {
+        const { x, y } = getCursorPosition();
+        updateElementPositionScroll(x, y);
+      }
+
+      resetTimer();
+    };
+
+    const updateElementPosition = (x: number, y: number) => {
+      const element = mouseMsgContainerRef.current;
+      if (element) {
+        element.animate(
           {
             left: `${x + 10}px`,
             top: `${y - 30}px`,
@@ -32,7 +47,26 @@ export default function MouseMsg({ mouseOut, actionBtnMouseOver }: MouseProps) {
           }
         );
       }
+    };
 
+    const updateElementPositionScroll = (x: number, y: number) => {
+      const element = mouseMsgContainerRef.current;
+      if (element) {
+        element.animate(
+          {
+            left: `${x - 8}px`,
+            top: `${y - 8}px`,
+          },
+          {
+            easing: "ease-out",
+            duration: 2500,
+            fill: "forwards",
+          }
+        );
+      }
+    };
+
+    const resetTimer = () => {
       if (timeoutRef.current !== null) {
         clearTimeout(timeoutRef.current);
       }
@@ -44,10 +78,20 @@ export default function MouseMsg({ mouseOut, actionBtnMouseOver }: MouseProps) {
       setIdle(false);
     };
 
+    const getCursorPosition = () => {
+      return {
+        x: window.scrollX + window.innerWidth / 2,
+        y: window.scrollY + window.innerHeight / 2,
+      };
+    };
+
     document.body.addEventListener("pointermove", handlePointerMove);
+    document.addEventListener("scroll", handleScroll);
 
     return () => {
       document.body.removeEventListener("pointermove", handlePointerMove);
+      document.removeEventListener("scroll", handleScroll);
+
       if (timeoutRef.current !== null) {
         clearTimeout(timeoutRef.current);
       }
@@ -70,7 +114,7 @@ export default function MouseMsg({ mouseOut, actionBtnMouseOver }: MouseProps) {
         text.innerHTML = "";
       }
     }
-  }, [mouseOut, idle, actionBtnMouseOver]);
+  }, [mouseOut, idle, actionBtnMouseOver, setscrolling]);
 
   return (
     <div
@@ -80,7 +124,7 @@ export default function MouseMsg({ mouseOut, actionBtnMouseOver }: MouseProps) {
         ${actionBtnMouseOver.no ? "over-no" : ""}
         ${actionBtnMouseOver.yes ? "over-yes" : ""}
       `}
-      ref={element}
+      ref={mouseMsgContainerRef}
     >
       <div className="mouse-msg" ref={mouseMsgRef}></div>
     </div>
