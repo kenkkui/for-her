@@ -1,20 +1,18 @@
 import React, { useState } from "react";
 import YesNoContainer from "../YesNoContainer";
 import MainContentFirstPage from "./MainContentFirstPage";
+import MouseMsg from "../MouseMsg";
 
-interface FirstPageProps {
-  setMouseOut: React.Dispatch<React.SetStateAction<boolean>>;
-  setActionBtnMouseOver: React.Dispatch<
-    React.SetStateAction<{
-      no: boolean;
-      yes: boolean;
-    }>
-  >;
-}
+export const actionBtnVar = {
+  no: false,
+  yes: false,
+};
 
-function FirstPage({ setMouseOut, setActionBtnMouseOver }: FirstPageProps) {
+function FirstPage() {
   const [currentImage, setCurrentImage] = useState(0);
   const [isPressed, setIsPressed] = useState(false);
+  const [mouseOutContentOne, setMouseOutContentOne] = useState(false);
+  const [actionBtnMouseOver, setActionBtnMouseOver] = useState(actionBtnVar);
 
   function handleNoBtnClick() {
     setCurrentImage(1);
@@ -23,10 +21,14 @@ function FirstPage({ setMouseOut, setActionBtnMouseOver }: FirstPageProps) {
 
   return (
     <>
+      <MouseMsg
+        mouseOut={mouseOutContentOne}
+        actionBtnMouseOver={actionBtnMouseOver}
+      />
       <section
         className="content first"
-        onMouseLeave={() => setMouseOut(true)}
-        onMouseEnter={() => setMouseOut(false)}
+        onMouseLeave={() => setMouseOutContentOne(true)}
+        onMouseEnter={() => setMouseOutContentOne(false)}
       >
         <MainContentFirstPage
           currentImage={currentImage}

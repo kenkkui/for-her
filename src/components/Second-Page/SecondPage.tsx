@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Curtain from "./Curtain";
 import ContentWrapper from "./ContentsWrapper";
+import MouseMsg from "../MouseMsg";
 
 export default function SecondPage() {
   const [loading, setLoading] = useState(false);
@@ -29,7 +30,14 @@ export default function SecondPage() {
 
   return (
     <section className={`second-page ${!loading ? "active" : null}`}>
+      <section className="mouse-msg-container">
+        <div className="mouse-msg-limit">
+          <MouseMsg />
+        </div>
+      </section>
+
       <Curtain error={error} />
+
       <ContentWrapper setError={setError} setLoading={setLoading} />
     </section>
   );

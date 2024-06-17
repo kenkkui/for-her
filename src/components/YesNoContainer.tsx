@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { actionBtnVar } from "../App";
+import { actionBtnVar } from "./First-Page/FirstPage";
 
 interface BtnContainerProps {
   yesTo: string;
@@ -53,13 +53,17 @@ function YesNoContainer({
   function MouseOut() {
     setActionBtnMouseOver(actionBtnVar);
   }
+  function handleCLick() {
+    setActionBtnMouseOver(actionBtnVar);
+    handleClickNo();
+  }
 
   return (
     <div className="btn-container">
       <button
         data-btn-no="true"
         ref={noButtonRef as React.RefObject<HTMLButtonElement>}
-        onClick={handleClickNo}
+        onClick={handleCLick}
         onMouseOver={() => MouseOver("no")}
         onMouseOut={MouseOut}
       >

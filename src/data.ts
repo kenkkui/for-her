@@ -5,7 +5,7 @@ export const gifs = [
 ];
 
 export const messages = [
-  { message: "", duration: 2200 },
+  { message: "Hey, is this kara :)", duration: 2200 },
   { message: ">:(", duration: 1800 },
   {
     message: "OFC IT IS, I WONT BE GIVING THIS TO ANYONE ELSE BUTT YOU🤬",

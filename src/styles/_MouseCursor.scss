@@ -5,10 +5,26 @@
   }
 }
 
+.mouse-msg-container {
+  position: absolute;
+  z-index: 100000;
+  height: calc(500vh + 3072px);
+  width: 100%;
+  pointer-events: none;
+
+  .mouse-msg-limit {
+    pointer-events: none;
+    height: 100vh;
+    width: 100vw;
+    position: sticky;
+    top: 0;
+  }
+}
+
 .mouse-leave-msg {
   @include flexCenter();
   position: absolute;
-  z-index: 100;
+  z-index: 10000;
   height: 16px;
   width: 16px;
   border-radius: 8px;
