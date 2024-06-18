@@ -13,7 +13,10 @@ export default function Curtain({ error, loading, curtainUp }: CurtainProps) {
             <h1>hi, loading's done</h1>
           </div>
           <div className="subtext">
-            <p>I advice plugging in the cable if your on a computer :&gt;</p>
+            <p>
+              I advice plugging in the cable if your on a computer :&gt; (you
+              can interact with stuff)
+            </p>
           </div>
         </>
       ) : (
