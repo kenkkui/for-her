@@ -69,7 +69,7 @@ function Flower({
         className={`text-container ${text1State ? "active" : ""}`}
         ref={text1Ref}
       >
-        <p>Here's a lily i made,</p>
+        <p>It's a lily! I made it purely in 3d</p>
         <p>
           IT TOOK <strong>SCOOPER</strong> LONG
         </p>
@@ -80,7 +80,7 @@ function Flower({
         className={`text-container ${text2Visible ? "active" : ""}`}
         ref={text2Ref}
       >
-        <p>okay here are the actual flowers for you</p>
+        <p>okay here's the actual flowers for you</p>
       </div>
 
       {!loading && (
