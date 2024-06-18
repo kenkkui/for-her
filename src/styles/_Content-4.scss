@@ -27,10 +27,15 @@
         text-align: right;
 
         img {
+          z-index: -1;
           position: absolute;
-          top: 15px;
+          top: 800px;
           left: 60%;
           translate: -50% -100%;
+
+          --parallax-strength: 2;
+          animation: parallax linear;
+          animation-timeline: scroll();
         }
 
         .oval-blur {
@@ -58,9 +63,13 @@
 
         img {
           position: absolute;
-          top: 50%;
+          top: 520px;
           right: 0;
           translate: 100% -50%;
+
+          --parallax-strength: 1.2;
+          animation: parallax linear;
+          animation-timeline: scroll();
         }
       }
     }

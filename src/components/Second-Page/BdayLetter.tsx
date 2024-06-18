@@ -1,18 +1,52 @@
+import { useState, useRef } from "react";
 import CatHappy from "../../assets/cat-happy.gif";
-import CatCake from "../../assets/bdat-cats.gif";
 import AlienWtf from "../../assets/alien-wtf.png";
-import ArrowTwo from "../Svg-components/ArrowTwo";
+import vanishAudio from "../../assets/Vanish Sound Effect.mp3";
 
-export default function BdayLetter() {
+interface BdayLetterProps {
+  setSprite: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export default function BdayLetter({ setSprite }: BdayLetterProps) {
+  const [catVanish, setCatVanish] = useState(false);
+  const [alienVanish, setAlienVanish] = useState(false);
+  const vanishAudioRef = useRef<HTMLAudioElement | null>(null);
+
+  function handleCatClick() {
+    audioPlay();
+    setCatVanish(true);
+  }
+
+  function handleAlienClick() {
+    audioPlay();
+    setAlienVanish(true);
+  }
+
+  function audioPlay() {
+    if (vanishAudioRef.current) {
+      vanishAudioRef.current.volume = 0.1;
+      vanishAudioRef.current.play();
+    }
+  }
+
   return (
     <section className="bday-column">
       <div id="bday-letter">
-        <img src={CatCake} alt="Happy BDAY" />
         <h5>
           Happy Birthday&nbsp;
           <span>
             Kara
-            <img src={CatHappy} alt="YIPPE" />
+            <div
+              className={`cat-happy-container ${catVanish ? "vanished" : ""}`}
+              onMouseOver={() => setSprite(true)}
+              onMouseOut={() => setSprite(false)}
+              onClick={handleCatClick}
+            >
+              <img src={CatHappy} alt="YIPPE" />
+              <audio ref={vanishAudioRef}>
+                <source src={vanishAudio} />
+              </audio>
+            </div>
           </span>
         </h5>
 
@@ -37,7 +71,16 @@ export default function BdayLetter() {
               YK TBH I DONT EVEN KNOW HOW TO MAKE SOME WISH YOU WELL LETTER, i
               fr just sing and gala nlng when theres bday. ISTG IF YOU CRINGE
               ITS NOT MY FAULT
-              <img className="alien-wtf" src={AlienWtf} alt=">:(" />
+              <div
+                className={`alien-wtf-container ${
+                  alienVanish ? "vanished" : ""
+                }`}
+                onMouseOver={() => setSprite(true)}
+                onMouseOut={() => setSprite(false)}
+                onClick={handleAlienClick}
+              >
+                <img id="alien-wtf" src={AlienWtf} alt=">:(" />
+              </div>
             </p>
           </main>
 

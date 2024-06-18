@@ -7,8 +7,8 @@
 
 .mouse-msg-container {
   position: absolute;
-  z-index: 500;
-  height: calc(500vh + 3072px);
+  z-index: 10000;
+  height: calc(500vh + 4096px);
   width: 100%;
   pointer-events: none;
 
@@ -120,6 +120,17 @@
   &.over-flower {
     @include common-styles();
     width: 240px;
+    height: 24px;
+
+    .mouse-msg {
+      opacity: 1;
+      filter: none;
+    }
+  }
+
+  &.over-sprite {
+    @include common-styles();
+    width: 80px;
     height: 24px;
 
     .mouse-msg {

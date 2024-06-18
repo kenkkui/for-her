@@ -2,6 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import Curtain from "./Curtain";
 import ContentWrapper from "./ContentsWrapper";
 import MouseMsg from "../MouseMsg";
+import { defaultSprite } from "../../data";
+// import { spriteInterface } from "../../types/types";
 
 export default function SecondPage() {
   const [loading, setLoading] = useState(false);
@@ -32,6 +34,7 @@ export default function SecondPage() {
   const [mouseOverMusic, setMouseOverMusic] = useState(false);
   const [mouseOverScrollBtn, setMouseOverScrollBtn] = useState(false);
   const [mouseOverFlower, setMouseOverFlower] = useState(false);
+  const [sprite, setSprite] = useState(defaultSprite);
 
   const [curtainUp, setCurtainUp] = useState(false);
   const [isActive, setIsActive] = useState(false);
@@ -64,6 +67,7 @@ export default function SecondPage() {
             mouseOverFlower={mouseOverFlower}
             mouseOverMusic={mouseOverMusic}
             mouseOverScrollBtn={mouseOverScrollBtn}
+            sprite={sprite}
           />
         </div>
       </section>
@@ -71,6 +75,7 @@ export default function SecondPage() {
       <Curtain error={error} loading={loading} curtainUp={curtainUp} />
 
       <ContentWrapper
+        setSprite={setSprite}
         loading={loading}
         setError={setError}
         setLoading={setLoading}

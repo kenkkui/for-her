@@ -56,8 +56,12 @@
 
         img {
           position: absolute;
-          top: 50%;
+          top: 1860px;
           translate: -450px -50%;
+
+          --parallax-strength: 4;
+          animation: parallax linear;
+          animation-timeline: scroll();
         }
       }
     }

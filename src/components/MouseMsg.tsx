@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
+// import { spriteInterface } from "../types/types";
 
-const idleTime = 2400;
+const idleTime = 3200;
 interface MouseProps {
   mouseOut?: boolean;
   actionBtnMouseOver?: {
@@ -10,6 +11,7 @@ interface MouseProps {
   mouseOverMusic?: boolean;
   mouseOverScrollBtn?: boolean;
   mouseOverFlower?: boolean;
+  sprite?: boolean;
 }
 
 function MouseMsg({
@@ -18,6 +20,7 @@ function MouseMsg({
   mouseOverMusic,
   mouseOverScrollBtn,
   mouseOverFlower,
+  sprite,
 }: MouseProps) {
   const [idle, setIdle] = useState(false);
   const [mouseDown, setMouseDown] = useState(false);
@@ -103,6 +106,8 @@ function MouseMsg({
         text.innerHTML = "uhm pls click me dont scroll:>:>:>>";
       } else if (mouseOverFlower) {
         text.innerHTML = "Grab me to orbit aroundd!";
+      } else if (sprite) {
+        text.innerHTML = "Pooof";
       } else {
         text.innerHTML = "";
       }
@@ -114,19 +119,18 @@ function MouseMsg({
     mouseOverMusic,
     mouseOverScrollBtn,
     mouseOverFlower,
+    sprite,
   ]);
 
   return (
     <div
-      className={`mouse-leave-msg
-        ${mouseDown ? "mouse-down" : ""}
-        ${mouseOut ? "mouse-out" : ""} 
-        ${idle ? "idle" : ""}
-        ${actionBtnMouseOver?.no ? "over-no" : ""}
-        ${actionBtnMouseOver?.yes ? "over-yes" : ""}
-        ${mouseOverMusic ? "over-music" : ""}
-        ${mouseOverScrollBtn ? "over-scroll-btn" : ""}
-        ${mouseOverFlower ? "over-flower" : ""}
+      className={`mouse-leave-msg ${mouseDown ? "mouse-down" : ""} ${
+        mouseOut ? "mouse-out" : ""
+      }  ${idle ? "idle" : ""} ${actionBtnMouseOver?.no ? "over-no" : ""} ${
+        actionBtnMouseOver?.yes ? "over-yes" : ""
+      } ${mouseOverMusic ? "over-music" : ""} ${
+        mouseOverScrollBtn ? "over-scroll-btn" : ""
+      } ${mouseOverFlower ? "over-flower" : ""}  ${sprite ? "over-sprite" : ""}
       `}
       ref={mouseMsgContainerRef}
     >

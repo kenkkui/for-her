@@ -11,6 +11,7 @@ interface ContentWrapperProps {
   setMouseOverMusic: React.Dispatch<React.SetStateAction<boolean>>;
   setMouseOverScrollBtn: React.Dispatch<React.SetStateAction<boolean>>;
   setMouseOverFlower: React.Dispatch<React.SetStateAction<boolean>>;
+  setSprite: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function ContentWrapper({
@@ -20,6 +21,7 @@ export default function ContentWrapper({
   setMouseOverScrollBtn,
   setMouseOverFlower,
   loading,
+  setSprite,
 }: ContentWrapperProps) {
   return (
     <>
@@ -27,8 +29,9 @@ export default function ContentWrapper({
         <ContentStructure1
           setError={setError}
           setMouseOverMusic={setMouseOverMusic}
+          setSprite={setSprite}
         />
-        <ContentStructure2 />
+        <ContentStructure2 setSprite={setSprite} />
         <ContentStructure3 />
         <ContentStructure4 />
         <ContentStructure5

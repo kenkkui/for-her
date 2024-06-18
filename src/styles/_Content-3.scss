@@ -21,9 +21,13 @@
 
   #pogi-png {
     position: absolute;
-    top: 60%;
+    top: 0%;
     left: 50%;
     translate: -50% -50%;
+
+    --parallax-strength: -2.2;
+    animation: parallax linear;
+    animation-timeline: scroll();
   }
 
   .secondly-column {
