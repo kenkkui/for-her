@@ -1,5 +1,122 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+@keyframes animate-rotate {
+  to {
+    rotate: none;
+    transform: translateY(0);
+  }
+}
+
+@keyframes animate-text {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: none;
+  }
+}
+
+@keyframes evil-cat-visible {
+  to {
+    transform: translateX(800%);
+  }
+}
+
+@keyframes animate-text {
+  to {
+    opacity: 1;
+    filter: none;
+  }
+}
+
+@keyframes animate-steps {
+  to {
+    background-position: 100%;
+  }
+}
+
+@keyframes drawPath {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes static-effect {
+  from {
+    transform: translate(-20%, -20%);
+  }
+
+  25% {
+    transform: translate(-50%, -20%);
+  }
+
+  50% {
+    transform: translate(-50%, -50%);
+  }
+
+  to {
+    transform: translate(-10%, -50%);
+  }
+}
+
+@keyframes rotate {
+  to {
+    rotate: 360deg;
+  }
+}
+
+@keyframes scroll-indicator {
+  10% {
+    bottom: 0;
+    opacity: 0;
+  }
+
+  20% {
+    bottom: 100%;
+  }
+
+  35% {
+    opacity: 1;
+  }
+}
+
+@keyframes opacity {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes translateY {
+  12% {
+    translate: 0 0;
+  }
+
+  88% {
+    opacity: 1;
+    translate: 0 0;
+  }
+
+  100% {
+    opacity: 0;
+    translate: 0 100%;
+  }
+}
+
+@keyframes parallax {
+  to {
+    transform: translateY(calc(-1000px * var(--parallax-strength)));
+  }
+}
+
+@keyframes gone-animation {
+  10% {
+    scale: 1.1;
+  }
+
+  to {
+    scale: 0;
+  }
+}
+
 :root {
   --curtain: #1a1818;
   --main-bg: #eaa896;
