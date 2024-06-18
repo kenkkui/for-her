@@ -1,22 +1,7 @@
-@keyframes animate-text {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-    filter: none;
-  }
-}
-
 @mixin animate-text-start($transform) {
   opacity: 0;
   filter: blur(8px);
   transform: translateY(#{$transform});
-}
-
-@keyframes animate-rotate {
-  to {
-    rotate: none;
-    transform: translateY(0);
-  }
 }
 
 #content-1 {
