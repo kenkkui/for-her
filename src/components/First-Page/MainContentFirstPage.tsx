@@ -37,7 +37,7 @@ export default function MainContentFirstPage({
         msgTimer.current = null;
       }
     };
-  }, [isPressed, currentMessage]);
+  }, [isPressed, currentMessage, setCurrentImage]);
 
   return (
     <MainContent src={gifs[currentImage]} alt="cutie">
