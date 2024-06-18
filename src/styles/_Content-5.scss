@@ -58,10 +58,8 @@
           position: absolute;
           cursor: pointer;
           z-index: 100;
-          top: 1860px;
+          top: 60px;
           translate: -450px -50%;
-
-          @include parallax(4);
 
           #pusheen-cool {
             @include vanish-sprite();

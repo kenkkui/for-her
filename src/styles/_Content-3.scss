@@ -10,13 +10,9 @@
 
   #pogi-png {
     position: absolute;
-    top: 0%;
+    top: 50%;
     left: 50%;
     translate: -50% -50%;
-
-    --parallax-strength: -2.2;
-    animation: parallax linear;
-    animation-timeline: scroll();
   }
 
   .secondly-column {

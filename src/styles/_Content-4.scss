@@ -30,11 +30,9 @@
           cursor: pointer;
           z-index: -1;
           position: absolute;
-          top: -670px;
+          top: 0;
           left: 60%;
           translate: -50% -100%;
-
-          @include parallax(-1.8);
 
           #alien-awkward {
             @include vanish-sprite();
@@ -69,10 +67,9 @@
         .shark-cry-container {
           cursor: pointer;
           position: absolute;
-          top: -1050px;
+          top: 0;
           right: 0;
           translate: 100% -50%;
-          @include parallax(-2.5);
 
           #shark-cry {
             @include transition-sprite();

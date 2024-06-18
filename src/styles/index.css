@@ -281,11 +281,6 @@ button {
     translate: 0 100%;
   }
 }
-@keyframes parallax {
-  to {
-    transform: translateY(calc(-1000px * var(--parallax-strength)));
-  }
-}
 @keyframes gone-animation {
   10% {
     scale: 1.1;
@@ -619,9 +614,6 @@ button {
   background-image: url(../assets/tenor.gif);
   background-size: cover;
   background-repeat: no-repeat;
-  --parallax-strength: -0.9;
-  animation: parallax linear;
-  animation-timeline: scroll();
 }
 #content-1 .cat-column .cat .hidden {
   position: absolute;
@@ -668,9 +660,6 @@ button {
   height: 244.95px;
   aspect-ratio: 1/1;
   cursor: pointer;
-  --parallax-strength: -3;
-  animation: parallax linear;
-  animation-timeline: scroll();
   transform-origin: center;
   transition: 150ms cubic-bezier(0.165, 0.84, 0.44, 1);
   transition-property: scale, opacity;
@@ -703,12 +692,9 @@ button {
 }
 #content-2 .bday-image-column .cat-cake-container {
   position: absolute;
-  top: 0px;
+  top: 30%;
   left: 0;
   cursor: pointer;
-  --parallax-strength: -1.8;
-  animation: parallax linear;
-  animation-timeline: scroll();
 }
 #content-2 .bday-image-column .cat-cake-container #cat-cake {
   transform-origin: center;
@@ -820,13 +806,10 @@ button {
 }
 #content-2 .bday-column #bday-letter .letter .letter-body p .alien-wtf-container {
   position: absolute;
-  right: -5px;
-  top: 300px;
+  right: 10px;
+  top: -20px;
   transform: translate(100%, 0);
   cursor: pointer;
-  --parallax-strength: 2.3;
-  animation: parallax linear;
-  animation-timeline: scroll();
 }
 #content-2 .bday-column #bday-letter .letter .letter-body p .alien-wtf-container #alien-wtf {
   width: 100%;
@@ -853,13 +836,10 @@ button {
   z-index: -1;
   cursor: pointer;
   position: absolute;
-  top: -125px;
+  top: 20px;
   transform: translateY(-100%);
   right: -20px;
   width: 158px;
-  --parallax-strength: -1.2;
-  animation: parallax linear;
-  animation-timeline: scroll();
 }
 #content-2 .bday-column #bday-letter h5 span .cat-happy-container img {
   width: 100%;
@@ -905,12 +885,9 @@ button {
 }
 #content-3 #pogi-png {
   position: absolute;
-  top: 0%;
+  top: 50%;
   left: 50%;
   translate: -50% -50%;
-  --parallax-strength: -2.2;
-  animation: parallax linear;
-  animation-timeline: scroll();
 }
 #content-3 .secondly-column {
   position: relative;
@@ -1006,12 +983,9 @@ button {
   cursor: pointer;
   z-index: -1;
   position: absolute;
-  top: -670px;
+  top: 0;
   left: 60%;
   translate: -50% -100%;
-  --parallax-strength: -1.8;
-  animation: parallax linear;
-  animation-timeline: scroll();
 }
 #content-4 .text-column:nth-child(1) > div .alien-awkward-container #alien-awkward {
   transform-origin: center;
@@ -1049,12 +1023,9 @@ button {
 #content-4 .text-column:nth-child(2) p .shark-cry-container {
   cursor: pointer;
   position: absolute;
-  top: -1050px;
+  top: 0;
   right: 0;
   translate: 100% -50%;
-  --parallax-strength: -2.5;
-  animation: parallax linear;
-  animation-timeline: scroll();
 }
 #content-4 .text-column:nth-child(2) p .shark-cry-container #shark-cry {
   transform-origin: center;
@@ -1120,11 +1091,8 @@ button {
   position: absolute;
   cursor: pointer;
   z-index: 100;
-  top: 1860px;
+  top: 60px;
   translate: -450px -50%;
-  --parallax-strength: 4;
-  animation: parallax linear;
-  animation-timeline: scroll();
 }
 #content-5 .text-column:nth-child(1) > div .pusheen-cool-container #pusheen-cool {
   transform-origin: center;

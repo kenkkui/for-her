@@ -44,12 +44,6 @@
   }
 }
 
-@keyframes parallax {
-  to {
-    transform: translateY(calc(-1000px * var(--parallax-strength)));
-  }
-}
-
 @keyframes gone-animation {
   10% {
     scale: 1.1;

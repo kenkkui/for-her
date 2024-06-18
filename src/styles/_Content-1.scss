@@ -174,8 +174,6 @@
       background-size: cover;
       background-repeat: no-repeat;
 
-      @include parallax(-0.9);
-
       .hidden {
         position: absolute;
         bottom: -66px;
@@ -229,7 +227,6 @@
       aspect-ratio: 1 / 1;
       cursor: pointer;
 
-      @include parallax(-3);
       @include transition-sprite();
       @include vanish-sprite();
 
