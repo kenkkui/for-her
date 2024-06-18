@@ -495,13 +495,13 @@ button {
   }
 }
 #content-1.active .title-column h4 {
-  animation: 1000ms cubic-bezier(0.075, 0.82, 0.165, 1) 250ms forwards animate-text infinite;
+  animation: 1000ms cubic-bezier(0.075, 0.82, 0.165, 1) 250ms forwards animate-text;
 }
 #content-1.active .title-column .subtitle {
-  animation: 1000ms cubic-bezier(0.075, 0.82, 0.165, 1) 300ms forwards animate-text infinite;
+  animation: 1000ms cubic-bezier(0.075, 0.82, 0.165, 1) 300ms forwards animate-text;
 }
 #content-1.active .text-column .text p {
-  animation: 1200ms cubic-bezier(0.075, 0.82, 0.165, 1) 1500ms forwards infinite animate-rotate;
+  animation: 1200ms cubic-bezier(0.075, 0.82, 0.165, 1) 2500ms forwards animate-rotate;
 }
 #content-1 .title-column {
   grid-area: 1/1/2/8;
@@ -1111,12 +1111,12 @@ button {
 #content-5 .text-column:nth-child(1) {
   grid-area: 1/7/2/12;
 }
-#content-5 .text-column:nth-child(1) #arrow-four {
+#content-5 .text-column:nth-child(1) > div {
   text-align: right;
   position: absolute;
   top: 50px;
 }
-#content-5 .text-column:nth-child(1) #arrow-four .pusheen-cool-container {
+#content-5 .text-column:nth-child(1) > div .pusheen-cool-container {
   position: absolute;
   cursor: pointer;
   z-index: 100;
@@ -1126,15 +1126,15 @@ button {
   animation: parallax linear;
   animation-timeline: scroll();
 }
-#content-5 .text-column:nth-child(1) #arrow-four .pusheen-cool-container #pusheen-cool {
+#content-5 .text-column:nth-child(1) > div .pusheen-cool-container #pusheen-cool {
   transform-origin: center;
   transition: 150ms cubic-bezier(0.165, 0.84, 0.44, 1);
   transition-property: scale, opacity;
 }
-#content-5 .text-column:nth-child(1) #arrow-four .pusheen-cool-container #pusheen-cool.vanished {
+#content-5 .text-column:nth-child(1) > div .pusheen-cool-container #pusheen-cool.vanished {
   animation: 1000ms cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards gone-animation;
 }
-#content-5 .text-column:nth-child(1) #arrow-four .pusheen-cool-container #pusheen-cool:hover {
+#content-5 .text-column:nth-child(1) > div .pusheen-cool-container #pusheen-cool:hover {
   scale: 1.1;
   opacity: 0.8;
 }
