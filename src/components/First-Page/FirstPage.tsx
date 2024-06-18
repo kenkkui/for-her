@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import YesNoContainer from "../YesNoContainer";
 import MainContentFirstPage from "./MainContentFirstPage";
 import MouseMsg from "../MouseMsg";

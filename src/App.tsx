@@ -7,7 +7,7 @@ export default function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" element={<FirstPage />} />
+          <Route path="/for-her" element={<FirstPage />} />
           <Route path="/yes-i-am" element={<SecondPage />} />
         </Routes>
       </div>
