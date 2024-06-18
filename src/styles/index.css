@@ -3,6 +3,11 @@
 :root {
   --curtain: #1a1818;
   --main-bg: #eaa896;
+  --content-bg: #1b2120;
+  --content-columns-bg: rgba(72, 91, 88, 0.15);
+  --linear-bg: linear-gradient(#1b2120 60%, #522a2a);
+  --red-bg: #522a2a;
+  --beige-bg: linear-gradient(#64443b, #a87465);
   --btn-red: #ff3131;
   --btn-green: #98fb98;
   --clr-light: #d6fff8;
@@ -282,7 +287,7 @@ button {
   }
 }
 @keyframes gone-animation {
-  20% {
+  10% {
     scale: 1.1;
   }
   to {
@@ -423,7 +428,7 @@ button {
   width: 100%;
   padding: 0 100px;
   display: grid;
-  gap: 4px;
+  gap: 2px;
   grid-template-columns: repeat(12, 1fr);
   color: var(--clr-light);
 }
@@ -454,28 +459,50 @@ button {
   z-index: -10;
   position: absolute;
   inset: 0;
-  background-color: #1b2120;
+  background-color: var(--content-bg);
   padding: 0 100px;
   display: grid;
-  gap: 4px;
+  gap: 2px;
   grid-template-columns: repeat(12, 1fr);
 }
 .content-wrapper .content-structure-background.linear-bg {
-  background-image: linear-gradient(#1b2120 60%, #522a2a);
+  background-image: var(--linear-bg);
 }
 .content-wrapper .content-structure-background.red-bg {
-  background-color: #522a2a;
+  background-color: var(--red-bg);
 }
 .content-wrapper .content-structure-background.beige-bg {
-  background-image: linear-gradient(#64443b, #a87465);
+  background-image: var(--beige-bg);
 }
 .content-wrapper .content-structure-background.beige-bg .column {
   opacity: 0;
 }
 .content-wrapper .content-structure-background .column {
-  background: rgba(72, 91, 88, 0.15);
+  background: var(--content-columns-bg);
 }
 
+@keyframes animate-text {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: none;
+  }
+}
+@keyframes animate-rotate {
+  to {
+    rotate: none;
+    transform: translateY(0);
+  }
+}
+#content-1.active .title-column h4 {
+  animation: 1000ms cubic-bezier(0.075, 0.82, 0.165, 1) 250ms forwards animate-text infinite;
+}
+#content-1.active .title-column .subtitle {
+  animation: 1000ms cubic-bezier(0.075, 0.82, 0.165, 1) 300ms forwards animate-text infinite;
+}
+#content-1.active .text-column .text p {
+  animation: 1200ms cubic-bezier(0.075, 0.82, 0.165, 1) 1500ms forwards infinite animate-rotate;
+}
 #content-1 .title-column {
   grid-area: 1/1/2/8;
 }
@@ -485,6 +512,9 @@ button {
   top: 100px;
 }
 #content-1 .title-column .title-container h4 {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(-200%);
   display: inline-block;
   position: relative;
 }
@@ -499,6 +529,10 @@ button {
   background-size: cover;
 }
 #content-1 .title-column .title-container .subtitle {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(-200%);
+  opacity: 0;
   position: absolute;
   bottom: -8px;
   left: 80px;
@@ -524,14 +558,53 @@ button {
   top: 60%;
   transform: translateY(-50%);
   width: 560px;
+  height: 50px;
   text-wrap: wrap;
   text-align: right;
+}
+#content-1 .text-column .text p {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(100%);
+  rotate: -3deg;
+  transform-origin: top right;
 }
 #content-1 .text-column .text svg {
   position: absolute;
   top: 12px;
   left: 18px;
   transform: translate(-100%, -100%);
+}
+#content-1 .overlay-column {
+  grid-area: 1/8/2/13;
+  position: relative;
+}
+#content-1 .overlay-column .overlay {
+  position: absolute;
+  width: 100%;
+  height: 37%;
+  bottom: 0;
+  left: 0;
+  background: var(--content-bg);
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2px;
+}
+#content-1 .overlay-column .overlay::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateX(100%);
+  height: 50px;
+  aspect-ratio: 1/1;
+  background: var(--content-bg);
+}
+#content-1 .overlay-column .overlay .column {
+  height: 100%;
+  width: 100%;
+  background-color: var(--content-columns-bg);
 }
 #content-1 .cat-column {
   grid-area: 1/2/2/4;
@@ -629,7 +702,6 @@ button {
   position: relative;
 }
 #content-2 .bday-image-column .cat-cake-container {
-  z-index: -1;
   position: absolute;
   top: 0px;
   left: 0;
@@ -639,10 +711,6 @@ button {
   animation-timeline: scroll();
 }
 #content-2 .bday-image-column .cat-cake-container #cat-cake {
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform-origin: center;
   transform-origin: center;
   transition: 150ms cubic-bezier(0.165, 0.84, 0.44, 1);
   transition-property: scale, opacity;
@@ -671,12 +739,18 @@ button {
   position: absolute;
   bottom: -48px;
   left: 120px;
+  opacity: 0;
+}
+#content-2 .arrow-two-column p.in-view {
+  transition: 1600ms linear opacity;
+  opacity: 1;
 }
 #content-2 .title-column {
   grid-area: 1/2/2/4;
   position: relative;
 }
 #content-2 .title-column h6 {
+  z-index: 10;
   top: 80px;
   position: relative;
   display: inline-block;
@@ -829,15 +903,6 @@ button {
   height: 1024px;
   position: relative;
 }
-#content-3 .opportunity-column {
-  grid-area: 1/3/2/7;
-  position: relative;
-}
-#content-3 .opportunity-column p {
-  position: absolute;
-  top: 178px;
-  left: 40px;
-}
 #content-3 #pogi-png {
   position: absolute;
   top: 0%;
@@ -856,7 +921,19 @@ button {
   position: absolute;
   bottom: 42px;
 }
+#content-3 .secondly-column .text.in-view p {
+  transition: 1200ms cubic-bezier(0.075, 0.82, 0.165, 1) transform;
+  transform: translateX(0);
+}
+#content-3 .secondly-column .text.in-view h6 {
+  transition: 1200ms cubic-bezier(0.075, 0.82, 0.165, 1) transform;
+  transform: translateX(0);
+}
+#content-3 .secondly-column .text p {
+  transform: translateX(-100%);
+}
 #content-3 .secondly-column .text h6 {
+  transform: translateX(-100%);
   line-height: 200%;
   position: relative;
 }
@@ -1039,13 +1116,27 @@ button {
   position: absolute;
   top: 50px;
 }
-#content-5 .text-column:nth-child(1) > div img {
+#content-5 .text-column:nth-child(1) > div .pusheen-cool-container {
   position: absolute;
+  cursor: pointer;
+  z-index: 100;
   top: 1860px;
   translate: -450px -50%;
   --parallax-strength: 4;
   animation: parallax linear;
   animation-timeline: scroll();
+}
+#content-5 .text-column:nth-child(1) > div .pusheen-cool-container #pusheen-cool {
+  transform-origin: center;
+  transition: 150ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition-property: scale, opacity;
+}
+#content-5 .text-column:nth-child(1) > div .pusheen-cool-container #pusheen-cool.vanished {
+  animation: 1000ms cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards gone-animation;
+}
+#content-5 .text-column:nth-child(1) > div .pusheen-cool-container #pusheen-cool:hover {
+  scale: 1.1;
+  opacity: 0.8;
 }
 #content-5 .text-column:nth-child(2) {
   grid-area: 1/2/2/6;

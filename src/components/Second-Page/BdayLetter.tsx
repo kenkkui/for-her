@@ -48,13 +48,14 @@ export default function BdayLetter({ setSprite }: BdayLetterProps) {
             <p>
               THIS IS MY<span>(kenzo)</span> B-DAY GIFT FOR YOU, as you know i
               like to code, so i decided to make you this, along with a small
-              surprise — YOULL SEE WHEN URE AT THE BOTTOM OF THE PAGE
+              surprise — YOULL SEE WHEN URE AT THE BOTTOM OF THE PAGE JUST KEEP
+              SCROLLING
             </p>
             <p>
-              uhm I wish you a great day today, since today is a celebration of
-              you! UHMM yes happy birthday and eh i hope u get the things u
-              wanna get and uh as a friend, i hope you know that your presences’
-              meaningful yes.
+              uhmmm I wish you a great day today, as today is a celebration of
+              you UHMM yes happy birthday and i hope u get the things u wanna
+              get, and as a friend, i hope you know that your presences’
+              meaningful yesyesyes.
             </p>
             <p>
               We’ve been friends na for around a month, ata... yet anyways

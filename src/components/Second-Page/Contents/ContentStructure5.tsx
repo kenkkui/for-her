@@ -1,15 +1,19 @@
+import { useState } from "react";
 import ContentStructure from "../ContentSructure";
 import TextColumns from "../TextColumns";
 import PusheenCool from "../../../assets/pusheen-cool.png";
 import FlowerContainer from "../FlowerContainer";
 import ArrowFive from "../../Svg-components/ArrowFive";
 import ContinueSvg from "../../Svg-components/ContinueSvg";
+import AudioPlayer from "../AudioPlayer";
+import vanishSFX from "../../../assets/Vanish Sound Effect.mp3";
 
 interface ContentStructure5Props {
   loading: boolean;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   setMouseOverScrollBtn: React.Dispatch<React.SetStateAction<boolean>>;
   setMouseOverFlower: React.Dispatch<React.SetStateAction<boolean>>;
+  setSprite: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export default function ContentStructure5({
@@ -17,13 +21,29 @@ export default function ContentStructure5({
   setMouseOverScrollBtn,
   setMouseOverFlower,
   loading,
+  setSprite,
 }: ContentStructure5Props) {
+  const [pusheenVanish, setPusheenVanish] = useState(false);
+
   return (
     <section className="content-5-container">
       <ContentStructure id="content-5" redBg>
         <TextColumns>
           <div>
-            <img src={PusheenCool} alt="Cool" />
+            <div
+              className="pusheen-cool-container"
+              onClick={() => setPusheenVanish(true)}
+              onMouseOver={() => setSprite(true)}
+              onMouseOut={() => setSprite(false)}
+            >
+              <img
+                id="pusheen-cool"
+                src={PusheenCool}
+                className={pusheenVanish ? "vanished" : ""}
+                alt="Cool"
+              />
+              <AudioPlayer src={vanishSFX} state={pusheenVanish} />
+            </div>
             <p>
               Nonetheless, I just want to share this with you along with the
               feeling of needing to let it out cuz yeah.

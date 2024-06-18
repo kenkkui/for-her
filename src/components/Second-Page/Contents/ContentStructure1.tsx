@@ -12,12 +12,14 @@ interface ContentSructureProps {
   setError: React.Dispatch<React.SetStateAction<string[]>>;
   setMouseOverMusic: React.Dispatch<React.SetStateAction<boolean>>;
   setSprite: React.Dispatch<React.SetStateAction<boolean>>;
+  curtainUp: boolean;
 }
 
 export default function ContentStructure1({
   setError,
   setMouseOverMusic,
   setSprite,
+  curtainUp,
 }: ContentSructureProps) {
   const [sharkVanish, setSharkVanish] = useState(false);
   const vanishRef = useRef<HTMLAudioElement | null>(null);
@@ -33,7 +35,7 @@ export default function ContentStructure1({
   }
 
   return (
-    <ContentStructure id="content-1">
+    <ContentStructure id="content-1" className={curtainUp ? "active" : ""}>
       <section className="title-column">
         <div className="title-container">
           <h4>
@@ -85,11 +87,23 @@ export default function ContentStructure1({
       </section>
 
       <section className="text-column">
-        <p className="text">
-          I coded and designed everything BASTA I DID EVERYTHING , so please
-          pelaes easpleapl pretty pleaese take your time and read this :&gt;
-          <HeartGroup />
-        </p>
+        <div className="text">
+          <p>
+            I coded and designed everything BASTA I DID EVERYTHING , so please
+            pelaes easpleapl pretty pleaese take your time and read this :&gt;
+            <HeartGroup />
+          </p>
+        </div>
+      </section>
+
+      <section className="overlay-column">
+        <div className="overlay">
+          <div className="column"></div>
+          <div className="column"></div>
+          <div className="column"></div>
+          <div className="column"></div>
+          <div className="column"></div>
+        </div>
       </section>
     </ContentStructure>
   );

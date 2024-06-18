@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import ContentStructure from "../ContentSructure";
 import BdayLetter from "../BdayLetter";
 import ArrowOne from "../../Svg-components/ArrowOne";
@@ -6,6 +6,7 @@ import ArrowTwo from "../../Svg-components/ArrowTwo";
 import CatCake from "../../../assets/bdat-cats.gif";
 import AudioPlayer from "../AudioPlayer";
 import vanishAudio from "../../../assets/Vanish Sound Effect.mp3";
+import { useInView } from "react-intersection-observer";
 
 interface ContentStructure2Props {
   setSprite: React.Dispatch<React.SetStateAction<boolean>>;
@@ -15,12 +16,15 @@ export default function ContentStructure2({
   setSprite,
 }: ContentStructure2Props) {
   const [catCakeVanish, setCatCakeVanish] = useState(false);
+  const { ref, inView } = useInView();
 
   return (
     <ContentStructure id="content-2" linearBg>
       <section className="arrow-two-column">
         <ArrowTwo />
-        <p>I also want to take the opportunity to tell you...</p>
+        <p ref={ref} className={inView ? "in-view" : ""}>
+          I also want to take the opportunity to tell you...
+        </p>
       </section>
 
       <section className="title-column">

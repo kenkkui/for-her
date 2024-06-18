@@ -68,7 +68,7 @@
     padding: 0 100px;
 
     display: grid;
-    gap: 4px;
+    gap: 2px;
     grid-template-columns: repeat(12, 1fr);
     color: var(--clr-light);
 
@@ -103,23 +103,23 @@
     position: absolute;
     inset: 0;
 
-    background-color: #1b2120;
+    background-color: var(--content-bg);
     padding: 0 100px;
 
     display: grid;
-    gap: 4px;
+    gap: 2px;
     grid-template-columns: repeat(12, 1fr);
 
     &.linear-bg {
-      background-image: linear-gradient(#1b2120 60%, #522a2a);
+      background-image: var(--linear-bg);
     }
 
     &.red-bg {
-      background-color: #522a2a;
+      background-color: var(--red-bg);
     }
 
     &.beige-bg {
-      background-image: linear-gradient(#64443b, #a87465);
+      background-image: var(--beige-bg);
 
       .column {
         opacity: 0;
@@ -127,7 +127,7 @@
     }
 
     .column {
-      background: rgba(72, 91, 88, 0.15);
+      background: var(--content-columns-bg);
     }
   }
 }

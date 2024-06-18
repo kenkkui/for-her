@@ -1,4 +1,48 @@
+@keyframes animate-text {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: none;
+  }
+}
+
+@mixin animate-text-start($transform) {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(#{$transform});
+}
+
+@keyframes animate-rotate {
+  to {
+    rotate: none;
+    transform: translateY(0);
+  }
+}
+
 #content-1 {
+  &.active {
+    .title-column {
+      h4 {
+        animation: 1000ms cubic-bezier(0.075, 0.82, 0.165, 1) 250ms forwards
+          animate-text infinite;
+      }
+
+      .subtitle {
+        animation: 1000ms cubic-bezier(0.075, 0.82, 0.165, 1) 300ms forwards
+          animate-text infinite;
+      }
+    }
+
+    .text-column {
+      .text {
+        p {
+          animation: 1200ms cubic-bezier(0.075, 0.82, 0.165, 1) 1500ms forwards
+            infinite animate-rotate;
+        }
+      }
+    }
+  }
+
   .title-column {
     grid-area: 1 / 1 / 2 / 8;
 
@@ -8,6 +52,7 @@
       top: 100px;
 
       h4 {
+        @include animate-text-start(-200%);
         display: inline-block;
         position: relative;
 
@@ -24,6 +69,8 @@
       }
 
       .subtitle {
+        @include animate-text-start(-200%);
+        opacity: 0;
         position: absolute;
         bottom: -8px;
         left: 80px;
@@ -55,14 +102,59 @@
       transform: translateY(-50%);
 
       width: 560px;
+      height: 50px;
       text-wrap: wrap;
       text-align: right;
+
+      p {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateY(100%);
+        rotate: -3deg;
+        transform-origin: top right;
+      }
 
       svg {
         position: absolute;
         top: 12px;
         left: 18px;
         transform: translate(-100%, -100%);
+      }
+    }
+  }
+
+  .overlay-column {
+    grid-area: 1 / 8 / 2 / 13;
+    position: relative;
+
+    .overlay {
+      position: absolute;
+      width: 100%;
+      height: 37%;
+      bottom: 0;
+      left: 0;
+      background: var(--content-bg);
+
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translateX(100%);
+        height: 50px;
+        aspect-ratio: 1 / 1;
+        background: var(--content-bg);
+      }
+
+      .column {
+        height: 100%;
+        width: 100%;
+        background-color: var(--content-columns-bg);
       }
     }
   }

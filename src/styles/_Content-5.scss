@@ -54,14 +54,19 @@
         position: absolute;
         top: 50px;
 
-        img {
+        .pusheen-cool-container {
           position: absolute;
+          cursor: pointer;
+          z-index: 100;
           top: 1860px;
           translate: -450px -50%;
 
-          --parallax-strength: 4;
-          animation: parallax linear;
-          animation-timeline: scroll();
+          @include parallax(4);
+
+          #pusheen-cool {
+            @include vanish-sprite();
+            @include transition-sprite();
+          }
         }
       }
     }

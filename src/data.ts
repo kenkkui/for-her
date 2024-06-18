@@ -13,5 +13,3 @@ export const messages = [
   },
   { message: "okay now answer me:>, are you kara" },
 ];
-
-export const defaultSprite = false;
