@@ -26,19 +26,24 @@
         transform: translateY(-50%);
         text-align: right;
 
-        img {
+        .alien-awkward-container {
+          cursor: pointer;
           z-index: -1;
           position: absolute;
-          top: 800px;
+          top: -670px;
           left: 60%;
           translate: -50% -100%;
 
-          --parallax-strength: 2;
-          animation: parallax linear;
-          animation-timeline: scroll();
+          @include parallax(-1.8);
+
+          #alien-awkward {
+            @include vanish-sprite();
+            @include transition-sprite();
+          }
         }
 
         .oval-blur {
+          z-index: -2;
           position: absolute;
           top: 50%;
           left: calc(50% + 20px);
@@ -61,15 +66,18 @@
         top: 70%;
         transform: translateY(-50%);
 
-        img {
+        .shark-cry-container {
+          cursor: pointer;
           position: absolute;
-          top: 520px;
+          top: -1050px;
           right: 0;
           translate: 100% -50%;
+          @include parallax(-2.5);
 
-          --parallax-strength: 1.2;
-          animation: parallax linear;
-          animation-timeline: scroll();
+          #shark-cry {
+            @include transition-sprite();
+            @include vanish-sprite();
+          }
         }
       }
     }

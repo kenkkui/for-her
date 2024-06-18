@@ -1,71 +1,29 @@
-import { useRef, useEffect, useState } from "react";
-import OnlyAboutLoveImg from "../../assets/only-about-love.jpg";
-import OnlyAboutLove from "../../assets/grentperez - (Only) About Love (Official Lyric Video).mp3";
-import MusicAboutSVG from "./MusicAboutSVG";
+import { useEffect, useRef } from "react";
 
 interface AudioPlayerProps {
-  setError: React.Dispatch<React.SetStateAction<string[]>>;
-  setMouseOverMusic: React.Dispatch<React.SetStateAction<boolean>>;
+  src: string;
+  state: boolean;
 }
 
-export default function AudioPlayer({
-  setError,
-  setMouseOverMusic,
-}: AudioPlayerProps) {
-  const audioRef = useRef<HTMLAudioElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  // useEffect(() => {
-  //   if (audioRef.current) {
-  //     audioRef.current
-  //       .play()
-  //       .then(() => setIsPlaying(true))
-  //       .catch((error) => {
-  //         setError((prev) => [...prev, error.message]);
-  //       });
-  //   }
-  // }, []);
+export default function AudioPlayer({ src, state }: AudioPlayerProps) {
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.volume = 0.4;
+    if (state) {
+      audioPlay();
     }
-  }, [isPlaying]);
+  }, [state]);
 
-  function handleAudioPause() {
+  function audioPlay() {
     if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause();
-        setIsPlaying(false);
-      } else {
-        audioRef.current
-          .play()
-          .then(() => setIsPlaying(true))
-          .catch((error) => {
-            setError((prev) => [...prev, error.message]);
-          });
-      }
+      audioRef.current.volume = 0.2;
+      audioRef.current.play();
     }
   }
 
   return (
-    <div
-      id="music"
-      className={isPlaying ? "playing" : ""}
-      onMouseOver={() => setMouseOverMusic(true)}
-      onMouseOut={() => setMouseOverMusic(false)}
-      onClick={() => setMouseOverMusic(false)}
-    >
-      <div className="music-image" onClick={handleAudioPause}>
-        <div className="action-btn">{isPlaying ? "Pause" : "Play"}</div>
-        <img src={OnlyAboutLoveImg} alt="(Only) About Love" />
-      </div>
-      <audio ref={audioRef}>
-        <source src={OnlyAboutLove} />
-        GIRL HOW DOES UR BROWSER NOT SUPPPORT MP3 (your browser does not support
-        mp3 files)
-      </audio>
-      <MusicAboutSVG isPlaying={isPlaying} />
-    </div>
+    <audio ref={audioRef}>
+      <source src={src} />
+    </audio>
   );
 }

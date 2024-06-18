@@ -1,7 +1,8 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import CatHappy from "../../assets/cat-happy.gif";
 import AlienWtf from "../../assets/alien-wtf.png";
 import vanishAudio from "../../assets/Vanish Sound Effect.mp3";
+import AudioPlayer from "./AudioPlayer";
 
 interface BdayLetterProps {
   setSprite: React.Dispatch<React.SetStateAction<boolean>>;
@@ -10,24 +11,14 @@ interface BdayLetterProps {
 export default function BdayLetter({ setSprite }: BdayLetterProps) {
   const [catVanish, setCatVanish] = useState(false);
   const [alienVanish, setAlienVanish] = useState(false);
-  const vanishAudioRef = useRef<HTMLAudioElement | null>(null);
 
-  function handleCatClick() {
-    audioPlay();
+  const handleCatClick = () => {
     setCatVanish(true);
-  }
+  };
 
-  function handleAlienClick() {
-    audioPlay();
+  const handleAlienClick = () => {
     setAlienVanish(true);
-  }
-
-  function audioPlay() {
-    if (vanishAudioRef.current) {
-      vanishAudioRef.current.volume = 0.1;
-      vanishAudioRef.current.play();
-    }
-  }
+  };
 
   return (
     <section className="bday-column">
@@ -37,15 +28,17 @@ export default function BdayLetter({ setSprite }: BdayLetterProps) {
           <span>
             Kara
             <div
-              className={`cat-happy-container ${catVanish ? "vanished" : ""}`}
+              className="cat-happy-container"
               onMouseOver={() => setSprite(true)}
               onMouseOut={() => setSprite(false)}
               onClick={handleCatClick}
             >
-              <img src={CatHappy} alt="YIPPE" />
-              <audio ref={vanishAudioRef}>
-                <source src={vanishAudio} />
-              </audio>
+              <img
+                src={CatHappy}
+                alt="YIPPE"
+                className={catVanish ? "vanished" : ""}
+              />
+              <AudioPlayer src={vanishAudio} state={catVanish} />
             </div>
           </span>
         </h5>
@@ -72,14 +65,18 @@ export default function BdayLetter({ setSprite }: BdayLetterProps) {
               fr just sing and gala nlng when theres bday. ISTG IF YOU CRINGE
               ITS NOT MY FAULT
               <div
-                className={`alien-wtf-container ${
-                  alienVanish ? "vanished" : ""
-                }`}
+                className="alien-wtf-container"
                 onMouseOver={() => setSprite(true)}
                 onMouseOut={() => setSprite(false)}
                 onClick={handleAlienClick}
               >
-                <img id="alien-wtf" src={AlienWtf} alt=">:(" />
+                <img
+                  id="alien-wtf"
+                  className={alienVanish ? "vanished" : ""}
+                  src={AlienWtf}
+                  alt=">:("
+                />
+                <AudioPlayer src={vanishAudio} state={alienVanish} />
               </div>
             </p>
           </main>

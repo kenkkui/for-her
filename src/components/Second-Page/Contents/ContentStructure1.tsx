@@ -2,10 +2,11 @@ import { useState, useRef } from "react";
 
 import ContentStructure from "../ContentSructure";
 import YouHighlight from "../../Svg-components/YouHighlight";
-import AudioPlayer from "../AudioPlayer";
 import HeartGroup from "../../Svg-components/HeartGroup";
 import ArrowOne from "../../Svg-components/ArrowKozmo";
 import VanishSFX from "../../../assets/Vanish Sound Effect.mp3";
+import MusicPlayer from "../MusicPlayer";
+import AudioPlayer from "../AudioPlayer";
 
 interface ContentSructureProps {
   setError: React.Dispatch<React.SetStateAction<string[]>>;
@@ -18,11 +19,11 @@ export default function ContentStructure1({
   setMouseOverMusic,
   setSprite,
 }: ContentSructureProps) {
-  const [sharkGone, setSharkGone] = useState(false);
+  const [sharkVanish, setSharkVanish] = useState(false);
   const vanishRef = useRef<HTMLAudioElement | null>(null);
 
   function handleSharkClick() {
-    setSharkGone(true);
+    setSharkVanish(true);
 
     const audio = vanishRef.current;
     if (audio) {
@@ -56,21 +57,19 @@ export default function ContentStructure1({
       <section className="shark-column">
         <div
           id="shark-boom"
-          className={sharkGone ? "gone" : ""}
+          className={sharkVanish ? "vanished" : ""}
           onClick={handleSharkClick}
           onMouseOver={() => setSprite(true)}
           onMouseOut={() => setSprite(false)}
         >
-          <audio ref={vanishRef}>
-            <source src={VanishSFX} />
-          </audio>
+          <AudioPlayer src={VanishSFX} state={sharkVanish} />
           <div id="woah-frame"></div>
         </div>
       </section>
 
       <section className="cat-column">
         <div className="cat">
-          <AudioPlayer
+          <MusicPlayer
             setError={setError}
             setMouseOverMusic={setMouseOverMusic}
           />

@@ -33,7 +33,7 @@ export default function ContentWrapper({
         />
         <ContentStructure2 setSprite={setSprite} />
         <ContentStructure3 />
-        <ContentStructure4 />
+        <ContentStructure4 setSprite={setSprite} />
         <ContentStructure5
           loading={loading}
           setLoading={setLoading}
