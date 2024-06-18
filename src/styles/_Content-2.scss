@@ -10,12 +10,13 @@
     position: relative;
 
     .cat-cake-container {
+      z-index: -1;
       position: absolute;
-      top: 640px;
+      top: 0px;
       left: 0;
       cursor: pointer;
 
-      @include parallax(3);
+      @include parallax(-1.8);
 
       #cat-cake {
         position: absolute;
@@ -165,14 +166,15 @@
           font-weight: 700;
 
           .cat-happy-container {
+            z-index: -1;
             cursor: pointer;
             position: absolute;
-            top: 125px;
+            top: -125px;
             transform: translateY(-100%);
             right: -20px;
             width: 158px;
 
-            @include parallax(1.2);
+            @include parallax(-1.2);
 
             img {
               width: 100%;
