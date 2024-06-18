@@ -37,7 +37,7 @@ function FirstPage() {
         />
 
         <YesNoContainer
-          yesTo="/yes-i-am"
+          yesTo="/for-her/yes-i-am"
           noBtnHandler={handleNoBtnClick}
           setActionBtnMouseOver={setActionBtnMouseOver}
         />
