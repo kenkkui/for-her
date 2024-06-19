@@ -101,13 +101,13 @@ function MouseMsg({
       } else if (actionBtnMouseOver?.yes) {
         text.innerHTML = "yes if not no";
       } else if (mouseOverMusic) {
-        text.innerText = "Press mee, if i wanna listen to grentperez!";
+        text.innerText = "Press mee, if u wanna listen to grentperez!";
       } else if (mouseOverScrollBtn) {
-        text.innerHTML = "uhm pls click me dont scroll:>:>:>>";
+        text.innerHTML = "yesyesyes";
       } else if (mouseOverFlower) {
         text.innerHTML = "Grab me to orbit aroundd!";
       } else if (sprite) {
-        text.innerHTML = "Pooof";
+        text.innerHTML = "POOOF";
       } else {
         text.innerHTML = "";
       }
