@@ -80,3 +80,21 @@
     }
   }
 }
+
+@media (max-width: 1106px) {
+  #content-4 {
+    #arrow-three {
+      left: 80px;
+      rotate: 10deg;
+    }
+
+    .text-column {
+      &:nth-child(1) {
+        grid-area: 1 / 6 / 2 / -1;
+      }
+      &:nth-child(2) {
+        grid-area: 1 / 1 / 2 / 5;
+      }
+    }
+  }
+}

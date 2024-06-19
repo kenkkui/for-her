@@ -4,6 +4,7 @@
   height: calc(500vh + 4096px);
   width: 100%;
   pointer-events: none;
+  visibility: 0;
 
   .mouse-msg-limit {
     pointer-events: none;
@@ -11,11 +12,13 @@
     width: 100vw;
     position: sticky;
     top: 0;
+    visibility: 0;
   }
 }
 
 .mouse-leave-msg {
   @include flexCenter();
+  visibility: 0;
   position: absolute;
   z-index: 500;
   height: 16px;

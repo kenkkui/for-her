@@ -59,6 +59,7 @@
         position: absolute;
         bottom: -8px;
         left: 80px;
+        text-wrap: nowrap;
 
         span {
           position: relative;
@@ -77,7 +78,7 @@
   }
 
   .text-column {
-    grid-area: 1 / 8 / 2 /13;
+    grid-area: 1 / 8 / 2 / -1;
     position: relative;
 
     .text {
@@ -94,7 +95,7 @@
       p {
         position: absolute;
         top: 0;
-        left: 0;
+        right: 0;
         transform: translateY(100%);
         rotate: -3deg;
         transform-origin: top right;
@@ -110,7 +111,7 @@
   }
 
   .overlay-column {
-    grid-area: 1 / 8 / 2 / 13;
+    grid-area: 1 / 8 / 2 / -1;
     position: relative;
 
     .overlay {
@@ -123,7 +124,8 @@
 
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 2px;
+      grid-template-rows: 1fr;
+      column-gap: 2px;
 
       &::before {
         content: "";
@@ -223,6 +225,43 @@
         aspect-ratio: 1 / 1;
         background-image: url(../assets/woah-frame.svg);
       }
+    }
+  }
+}
+
+@media (max-width: 1106px) {
+  #content-1 {
+    #shark-boom {
+      scale: 0.8;
+      top: 20px !important;
+      left: -125px !important;
+    }
+
+    .text-column {
+      p {
+        width: 400px;
+        opacity: 0;
+      }
+    }
+
+    .overlay-column {
+      display: none;
+    }
+
+    .text-column,
+    .overlay-column {
+      grid-area: 1 / 6 / 2 / -1 !important;
+    }
+
+    #kozmo-encircle {
+      scale: 0.8;
+      top: 4px !important;
+      left: 7px !important;
+    }
+
+    #arrow-kozmo {
+      right: -28px !important;
+      top: -8px !important;
     }
   }
 }

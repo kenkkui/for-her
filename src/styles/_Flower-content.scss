@@ -265,3 +265,12 @@
     }
   }
 }
+
+@media (max-height: 781px) {
+  #flower-page > .text-container:nth-child(1) {
+    right: 0;
+  }
+  #flower-page > .text-container:nth-child(2) {
+    left: 20%;
+  }
+}

@@ -4,6 +4,7 @@
   to {
     rotate: none;
     transform: translateY(0);
+    opacity: 1;
   }
 }
 
@@ -76,12 +77,6 @@
   }
 }
 
-@keyframes parallax {
-  to {
-    transform: translateY(calc(-1000px * var(--parallax-strength)));
-  }
-}
-
 @keyframes gone-animation {
   10% {
     scale: 1.1;
@@ -111,10 +106,31 @@
   --clr-her: #f9cff4;
 
   // Font size
+  --fs-small: 14px;
   --fs-400: 16px;
   --fs-500: 25.89px;
   --fs-600: 41.89px;
   --fs-700: 67.77px;
+}
+
+@media (max-width: 1106px) {
+  :root {
+    --fs-small: 10px;
+    --fs-400: 12px;
+    --fs-500: 19.42px;
+    --fs-600: 31.42px;
+    --fs-700: 50.83px;
+  }
+}
+
+@media (min-width: 2400px) {
+  :root {
+    --fs-small: 18px;
+    --fs-400: 29.12px;
+    --fs-500: 47.12px;
+    --fs-600: 76.24px;
+    --fs-700: 123.36px;
+  }
 }
 
 *,
@@ -235,6 +251,13 @@ button {
     @include flexCenter();
     flex-direction: column;
     gap: 24px;
+  }
+}
+
+@media (max-width: 1280px) {
+  img,
+  svg {
+    scale: 0.8;
   }
 }
 
